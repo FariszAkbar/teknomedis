@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="50%" style="stop-color:#0e7490"/>
+      <stop offset="100%" style="stop-color:#155e75"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="url(#mg)"/>
+  <!-- Box/package icon (ATK/RTK) -->
+  <path d="M100 45 L155 75 L155 135 L100 165 L45 135 L45 75 Z" stroke="white" stroke-width="5" fill="none" opacity="0.9"/>
+  <path d="M100 45 L100 165" stroke="white" stroke-width="3" opacity="0.4"/>
+  <path d="M45 75 L100 105 L155 75" stroke="white" stroke-width="3" fill="none" opacity="0.4"/>
+  <!-- Checkmark inside -->
+  <path d="M78 108 L93 123 L122 90" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+</svg>

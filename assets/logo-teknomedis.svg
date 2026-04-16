@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="url(#tg)"/>
+  <!-- T letter stylized as medical cross + tech -->
+  <path d="M50 60 H150 V85 H115 V155 H85 V85 H50 Z" fill="white" opacity="0.95"/>
+  <!-- Pulse line accent -->
+  <path d="M55 140 L75 140 L85 120 L95 155 L105 130 L115 140 L145 140" stroke="white" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <!-- Corner dots (tech feel) -->
+  <circle cx="170" cy="170" r="6" fill="white" opacity="0.3"/>
+  <circle cx="170" cy="155" r="4" fill="white" opacity="0.2"/>
+  <circle cx="155" cy="170" r="4" fill="white" opacity="0.2"/>
+</svg>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/assets/logo-teknomedis.svg">
 <title>TeknoMedis — Solusi Digital untuk Rumah Sakit & Klinik</title>
 <meta name="description" content="TeknoMedis menyediakan software profesional untuk manajemen rumah sakit dan klinik. MedOps Pro, CaseMix Pro, dan solusi digital lainnya.">
 <style>
@@ -29,7 +30,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:1100px;margin:0 auto}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--dark)}
-.nav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800}
+.nav-logo-icon{width:36px;height:36px;border-radius:10px;overflow:hidden}
+.nav-logo-icon img{width:100%;height:100%}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--text2);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--primary);text-decoration:none}
@@ -76,10 +78,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
 .product-card{background:#fff;border-radius:16px;padding:32px;border:1.5px solid var(--border);transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .product-card:hover{border-color:var(--primary);box-shadow:0 8px 30px rgba(8,145,178,0.1);transform:translateY(-4px)}
 .product-card.coming{opacity:0.75}
-.product-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
-.product-card:nth-child(1) .product-icon{background:linear-gradient(135deg,#0891b2,#0e7490);color:#fff}
-.product-card:nth-child(2) .product-icon{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff}
-.product-card:nth-child(3) .product-icon{background:linear-gradient(135deg,#10b981,#059669);color:#fff}
+.product-icon{width:56px;height:56px;border-radius:14px;overflow:hidden;margin-bottom:18px}
+.product-icon img{width:100%;height:100%}
 .product-name{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:8px}
 .product-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:18px}
 .product-features{list-style:none;margin-bottom:20px;flex:1}
@@ -191,7 +191,7 @@ html{scroll-behavior:smooth}
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">T</div>
+      <div class="nav-logo-icon"><img src="/assets/logo-teknomedis.svg" alt="TeknoMedis"></div>
       TeknoMedis
     </a>
     <div class="nav-links">
@@ -272,7 +272,7 @@ html{scroll-behavior:smooth}
     <div class="product-grid">
       <!-- MedOps Pro -->
       <div class="product-card">
-        <div class="product-icon">📦</div>
+        <div class="product-icon"><img src="/assets/logo-medops.svg" alt="MedOps Pro"></div>
         <span class="product-status status-ready">Tersedia</span>
         <h3 class="product-name">MedOps Pro</h3>
         <p class="product-desc">Sistem manajemen pengadaan ATK & RTK lengkap — dari permintaan unit, persetujuan direktur, pembelian, hingga distribusi dan pelaporan.</p>
@@ -293,7 +293,7 @@ html{scroll-behavior:smooth}
       </div>
       <!-- CaseMix Pro -->
       <div class="product-card coming">
-        <div class="product-icon">📊</div>
+        <div class="product-icon"><img src="/assets/logo-casemix.svg" alt="CaseMix Pro"></div>
         <span class="product-status status-coming">Segera Hadir</span>
         <h3 class="product-name">CaseMix Pro</h3>
         <p class="product-desc">Dashboard monitoring casemix untuk analisa kinerja rumah sakit — visualisasi data, trend diagnosis, dan optimasi klaim BPJS.</p>
@@ -311,7 +311,7 @@ html{scroll-behavior:smooth}
       </div>
       <!-- Unit Cost Analysis -->
       <div class="product-card coming">
-        <div class="product-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</div>
+        <div class="product-icon"><img src="/assets/logo-unitcost.svg" alt="UnitCost Pro"></div>
         <span class="product-status status-coming">Segera Hadir</span>
         <h3 class="product-name">UnitCost Pro</h3>
         <p class="product-desc">Sistem perhitungan unit cost per layanan rumah sakit & klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</p>
@@ -332,7 +332,7 @@ html{scroll-behavior:smooth}
       <!-- Future -->
       <div class="product-card coming" style="grid-column:1/-1">
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-          <div class="product-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);margin-bottom:0">🔧</div>
+          <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🔧</div>
           <div style="flex:1;min-width:250px">
             <span class="product-status status-coming">Dalam Pengembangan</span>
             <h3 class="product-name">Modul Tambahan</h3>
@@ -399,7 +399,7 @@ html{scroll-behavior:smooth}
     <!-- Product Selector -->
     <div class="price-tabs">
       <button class="price-tab active" onclick="showPricing('medops',this)">
-        <span class="ptab-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">📦</span>
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-medops.svg" style="width:100%;height:100%"></span>
         <span>
           <span class="ptab-name">MedOps Pro</span>
           <span class="ptab-desc">Manajemen ATK & RTK</span>
@@ -407,7 +407,7 @@ html{scroll-behavior:smooth}
         <span class="ptab-badge ready">Tersedia</span>
       </button>
       <button class="price-tab" onclick="showPricing('casemix',this)">
-        <span class="ptab-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">📊</span>
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-casemix.svg" style="width:100%;height:100%"></span>
         <span>
           <span class="ptab-name">CaseMix Pro</span>
           <span class="ptab-desc">Dashboard Monitoring</span>
@@ -415,7 +415,7 @@ html{scroll-behavior:smooth}
         <span class="ptab-badge coming">Segera</span>
       </button>
       <button class="price-tab" onclick="showPricing('unitcost',this)">
-        <span class="ptab-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</span>
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-unitcost.svg" style="width:100%;height:100%"></span>
         <span>
           <span class="ptab-name">UnitCost Pro</span>
           <span class="ptab-desc">Perhitungan Unit Cost</span>

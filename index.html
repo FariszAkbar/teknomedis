@@ -72,7 +72,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
 .section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-0.3px}
 .section-desc{font-size:16px;color:var(--text2);margin-top:10px;max-width:550px;margin-left:auto;margin-right:auto}
 
-.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .product-card{background:#fff;border-radius:16px;padding:32px;border:1.5px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
 .product-card:hover{border-color:var(--primary);box-shadow:0 8px 30px rgba(8,145,178,0.1);transform:translateY(-4px)}
 .product-card.coming{opacity:0.75}
@@ -152,7 +152,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:40px 0}
   .hero-btns{justify-content:center}
   .hero-visual{display:none}
   .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
-  .product-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr!important}
   .features-grid{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
   .nav-links{display:none}
@@ -243,7 +243,7 @@ html{scroll-behavior:smooth}
 <div class="container">
   <div class="stats">
     <div class="stat-card">
-      <div class="stat-num">2+</div>
+      <div class="stat-num">3+</div>
       <div class="stat-label">Produk Software</div>
     </div>
     <div class="stat-card">
@@ -304,6 +304,26 @@ html{scroll-behavior:smooth}
           <li>Perbandingan tarif RS vs INA-CBG</li>
           <li>Laporan per departemen & dokter</li>
           <li>Export data & visualisasi grafik</li>
+        </ul>
+        <div class="product-actions">
+          <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
+        </div>
+      </div>
+      <!-- Unit Cost Analysis -->
+      <div class="product-card coming">
+        <div class="product-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</div>
+        <span class="product-status status-coming">Segera Hadir</span>
+        <h3 class="product-name">UnitCost Analytica</h3>
+        <p class="product-desc">Sistem perhitungan unit cost per layanan rumah sakit & klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</p>
+        <ul class="product-features">
+          <li>Perhitungan biaya satuan per tindakan</li>
+          <li>Analisa cost center & cost driver</li>
+          <li>Metode double distribution & step-down</li>
+          <li>Perbandingan tarif RS vs unit cost</li>
+          <li>Simulasi tarif & break-even analysis</li>
+          <li>Gap analysis: tarif INA-CBG vs real cost</li>
+          <li>Laporan per unit, layanan & periode</li>
+          <li>Dashboard visual cost efficiency</li>
         </ul>
         <div class="product-actions">
           <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
@@ -394,6 +414,14 @@ html{scroll-behavior:smooth}
         </span>
         <span class="ptab-badge coming">Segera</span>
       </button>
+      <button class="price-tab" onclick="showPricing('unitcost',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</span>
+        <span>
+          <span class="ptab-name">UnitCost Analytica</span>
+          <span class="ptab-desc">Perhitungan Unit Cost</span>
+        </span>
+        <span class="ptab-badge coming">Segera</span>
+      </button>
       <button class="price-tab" onclick="showPricing('bundle',this)">
         <span class="ptab-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">🎁</span>
         <span>
@@ -457,6 +485,19 @@ html{scroll-behavior:smooth}
         <div style="font-size:48px;margin-bottom:16px">📊</div>
         <h3 style="font-size:22px;color:var(--dark);margin-bottom:8px">CaseMix Monitor</h3>
         <p style="color:var(--text2);font-size:15px;margin-bottom:24px;max-width:450px;margin-left:auto;margin-right:auto">Sedang dalam tahap pengembangan. Daftar untuk mendapatkan akses awal dan harga spesial launching.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="#kontak" class="btn-sm btn-download">Daftar Waiting List</a>
+          <a href="#kontak" class="btn-sm btn-demo">Minta Info Lengkap</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UnitCost Analytica Pricing -->
+    <div class="price-panel" id="price-unitcost" style="display:none">
+      <div style="text-align:center;padding:48px 20px">
+        <div style="font-size:48px;margin-bottom:16px">💰</div>
+        <h3 style="font-size:22px;color:var(--dark);margin-bottom:8px">UnitCost Analytica</h3>
+        <p style="color:var(--text2);font-size:15px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto">Sistem perhitungan unit cost per layanan dengan metode double distribution. Sedang dalam pengembangan — daftar untuk akses awal dan harga spesial.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <a href="#kontak" class="btn-sm btn-download">Daftar Waiting List</a>
           <a href="#kontak" class="btn-sm btn-demo">Minta Info Lengkap</a>

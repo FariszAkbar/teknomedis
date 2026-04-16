@@ -166,6 +166,21 @@ footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:40px 0}
   .footer-inner{flex-direction:column;text-align:center}
 }
 
+/* PRICE TABS */
+.price-tabs{display:flex;gap:12px;margin-bottom:28px;justify-content:center;flex-wrap:wrap}
+.price-tab{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-family:inherit;transition:all .25s;text-align:left}
+.price-tab:hover{border-color:var(--primary);box-shadow:0 4px 15px rgba(8,145,178,0.08)}
+.price-tab.active{border-color:var(--primary);background:var(--primary-light);box-shadow:0 4px 15px rgba(8,145,178,0.12)}
+.ptab-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+.ptab-name{display:block;font-size:14px;font-weight:700;color:var(--dark)}
+.ptab-desc{display:block;font-size:11px;color:var(--text3);margin-top:1px}
+.ptab-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;margin-left:auto;white-space:nowrap}
+.ptab-badge.ready{background:#ecfdf5;color:#059669}
+.ptab-badge.coming{background:#fffbeb;color:#b45309}
+.ptab-badge.bundle{background:#f3e8ff;color:#7c3aed}
+.price-panel{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
 /* SMOOTH SCROLL */
 html{scroll-behavior:smooth}
 </style>
@@ -357,50 +372,131 @@ html{scroll-behavior:smooth}
   <div class="container">
     <div class="section-head">
       <div class="section-tag">Harga</div>
-      <h2 class="section-title">Pilih Paket Sesuai Kebutuhan</h2>
-      <p class="section-desc">Semua paket termasuk instalasi, training, dan dukungan teknis</p>
+      <h2 class="section-title">Harga per Produk</h2>
+      <p class="section-desc">Klik produk untuk melihat paket & harga. Semua termasuk instalasi, training, dan dukungan teknis.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-name">Basic</div>
-        <div class="price-desc">Untuk klinik kecil</div>
-        <div class="price-amount">150<span>rb</span></div>
-        <div class="price-period">per bulan</div>
-        <ul class="price-features">
-          <li>MedOps Pro — full fitur</li>
-          <li>Maks 5 user aktif</li>
-          <li>Dukungan WhatsApp</li>
-          <li>Update otomatis</li>
-        </ul>
-        <a href="#kontak" class="btn-price btn-price-outline">Pilih Basic</a>
+
+    <!-- Product Selector -->
+    <div class="price-tabs">
+      <button class="price-tab active" onclick="showPricing('medops',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">📦</span>
+        <span>
+          <span class="ptab-name">MedOps Pro</span>
+          <span class="ptab-desc">Manajemen ATK & RTK</span>
+        </span>
+        <span class="ptab-badge ready">Tersedia</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('casemix',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">📊</span>
+        <span>
+          <span class="ptab-name">CaseMix Monitor</span>
+          <span class="ptab-desc">Dashboard Monitoring</span>
+        </span>
+        <span class="ptab-badge coming">Segera</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('bundle',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">🎁</span>
+        <span>
+          <span class="ptab-name">Bundle</span>
+          <span class="ptab-desc">Semua Produk</span>
+        </span>
+        <span class="ptab-badge bundle">Hemat</span>
+      </button>
+    </div>
+
+    <!-- MedOps Pro Pricing -->
+    <div class="price-panel" id="price-medops">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Basic</div>
+          <div class="price-desc">Klinik kecil · maks 5 user</div>
+          <div class="price-amount">150<span>rb</span></div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Maks 5 user aktif</li>
+            <li>Dukungan WhatsApp</li>
+            <li>Update otomatis</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Pilih Basic</a>
+        </div>
+        <div class="price-card popular">
+          <div class="price-name">Pro</div>
+          <div class="price-desc">Klinik menengah · maks 15 user</div>
+          <div class="price-amount">300<span>rb</span></div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Maks 15 user aktif</li>
+            <li>Dukungan prioritas</li>
+            <li>Update otomatis</li>
+            <li>Training online</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-primary">Pilih Pro</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Enterprise</div>
+          <div class="price-desc">Rumah sakit · unlimited user</div>
+          <div class="price-amount">Custom</div>
+          <div class="price-period">hubungi kami</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Unlimited user</li>
+            <li>Instalasi on-site</li>
+            <li>Kustomisasi fitur</li>
+            <li>SLA & dedicated support</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Hubungi Sales</a>
+        </div>
       </div>
-      <div class="price-card popular">
-        <div class="price-name">Pro</div>
-        <div class="price-desc">Untuk klinik menengah</div>
-        <div class="price-amount">300<span>rb</span></div>
-        <div class="price-period">per bulan</div>
-        <ul class="price-features">
-          <li>MedOps Pro — full fitur</li>
-          <li>Maks 15 user aktif</li>
-          <li>Dukungan prioritas</li>
-          <li>Update otomatis</li>
-          <li>Training online</li>
-        </ul>
-        <a href="#kontak" class="btn-price btn-price-primary">Pilih Pro</a>
+    </div>
+
+    <!-- CaseMix Monitor Pricing -->
+    <div class="price-panel" id="price-casemix" style="display:none">
+      <div style="text-align:center;padding:48px 20px">
+        <div style="font-size:48px;margin-bottom:16px">📊</div>
+        <h3 style="font-size:22px;color:var(--dark);margin-bottom:8px">CaseMix Monitor</h3>
+        <p style="color:var(--text2);font-size:15px;margin-bottom:24px;max-width:450px;margin-left:auto;margin-right:auto">Sedang dalam tahap pengembangan. Daftar untuk mendapatkan akses awal dan harga spesial launching.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="#kontak" class="btn-sm btn-download">Daftar Waiting List</a>
+          <a href="#kontak" class="btn-sm btn-demo">Minta Info Lengkap</a>
+        </div>
       </div>
-      <div class="price-card">
-        <div class="price-name">Enterprise</div>
-        <div class="price-desc">Untuk rumah sakit</div>
-        <div class="price-amount">Custom</div>
-        <div class="price-period">hubungi kami</div>
-        <ul class="price-features">
-          <li>Semua produk MedixSoft</li>
-          <li>Unlimited user</li>
-          <li>Instalasi on-site</li>
-          <li>Kustomisasi fitur</li>
-          <li>SLA & dedicated support</li>
-        </ul>
-        <a href="#kontak" class="btn-price btn-price-outline">Hubungi Sales</a>
+    </div>
+
+    <!-- Bundle Pricing -->
+    <div class="price-panel" id="price-bundle" style="display:none">
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr">
+        <div class="price-card">
+          <div class="price-name">Bundle Pro</div>
+          <div class="price-desc">Semua produk MedixSoft · 15 user</div>
+          <div class="price-amount">500<span>rb</span></div>
+          <div class="price-period">per bulan <span style="font-size:11px;color:var(--accent);font-weight:700;margin-left:4px">Hemat 17%</span></div>
+          <ul class="price-features">
+            <li>MedOps Pro — full fitur</li>
+            <li>CaseMix Monitor (saat tersedia)</li>
+            <li>Modul baru gratis saat rilis</li>
+            <li>Maks 15 user aktif</li>
+            <li>Dukungan prioritas</li>
+            <li>Training online</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-primary">Pilih Bundle Pro</a>
+        </div>
+        <div class="price-card popular">
+          <div class="price-name">Bundle Enterprise</div>
+          <div class="price-desc">Semua produk · unlimited user</div>
+          <div class="price-amount">Custom</div>
+          <div class="price-period">hubungi kami</div>
+          <ul class="price-features">
+            <li>Semua produk MedixSoft</li>
+            <li>Unlimited user</li>
+            <li>Instalasi on-site</li>
+            <li>Kustomisasi fitur</li>
+            <li>SLA & dedicated support</li>
+            <li>Akses fitur beta</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Hubungi Sales</a>
+        </div>
       </div>
     </div>
   </div>
@@ -450,6 +546,14 @@ html{scroll-behavior:smooth}
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
+
+// Pricing tabs
+function showPricing(id, btn) {
+  document.querySelectorAll('.price-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('price-' + id).style.display = 'block';
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>

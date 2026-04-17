@@ -1,4 +1,4 @@
-"""MedixSoft — Landing Page Server."""
+"""TeknoMedis — Landing Page Server."""
 from flask import Flask, send_from_directory
 import os
 
@@ -13,7 +13,7 @@ def static_files(path):
     return send_from_directory('.', path)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 80))
-    print(f"\n  MedixSoft — Landing Page")
+    port = int(os.environ.get('PORT', 8888))
+    print(f"\n  TeknoMedis — Landing Page")
     print(f"  http://0.0.0.0:{port}\n")
     app.run(host='0.0.0.0', port=port, debug=False)

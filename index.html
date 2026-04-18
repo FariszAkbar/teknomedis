@@ -441,33 +441,51 @@ html{scroll-behavior:smooth}
     <div class="section-head">
       <div class="section-tag">Cara Pakai</div>
       <h2 class="section-title">4 Langkah Mulai Pakai</h2>
-      <p class="section-desc">Install gratis, coba fitur lengkap, aktivasi lisensi saat siap deploy di RS/Klinik</p>
+      <p class="section-desc">Install Hub dulu sebagai launcher, lalu download produk yang dibutuhkan — semua gratis, aktivasi lisensi saat siap deploy</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px">
-      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border);position:relative">
+
+    <!-- Hub Hero Callout -->
+    <div style="background:linear-gradient(135deg,#0d2137 0%,#0891b2 100%);border-radius:20px;padding:32px;margin:0 0 32px;color:#fff;display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:center;flex-wrap:wrap">
+      <div style="width:80px;height:80px;border-radius:20px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:38px">🎛️</div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:#67e8f9;text-transform:uppercase;margin-bottom:6px">STEP 1 — WAJIB DULU</div>
+        <h3 style="font-size:22px;font-weight:800;margin-bottom:6px">TeknoMedis Hub</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;max-width:600px">
+          Aplikasi pusat untuk <b>beli lisensi</b> (pembayaran Midtrans) dan <b>launcher</b> produk yang sudah terinstall.
+          Install 1× di PC server RS/Klinik.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:180px">
+        <a href="/downloads/TeknoMedis-Hub-v1.0.0.zip" download style="background:#fff;color:#0d2137;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;display:block">⬇ Download ZIP (24K)</a>
+        <div style="font-size:11px;color:rgba(255,255,255,0.7);text-align:center">Python + Windows/Linux</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">1</div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">⬇ Download</h3>
-        <p style="font-size:13px;color:var(--text2);line-height:1.6">Klik tombol <b>Download</b> di tiap produk. File ZIP gratis, berisi aplikasi lengkap + installer untuk Windows/Linux.</p>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">🎛️ Install Hub</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Extract Hub ZIP, jalankan <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.bat</code> → <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">start.bat</code>. Buka <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">localhost:8050</code>.</p>
       </div>
       <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">2</div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">💻 Install</h3>
-        <p style="font-size:13px;color:var(--text2);line-height:1.6">Extract ZIP, jalankan <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.bat</code> (Windows) atau <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.sh</code> (Linux) di PC server RS/Klinik.</p>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">💳 Beli dari Hub</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Di Hub tab <b>Store</b>, pilih produk + paket → bayar via Midtrans. License key otomatis dikirim ke email, terikat HWID PC.</p>
       </div>
       <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">3</div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">🔐 Beli Lisensi</h3>
-        <p style="font-size:13px;color:var(--text2);line-height:1.6">Beli paket via <b>TeknoMedis Hub</b> (pembayaran otomatis Midtrans). License key dikirim ke email Anda, terikat ke HWID PC.</p>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">⬇ Download Produk</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Download ZIP produk (MedOps/UnitCost/Kalibrasi) dari section <b>Produk</b> di atas. Install dengan installer yang sama.</p>
       </div>
       <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
         <div style="width:40px;height:40px;border-radius:50%;background:#10b981;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">4</div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">✓ Aktivasi</h3>
-        <p style="font-size:13px;color:var(--text2);line-height:1.6">Paste license key di halaman aktivasi aplikasi. Siap dipakai semua unit dari browser lokal klinik.</p>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">✓ Aktivasi & Jalan</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Paste license key di aplikasi produk, atau buka via Hub → tab <b>Lisensi Saya</b>. Siap dipakai semua unit di LAN klinik.</p>
       </div>
     </div>
     <div style="margin-top:32px;padding:20px;background:#fffbeb;border:1.5px solid #fde68a;border-radius:12px;text-align:center">
       <div style="font-size:13px;color:#78350f;line-height:1.6">
-        📌 <b>Penting:</b> Download & install <b>gratis</b> — Anda bisa mencoba aplikasi dalam mode aktivasi sebelum beli lisensi.
+        📌 <b>Penting:</b> Hub + produk gratis di-download & di-install — Anda bisa eksplor fitur sebelum beli lisensi.
         File ZIP tersimpan di server TeknoMedis, tapi <b>saat dijalankan, semua data RS/Klinik tersimpan lokal di PC Anda</b>, tidak pernah ke server kami.
       </div>
     </div>

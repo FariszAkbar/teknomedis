@@ -154,6 +154,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:40px 0}
   .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
   .product-grid{grid-template-columns:1fr!important}
   .features-grid{grid-template-columns:1fr}
+  #cara-pakai > .container > div:last-child > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important}
   .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
   .nav-links{display:none}
 }
@@ -292,11 +293,52 @@ html{scroll-behavior:smooth}
           <li>License & auto-update system</li>
         </ul>
         <div class="product-actions" id="download">
-          <a href="/downloads/MedOps-Pro-v1.0.0.zip" download class="btn-sm btn-demo" style="border-color:var(--primary);color:var(--primary)">Download v1.0.0</a>
+          <a href="/downloads/MedOps-Pro-v1.1.1.zip" download class="btn-sm btn-demo" style="border-color:var(--primary);color:var(--primary)">⬇ Download v1.1.1</a>
           <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
         </div>
       </div>
-      <!-- CaseMix Pro -->
+      <!-- UnitCost Pro -->
+      <div class="product-card">
+        <div class="product-icon"><img src="/assets/logo-unitcost.svg" alt="UnitCost Pro"></div>
+        <span class="product-status status-ready">Tersedia</span>
+        <h3 class="product-name">UnitCost Pro</h3>
+        <p class="product-desc">Sistem perhitungan unit cost per layanan RS/Klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</p>
+        <ul class="product-features">
+          <li>Perhitungan biaya satuan per tindakan</li>
+          <li>Analisa cost center & cost driver</li>
+          <li>Metode double distribution & step-down</li>
+          <li>Perbandingan tarif RS vs unit cost</li>
+          <li>Simulasi tarif & break-even analysis</li>
+          <li>Gap analysis INA-CBG vs real cost</li>
+          <li>Laporan per unit, layanan, periode</li>
+          <li>Dashboard visual cost efficiency</li>
+        </ul>
+        <div class="product-actions">
+          <a href="/downloads/UnitCost-Pro-v1.0.0.zip" download class="btn-sm btn-demo" style="border-color:#10b981;color:#10b981">⬇ Download v1.0.0</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
+      <!-- Kalibrasi Pro -->
+      <div class="product-card">
+        <div class="product-icon"><img src="/assets/logo-kalibrasi.svg" alt="Kalibrasi Pro" onerror="this.parentNode.textContent='🔬';this.parentNode.style='width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:28px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:14px'"></div>
+        <span class="product-status status-ready">Tersedia</span>
+        <h3 class="product-name">Kalibrasi Pro</h3>
+        <p class="product-desc">Sistem manajemen kalibrasi alat kesehatan — tracking jadwal kalibrasi, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi.</p>
+        <ul class="product-features">
+          <li>Master data alkes & vendor kalibrasi</li>
+          <li>Jadwal kalibrasi tahunan per alat</li>
+          <li>Tracking sertifikat & dokumen</li>
+          <li>Alert jatuh tempo kalibrasi</li>
+          <li>Riwayat kalibrasi & hasil uji</li>
+          <li>Compliance siap audit KARS/JCI</li>
+          <li>Laporan per unit / periode</li>
+        </ul>
+        <div class="product-actions">
+          <a href="/downloads/Kalibrasi-Pro-v1.0.0.zip" download class="btn-sm btn-demo" style="border-color:#8b5cf6;color:#8b5cf6">⬇ Download v1.0.0</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
+      <!-- CaseMix Pro (coming soon) -->
       <div class="product-card coming">
         <div class="product-icon"><img src="/assets/logo-casemix.svg" alt="CaseMix Pro"></div>
         <span class="product-status status-coming">Segera Hadir</span>
@@ -314,34 +356,14 @@ html{scroll-behavior:smooth}
           <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
         </div>
       </div>
-      <!-- Unit Cost Analysis -->
-      <div class="product-card coming">
-        <div class="product-icon"><img src="/assets/logo-unitcost.svg" alt="UnitCost Pro"></div>
-        <span class="product-status status-coming">Segera Hadir</span>
-        <h3 class="product-name">UnitCost Pro</h3>
-        <p class="product-desc">Sistem perhitungan unit cost per layanan rumah sakit & klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</p>
-        <ul class="product-features">
-          <li>Perhitungan biaya satuan per tindakan</li>
-          <li>Analisa cost center & cost driver</li>
-          <li>Metode double distribution & step-down</li>
-          <li>Perbandingan tarif RS vs unit cost</li>
-          <li>Simulasi tarif & break-even analysis</li>
-          <li>Gap analysis: tarif INA-CBG vs real cost</li>
-          <li>Laporan per unit, layanan & periode</li>
-          <li>Dashboard visual cost efficiency</li>
-        </ul>
-        <div class="product-actions">
-          <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
-        </div>
-      </div>
-      <!-- Future -->
+      <!-- Modul Tambahan (future) -->
       <div class="product-card coming" style="grid-column:1/-1">
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-          <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🔧</div>
+          <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#64748b,#334155);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🔧</div>
           <div style="flex:1;min-width:250px">
             <span class="product-status status-coming">Dalam Pengembangan</span>
-            <h3 class="product-name">Modul Tambahan</h3>
-            <p class="product-desc" style="margin-bottom:0">Maintenance & Kalibrasi Alkes, Manajemen Linen, Farmasi, dan modul SIMRS lainnya. Hubungi kami untuk diskusi kebutuhan spesifik RS/Klinik Anda.</p>
+            <h3 class="product-name">Modul SIMRS Lainnya</h3>
+            <p class="product-desc" style="margin-bottom:0">Manajemen Linen, Farmasi, Rekam Medis elektronik, dan modul SIMRS lainnya. Hubungi kami untuk diskusi kebutuhan spesifik RS/Klinik Anda.</p>
           </div>
           <a href="#kontak" class="btn-sm btn-demo">Diskusi Kebutuhan</a>
         </div>
@@ -408,6 +430,45 @@ html{scroll-behavior:smooth}
       <div style="font-size:18px;font-weight:700;color:#065f46;margin-bottom:6px">🛡️ Janji Privasi TeknoMedis</div>
       <div style="font-size:14px;color:#14532d;max-width:720px;margin:0 auto;line-height:1.6">
         Kami <b>tidak pernah, tidak akan, dan tidak bisa</b> mengakses data pasien, transaksi, inventori, atau dokumen internal RS/Klinik Anda. Server kami hanya memegang lisensi. Kalau server kami di-hack sekalipun — data RS/Klinik Anda <b>tidak terkena</b>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA PAKAI -->
+<section id="cara-pakai" style="padding:80px 0;background:#f8fafc">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Cara Pakai</div>
+      <h2 class="section-title">4 Langkah Mulai Pakai</h2>
+      <p class="section-desc">Install gratis, coba fitur lengkap, aktivasi lisensi saat siap deploy di RS/Klinik</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px">
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border);position:relative">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">1</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">⬇ Download</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Klik tombol <b>Download</b> di tiap produk. File ZIP gratis, berisi aplikasi lengkap + installer untuk Windows/Linux.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">2</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">💻 Install</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Extract ZIP, jalankan <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.bat</code> (Windows) atau <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.sh</code> (Linux) di PC server RS/Klinik.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">3</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">🔐 Beli Lisensi</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Beli paket via <b>TeknoMedis Hub</b> (pembayaran otomatis Midtrans). License key dikirim ke email Anda, terikat ke HWID PC.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:#10b981;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">4</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">✓ Aktivasi</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Paste license key di halaman aktivasi aplikasi. Siap dipakai semua unit dari browser lokal klinik.</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:20px;background:#fffbeb;border:1.5px solid #fde68a;border-radius:12px;text-align:center">
+      <div style="font-size:13px;color:#78350f;line-height:1.6">
+        📌 <b>Penting:</b> Download & install <b>gratis</b> — Anda bisa mencoba aplikasi dalam mode aktivasi sebelum beli lisensi.
+        File ZIP tersimpan di server TeknoMedis, tapi <b>saat dijalankan, semua data RS/Klinik tersimpan lokal di PC Anda</b>, tidak pernah ke server kami.
       </div>
     </div>
   </div>

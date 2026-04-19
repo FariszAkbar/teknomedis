@@ -1,0 +1,28 @@
+[Unit]
+Description=TeknoMedis Landing Page (Flask)
+Documentation=https://teknomedis.com
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/teknomedis
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/root/teknomedis/.env
+ExecStart=/usr/bin/python3 /root/teknomedis/server.py
+Restart=on-failure
+RestartSec=5
+
+StandardOutput=append:/root/teknomedis/logs/systemd-out.log
+StandardError=append:/root/teknomedis/logs/systemd-err.log
+
+# Hardening (modest — this is a public HTTP server)
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

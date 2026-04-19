@@ -7,8 +7,8 @@ app = Flask(__name__, static_folder='.', static_url_path='')
 
 DOWNLOADS_DIR = os.path.join(os.path.dirname(__file__), 'downloads')
 
-# Pattern: {ProductName}-v{X.Y.Z}.zip atau .exe (atau -{X.Y.Z} tanpa v)
-_VERSION_RE = re.compile(r'^(.+?)-v?(\d+)\.(\d+)\.(\d+)\.(zip|exe)$', re.IGNORECASE)
+# Pattern: {ProductName}-v{X.Y.Z}.zip / .exe / .apk (atau -{X.Y.Z} tanpa v)
+_VERSION_RE = re.compile(r'^(.+?)-v?(\d+)\.(\d+)\.(\d+)\.(zip|exe|apk)$', re.IGNORECASE)
 
 
 def _scan_downloads():

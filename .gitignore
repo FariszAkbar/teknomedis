@@ -1,3 +1,6 @@
 
 # Runtime artifacts
 logs/
+
+# Release artifacts (not code)
+downloads/

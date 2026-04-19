@@ -338,6 +338,27 @@ html{scroll-behavior:smooth}
           <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
         </div>
       </div>
+      <!-- HRIS (SaaS cloud, bukan on-premise) -->
+      <div class="product-card">
+        <div class="product-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca);display:flex;align-items:center;justify-content:center;font-size:28px;border-radius:14px;width:56px;height:56px">👥</div>
+        <span class="product-status status-ready" style="background:#eef2ff;color:#4338ca">Tersedia · SaaS Cloud</span>
+        <h3 class="product-name">HRIS TeknoMedis</h3>
+        <p class="product-desc">Sistem manajemen SDM klinik cloud — absensi selfie + GPS geofencing, payroll otomatis dengan PPh21 TER, cuti berjenjang, jasa medis dokter, dan approval direktur dengan TTD digital.</p>
+        <ul class="product-features">
+          <li>Absensi mobile: selfie + GPS + geofencing</li>
+          <li>Payroll: PPh21 TER, BPJS Kes/TK, lembur tiered</li>
+          <li>Tunjangan struktural/fungsional + masa kerja</li>
+          <li>Cuti berjenjang: atasan → HRD + upload dokumen</li>
+          <li>Jasa medis dokter per tindakan × penjamin</li>
+          <li>Approval direktur + TTD digital canvas</li>
+          <li>Multi-user: HR / Manager / Direktur</li>
+          <li>Free trial 14 hari — langsung pakai</li>
+        </ul>
+        <div class="product-actions">
+          <a href="https://hris.teknomedis.com/register" class="btn-sm btn-demo" style="border-color:#6366f1;color:#6366f1">🚀 Mulai Trial Gratis</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
       <!-- CaseMix Pro (coming soon) -->
       <div class="product-card coming">
         <div class="product-icon"><img src="/assets/logo-casemix.svg" alt="CaseMix Pro"></div>
@@ -515,8 +536,16 @@ html{scroll-behavior:smooth}
     </div>
 
     <!-- Product Selector -->
-    <div class="price-tabs">
-      <button class="price-tab active" onclick="showPricing('medops',this)">
+    <div class="price-tabs" style="grid-template-columns:repeat(5,1fr)">
+      <button class="price-tab active" onclick="showPricing('hris',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca);color:#fff">👥</span>
+        <span>
+          <span class="ptab-name">HRIS</span>
+          <span class="ptab-desc">Manajemen SDM · SaaS</span>
+        </span>
+        <span class="ptab-badge ready">Tersedia</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('medops',this)">
         <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-medops.svg" style="width:100%;height:100%"></span>
         <span>
           <span class="ptab-name">MedOps Pro</span>
@@ -550,8 +579,18 @@ html{scroll-behavior:smooth}
       </button>
     </div>
 
+    <!-- HRIS Pricing (dynamic from API catalog) -->
+    <div class="price-panel" id="price-hris">
+      <div class="pricing-grid" id="hris-plans-grid">
+        <div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">⏳ Memuat paket HRIS…</div>
+      </div>
+      <div style="margin-top:20px;padding:16px;background:#eef2ff;border-left:4px solid #6366f1;border-radius:8px;color:#3730a3;font-size:13px;line-height:1.7">
+        ℹ️ <b>HRIS adalah SaaS cloud</b> — data karyawan + payroll di-hosting di server TeknoMedis (bukan on-premise seperti produk lain). Trial <b>14 hari gratis</b> tanpa kartu kredit, auto-provision dalam 60 detik setelah signup.
+      </div>
+    </div>
+
     <!-- MedOps Pro Pricing -->
-    <div class="price-panel" id="price-medops">
+    <div class="price-panel" id="price-medops" style="display:none">
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-name">Basic</div>
@@ -710,9 +749,54 @@ window.addEventListener('scroll', () => {
 function showPricing(id, btn) {
   document.querySelectorAll('.price-panel').forEach(p => p.style.display = 'none');
   document.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('price-' + id).style.display = 'block';
+  const panel = document.getElementById('price-' + id);
+  if (panel) panel.style.display = 'block';
   btn.classList.add('active');
 }
+
+// Load HRIS plans dari catalog API — sync dengan super admin
+async function loadHrisPlans() {
+  try {
+    const res = await fetch('/api/catalog');
+    const data = await res.json();
+    const hris = (data.products || []).find(p => p.code === 'hris');
+    if (!hris || !hris.packages || hris.packages.length === 0) {
+      document.getElementById('hris-plans-grid').innerHTML =
+        '<div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">Belum ada paket aktif. Hubungi kami.</div>';
+      return;
+    }
+    // Sort by price ascending
+    const plans = hris.packages.sort((a, b) => (a.price || 0) - (b.price || 0));
+    const popularIdx = Math.min(1, plans.length - 1);  // 2nd cheapest = most popular
+    const fmtRp = n => Math.round(n).toLocaleString('id-ID');
+    document.getElementById('hris-plans-grid').innerHTML = plans.map((p, i) => {
+      const popular = i === popularIdx && plans.length > 2;
+      const unlimited = p.users >= 999;
+      return `
+        <div class="price-card${popular ? ' popular' : ''}">
+          <div class="price-name">${p.name}</div>
+          <div class="price-desc">${unlimited ? 'Unlimited karyawan' : 'Maks ' + p.users + ' karyawan'}</div>
+          <div class="price-amount">${fmtRp(p.price)}</div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>Absensi selfie + GPS geofencing</li>
+            <li>Payroll PPh21 TER otomatis</li>
+            <li>Cuti berjenjang + upload dokumen</li>
+            <li>Approval direktur + TTD digital</li>
+            ${unlimited ? '<li>Unlimited karyawan + Priority Support</li>' : '<li>Max ' + p.users + ' karyawan aktif</li>'}
+            <li>Trial 14 hari gratis</li>
+          </ul>
+          <a href="https://hris.teknomedis.com/register?plan=${p.id}" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">🚀 Mulai Trial</a>
+        </div>
+      `;
+    }).join('');
+  } catch (e) {
+    console.error('HRIS plans load error', e);
+    document.getElementById('hris-plans-grid').innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">Gagal load paket. Refresh page atau hubungi kami.</div>';
+  }
+}
+loadHrisPlans();
 </script>
 </body>
 </html>

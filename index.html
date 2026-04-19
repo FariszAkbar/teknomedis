@@ -23,7 +23,7 @@ img{max-width:100%}
 
 /* LAYOUT */
 .container{max-width:1100px;margin:0 auto;padding:0 24px}
-section{padding:50px 0}
+section{padding:36px 0}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
@@ -293,7 +293,7 @@ html{scroll-behavior:smooth}
           <li>License & auto-update system</li>
         </ul>
         <div class="product-actions" id="download">
-          <a href="/downloads/MedOps-Pro-v1.1.1.zip" download class="btn-sm btn-demo" style="border-color:var(--primary);color:var(--primary)">⬇ Download v1.1.1</a>
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="medops" style="border-color:var(--primary);color:var(--primary)">⬇ Download</a>
           <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
         </div>
       </div>
@@ -314,7 +314,7 @@ html{scroll-behavior:smooth}
           <li>Dashboard visual cost efficiency</li>
         </ul>
         <div class="product-actions">
-          <a href="/downloads/UnitCost-Pro-v1.0.0.zip" download class="btn-sm btn-demo" style="border-color:#10b981;color:#10b981">⬇ Download v1.0.0</a>
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="unitcost" style="border-color:#10b981;color:#10b981">⬇ Download</a>
           <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
         </div>
       </div>
@@ -334,7 +334,7 @@ html{scroll-behavior:smooth}
           <li>Laporan per unit / periode</li>
         </ul>
         <div class="product-actions">
-          <a href="/downloads/Kalibrasi-Pro-v1.0.0.zip" download class="btn-sm btn-demo" style="border-color:#8b5cf6;color:#8b5cf6">⬇ Download v1.0.0</a>
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="kalibrasi" style="border-color:#8b5cf6;color:#8b5cf6">⬇ Download</a>
           <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
         </div>
       </div>
@@ -374,18 +374,6 @@ html{scroll-behavior:smooth}
         </ul>
         <div class="product-actions">
           <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
-        </div>
-      </div>
-      <!-- Modul Tambahan (future) -->
-      <div class="product-card coming" style="grid-column:1/-1">
-        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-          <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#64748b,#334155);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🔧</div>
-          <div style="flex:1;min-width:250px">
-            <span class="product-status status-coming">Dalam Pengembangan</span>
-            <h3 class="product-name">Modul SIMRS Lainnya</h3>
-            <p class="product-desc" style="margin-bottom:0">Manajemen Linen, Farmasi, Rekam Medis elektronik, dan modul SIMRS lainnya. Hubungi kami untuk diskusi kebutuhan spesifik RS/Klinik Anda.</p>
-          </div>
-          <a href="#kontak" class="btn-sm btn-demo">Diskusi Kebutuhan</a>
         </div>
       </div>
     </div>
@@ -476,7 +464,7 @@ html{scroll-behavior:smooth}
         </p>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:200px">
-        <a href="/downloads/TeknoMedisHubSetup.exe" download style="background:#fff;color:#0d2137;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;display:block">⬇ Download Installer (.exe)</a>
+        <a href="/downloads/TeknoMedisHubSetup.exe" download id="hub-dl-btn" style="background:#fff;color:#0d2137;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;display:block">⬇ Download Installer (.exe)</a>
         <a href="/downloads/TeknoMedis-Hub-v1.0.0.zip" download style="background:rgba(255,255,255,0.1);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:11px;text-align:center;display:block;border:1px solid rgba(255,255,255,0.2)">Alt: ZIP cross-platform (24K)</a>
         <div style="font-size:11px;color:rgba(255,255,255,0.7);text-align:center">Windows self-contained (no Python needed)</div>
       </div>
@@ -796,6 +784,34 @@ async function loadHrisPlans() {
   }
 }
 loadHrisPlans();
+
+// Dynamic download buttons — scan /api/downloads untuk versi terbaru per produk
+async function loadDownloadLinks() {
+  try {
+    const res = await fetch('/api/downloads');
+    const data = await res.json();
+    const prods = data.products || {};
+    document.querySelectorAll('.dl-btn').forEach(btn => {
+      const code = btn.dataset.product;
+      const info = prods[code];
+      if (info) {
+        btn.href = info.url;
+        btn.textContent = '⬇ Download v' + info.version;
+      } else {
+        btn.textContent = '⬇ Tidak tersedia';
+        btn.style.opacity = '0.5';
+        btn.style.pointerEvents = 'none';
+      }
+    });
+    // Hub installer — pakai latest .exe
+    const hubBtn = document.getElementById('hub-dl-btn');
+    if (hubBtn && prods.hub) {
+      hubBtn.href = prods.hub.url;
+      hubBtn.textContent = '⬇ Download Installer v' + prods.hub.version;
+    }
+  } catch (e) { console.error('Download scan error', e); }
+}
+loadDownloadLinks();
 </script>
 </body>
 </html>

@@ -788,7 +788,7 @@ loadHrisPlans();
 // Dynamic download buttons — scan /api/downloads untuk versi terbaru per produk
 async function loadDownloadLinks() {
   try {
-    const res = await fetch('/api/downloads');
+    const res = await fetch('/downloads.json');
     const data = await res.json();
     const prods = data.products || {};
     document.querySelectorAll('.dl-btn').forEach(btn => {

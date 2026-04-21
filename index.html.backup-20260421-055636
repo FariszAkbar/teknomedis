@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/assets/logo-teknomedis.svg">
+<title>TeknoMedis — Solusi Digital untuk Rumah Sakit & Klinik</title>
+<meta name="description" content="TeknoMedis menyediakan software profesional untuk manajemen rumah sakit dan klinik. MedOps Pro, CaseMix Pro, dan solusi digital lainnya.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#0891b2;--primary-dark:#0e7490;--primary-light:#ecfeff;
+  --dark:#0c1a2a;--dark2:#132d46;--dark3:#1a3a5c;
+  --text:#1e293b;--text2:#64748b;--text3:#94a3b8;
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --border:#e2e8f0;
+  --accent:#10b981;--accent2:#f59e0b;
+}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;background:var(--bg)}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+
+/* LAYOUT */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:36px 0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:1100px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--dark)}
+.nav-logo-icon{width:36px;height:36px;border-radius:10px;overflow:hidden}
+.nav-logo-icon img{width:100%;height:100%}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text2);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary);text-decoration:none}
+.nav-cta{background:var(--primary);color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:13px;transition:all .2s}
+.nav-cta:hover{background:var(--primary-dark);text-decoration:none;transform:translateY(-1px)}
+
+/* HERO */
+.hero{padding:140px 0 100px;background:linear-gradient(135deg,#0c1a2a 0%,#132d46 40%,#0e7490 100%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;border-radius:50%;background:rgba(8,145,178,0.15);filter:blur(80px)}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;border-radius:50%;background:rgba(16,185,129,0.1);filter:blur(60px)}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:16px;font-weight:500}
+.hero h1{font-size:44px;font-weight:800;line-height:1.15;margin-bottom:18px;letter-spacing:-0.5px}
+.hero h1 span{background:linear-gradient(135deg,#22d3ee,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:28px;max-width:480px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .25s}
+.btn-primary{background:#fff;color:var(--dark);box-shadow:0 4px 15px rgba(0,0,0,0.15)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2);text-decoration:none}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);backdrop-filter:blur(4px)}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05);text-decoration:none}
+.hero-visual{text-align:center}
+.hero-mockup{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;backdrop-filter:blur(10px)}
+.hero-screen{background:var(--dark);border-radius:10px;padding:20px;font-family:'Courier New',monospace;font-size:12px;color:#4ade80;line-height:1.8;text-align:left}
+.hero-screen .dim{color:#475569}
+.hero-screen .cyan{color:#22d3ee}
+.hero-screen .yellow{color:#fbbf24}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:-50px;position:relative;z-index:2}
+.stat-card{background:#fff;border-radius:14px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.06);border:1px solid var(--border);transition:transform .2s}
+.stat-card:hover{transform:translateY(-3px)}
+.stat-num{font-size:32px;font-weight:800;color:var(--primary);line-height:1}
+.stat-label{font-size:13px;color:var(--text2);margin-top:6px;font-weight:500}
+
+/* PRODUCTS */
+.products{background:var(--bg2)}
+.section-head{text-align:center;margin-bottom:32px}
+.section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.5px;text-transform:uppercase}
+.section-title{font-size:34px;font-weight:800;color:var(--dark);letter-spacing:-0.3px}
+.section-desc{font-size:16px;color:var(--text2);margin-top:10px;max-width:550px;margin-left:auto;margin-right:auto}
+
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.product-card{background:#fff;border-radius:16px;padding:32px;border:1.5px solid var(--border);transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.product-card:hover{border-color:var(--primary);box-shadow:0 8px 30px rgba(8,145,178,0.1);transform:translateY(-4px)}
+.product-card.coming{opacity:0.75}
+.product-icon{width:56px;height:56px;border-radius:14px;overflow:hidden;margin-bottom:18px}
+.product-icon img{width:100%;height:100%}
+.product-name{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.product-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:18px}
+.product-features{list-style:none;margin-bottom:20px;flex:1}
+.product-features li{font-size:13px;color:var(--text);padding:5px 0;padding-left:22px;position:relative}
+.product-features li::before{content:'';position:absolute;left:0;top:11px;width:14px;height:14px;border-radius:50%;background:var(--primary-light);border:2px solid var(--primary)}
+.product-status{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700}
+.status-ready{background:#ecfdf5;color:#059669}
+.status-coming{background:#fffbeb;color:#b45309}
+.product-actions{display:flex;gap:10px;margin-top:16px}
+.btn-sm{padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-download{background:var(--primary);color:#fff}
+.btn-download:hover{background:var(--primary-dark);text-decoration:none;transform:translateY(-1px)}
+.btn-demo{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+.btn-demo:hover{border-color:var(--primary);color:var(--primary);text-decoration:none}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{padding:28px;border-radius:14px;background:var(--bg2);border:1px solid var(--border);transition:all .2s}
+.feature-card:hover{border-color:var(--primary);background:#fff}
+.feature-icon{font-size:28px;margin-bottom:12px}
+.feature-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.feature-desc{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* PRICING */
+.pricing{background:var(--bg2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.price-card{background:#fff;border-radius:16px;padding:32px;border:1.5px solid var(--border);text-align:center;transition:all .3s}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.price-card.popular{border-color:var(--primary);position:relative}
+.price-card.popular::before{content:'POPULER';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:10px;font-weight:700;padding:3px 14px;border-radius:10px;letter-spacing:.5px}
+.price-name{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.price-desc{font-size:12px;color:var(--text3);margin-bottom:16px}
+.price-amount{font-size:36px;font-weight:800;color:var(--dark)}
+.price-amount span{font-size:14px;color:var(--text2);font-weight:500}
+.price-period{font-size:13px;color:var(--text3);margin-bottom:20px}
+.price-features{list-style:none;text-align:left;margin-bottom:24px}
+.price-features li{font-size:13px;color:var(--text);padding:7px 0;border-bottom:1px solid var(--bg3);padding-left:20px;position:relative}
+.price-features li::before{content:'';position:absolute;left:0;top:13px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.btn-price{width:100%;padding:12px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
+.btn-price-primary{background:var(--primary);color:#fff}
+.btn-price-primary:hover{background:var(--primary-dark)}
+.btn-price-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary)}
+.btn-price-outline:hover{background:var(--primary-light)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 50%,var(--primary-dark) 100%);color:#fff;text-align:center}
+.cta-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-wa{background:#25d366;color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-wa:hover{background:#20bd5a;transform:translateY(-2px);text-decoration:none;color:#fff}
+.btn-email{background:rgba(255,255,255,0.1);color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,0.2);display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-email:hover{background:rgba(255,255,255,0.15);text-decoration:none;color:#fff}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:40px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-brand-name{font-weight:700;font-size:16px;color:#fff}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,0.4);font-size:13px;transition:color .2s}
+.footer-links a:hover{color:#fff;text-decoration:none}
+.footer-copy{font-size:12px;text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.3)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:32px}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hero-visual{display:none}
+  .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
+  .product-grid{grid-template-columns:1fr!important}
+  .features-grid{grid-template-columns:1fr}
+  #cara-pakai > .container > div:last-child > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important}
+  .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .hero{padding:120px 0 70px}
+  .hero h1{font-size:26px}
+  section{padding:60px 0}
+  .section-title{font-size:26px}
+  .stats{grid-template-columns:1fr 1fr;gap:12px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+
+/* PRICE TABS */
+.price-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.price-tab{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-family:inherit;transition:all .25s;text-align:left}
+.price-tab:hover{border-color:var(--primary);box-shadow:0 4px 15px rgba(8,145,178,0.08)}
+.price-tab.active{border-color:var(--primary);background:var(--primary-light);box-shadow:0 4px 15px rgba(8,145,178,0.12)}
+.ptab-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+.ptab-name{display:block;font-size:14px;font-weight:700;color:var(--dark)}
+.ptab-desc{display:block;font-size:11px;color:var(--text3);margin-top:1px}
+.ptab-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;margin-left:auto;white-space:nowrap}
+.ptab-badge.ready{background:#ecfdf5;color:#059669}
+.ptab-badge.coming{background:#fffbeb;color:#b45309}
+.ptab-badge.bundle{background:#f3e8ff;color:#7c3aed}
+.price-panel{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* SMOOTH SCROLL */
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon"><img src="/assets/logo-teknomedis.svg" alt="TeknoMedis"></div>
+      TeknoMedis
+    </a>
+    <div class="nav-links">
+      <a href="#produk">Produk</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#harga">Harga</a>
+      <a href="#produk">Download</a>
+      <a href="#kontak" class="nav-cta">Hubungi Kami</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">🔒 100% Data di RS/Klinik · Bukan di Server Kami</div>
+        <h1>Kelola Operasional RS/Klinik <span>Tanpa Kompromi Privasi</span></h1>
+        <p>Software on-premise untuk manajemen pengadaan, casemix, dan digitalisasi proses rumah sakit & klinik. <b style="color:#22d3ee">Data pasien & transaksi Anda tetap di PC RS/Klinik</b> — kami tidak pernah menyimpan atau mengakses data Anda.</p>
+        <div class="hero-btns">
+          <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+          <a href="#kontak" class="btn btn-outline">Konsultasi Gratis</a>
+        </div>
+        <div style="display:flex;gap:18px;margin-top:22px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.65)">
+          <span>✓ Sesuai Permenkes 269/2008</span>
+          <span>✓ Database lokal SQLite</span>
+          <span>✓ Tetap jalan saat internet mati</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-mockup">
+          <div class="hero-screen">
+            <span class="dim">$</span> medops-pro <span class="cyan">--start</span><br>
+            <br>
+            <span class="dim">==========================================</span><br>
+            &nbsp;&nbsp;<span class="yellow">MedOps Pro</span> <span class="dim">— Server Running</span><br>
+            <span class="dim">==========================================</span><br>
+            &nbsp;&nbsp;Mode: &nbsp;&nbsp;&nbsp;<span class="cyan">PRODUCTION</span><br>
+            &nbsp;&nbsp;Local: &nbsp;&nbsp;http://localhost:8060<br>
+            &nbsp;&nbsp;Version: <span class="yellow">1.0.0</span><br>
+            &nbsp;&nbsp;License: <span style="color:#4ade80">ACTIVE</span><br>
+            <span class="dim">==========================================</span><br>
+            <br>
+            <span style="color:#4ade80">Ready.</span> <span class="dim">Serving 8 units, 14 products.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="container">
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Produk Software</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">63+</div>
+      <div class="stat-label">Fitur & API</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Dukungan Teknis</div>
+    </div>
+    <div class="stat-card" style="border:2px solid #10b981">
+      <div class="stat-num" style="color:#10b981">100%</div>
+      <div class="stat-label">Data di RS/Klinik</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="produk">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Produk Kami</div>
+      <h2 class="section-title">Software untuk Kebutuhan Anda</h2>
+      <p class="section-desc">Dirancang khusus untuk RS/Klinik di Indonesia — aman, compliance-ready, data tidak meninggalkan fasilitas Anda</p>
+    </div>
+    <div class="product-grid">
+      <!-- MedOps Pro -->
+      <div class="product-card">
+        <div class="product-icon"><img src="/assets/logo-medops.svg" alt="MedOps Pro"></div>
+        <span class="product-status status-ready">Tersedia</span>
+        <h3 class="product-name">MedOps Pro</h3>
+        <p class="product-desc">Sistem manajemen pengadaan ATK & RTK lengkap — dari permintaan unit, persetujuan direktur, pembelian, hingga distribusi dan pelaporan.</p>
+        <ul class="product-features">
+          <li>Manajemen produk, vendor & harga</li>
+          <li>Workflow permintaan & persetujuan</li>
+          <li>Stok gudang & stok per unit</li>
+          <li>Rencana bulanan & RAT tahunan</li>
+          <li>Realisasi vs proyeksi + trend</li>
+          <li>Laporan Excel otomatis</li>
+          <li>Multi-user (admin, direktur, unit)</li>
+          <li>License & auto-update system</li>
+        </ul>
+        <div class="product-actions" id="download">
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="medops" style="border-color:var(--primary);color:var(--primary)">⬇ Download</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
+      <!-- UnitCost Pro -->
+      <div class="product-card">
+        <div class="product-icon"><img src="/assets/logo-unitcost.svg" alt="UnitCost Pro"></div>
+        <span class="product-status status-ready">Tersedia</span>
+        <h3 class="product-name">UnitCost Pro</h3>
+        <p class="product-desc">Sistem perhitungan unit cost per layanan RS/Klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</p>
+        <ul class="product-features">
+          <li>Perhitungan biaya satuan per tindakan</li>
+          <li>Analisa cost center & cost driver</li>
+          <li>Metode double distribution & step-down</li>
+          <li>Perbandingan tarif RS vs unit cost</li>
+          <li>Simulasi tarif & break-even analysis</li>
+          <li>Gap analysis INA-CBG vs real cost</li>
+          <li>Laporan per unit, layanan, periode</li>
+          <li>Dashboard visual cost efficiency</li>
+        </ul>
+        <div class="product-actions">
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="unitcost" style="border-color:#10b981;color:#10b981">⬇ Download</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
+      <!-- Kalibrasi Pro -->
+      <div class="product-card">
+        <div class="product-icon"><img src="/assets/logo-kalibrasi.svg" alt="Kalibrasi Pro" onerror="this.parentNode.textContent='🔬';this.parentNode.style='width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:28px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:14px'"></div>
+        <span class="product-status status-ready">Tersedia</span>
+        <h3 class="product-name">Kalibrasi Pro</h3>
+        <p class="product-desc">Sistem manajemen kalibrasi alat kesehatan — tracking jadwal kalibrasi, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi.</p>
+        <ul class="product-features">
+          <li>Master data alkes & vendor kalibrasi</li>
+          <li>Jadwal kalibrasi tahunan per alat</li>
+          <li>Tracking sertifikat & dokumen</li>
+          <li>Alert jatuh tempo kalibrasi</li>
+          <li>Riwayat kalibrasi & hasil uji</li>
+          <li>Compliance siap audit KARS/JCI</li>
+          <li>Laporan per unit / periode</li>
+        </ul>
+        <div class="product-actions">
+          <a href="#" download class="btn-sm btn-demo dl-btn" data-product="kalibrasi" style="border-color:#8b5cf6;color:#8b5cf6">⬇ Download</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+      </div>
+      <!-- HRIS (SaaS cloud, bukan on-premise) -->
+      <div class="product-card">
+        <div class="product-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca);display:flex;align-items:center;justify-content:center;font-size:28px;border-radius:14px;width:56px;height:56px">👥</div>
+        <span class="product-status status-ready" style="background:#eef2ff;color:#4338ca">Tersedia · SaaS</span>
+        <h3 class="product-name">HRIS TeknoMedis</h3>
+        <p class="product-desc">Manajemen SDM klinik cloud — absensi GPS, payroll otomatis, cuti berjenjang, dan approval direktur. Trial 14 hari gratis.</p>
+        <ul class="product-features">
+          <li>Absensi selfie + GPS geofencing</li>
+          <li>Payroll PPh21 TER + BPJS otomatis</li>
+          <li>Cuti berjenjang + upload dokumen</li>
+          <li>Jasa medis dokter per tindakan</li>
+          <li>Approval direktur + TTD digital</li>
+          <li>Multi-role: HR / Manager / Direktur</li>
+          <li>Cloud SaaS — akses dari mana aja</li>
+        </ul>
+        <div class="product-actions">
+          <a href="https://hris.teknomedis.com/register" class="btn-sm btn-demo" style="border-color:#6366f1;color:#6366f1">🚀 Trial Gratis</a>
+          <a href="/downloads/HRIS-v0.2.0-arm64.apk" download class="btn-sm btn-download" style="background:#4338ca;color:#fff">📱 Download APK (23MB)</a>
+          <a href="#harga" class="btn-sm btn-demo">Lihat Harga</a>
+        </div>
+        <p style="font-size:10.5px;color:var(--text2);margin-top:8px;line-height:1.5">
+          📱 Android v0.2.0 · Login pakai akun dari HR · iOS coming soon<br>
+          <span style="color:var(--text3,#94a3b8)">HP lama?</span>
+          <a href="/downloads/HRIS-v0.2.0-armv7.apk" download style="color:#6366f1;text-decoration:none">armv7 (21MB)</a> ·
+          <a href="/downloads/HRIS-v0.2.0.apk" download style="color:#6366f1;text-decoration:none">universal (58MB)</a>
+        </p>
+      </div>
+      <!-- CaseMix Pro (coming soon) -->
+      <div class="product-card coming">
+        <div class="product-icon"><img src="/assets/logo-casemix.svg" alt="CaseMix Pro"></div>
+        <span class="product-status status-coming">Segera Hadir</span>
+        <h3 class="product-name">CaseMix Pro</h3>
+        <p class="product-desc">Dashboard monitoring casemix untuk analisa kinerja rumah sakit — visualisasi data, trend diagnosis, dan optimasi klaim BPJS.</p>
+        <ul class="product-features">
+          <li>Dashboard real-time casemix</li>
+          <li>Analisa trend diagnosis & tindakan</li>
+          <li>Monitoring klaim BPJS Kesehatan</li>
+          <li>Perbandingan tarif RS vs INA-CBG</li>
+          <li>Laporan per departemen & dokter</li>
+          <li>Export data & visualisasi grafik</li>
+        </ul>
+        <div class="product-actions">
+          <a href="#kontak" class="btn-sm btn-demo">Hubungi untuk Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="fitur">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Keunggulan</div>
+      <h2 class="section-title">Kenapa Pilih TeknoMedis?</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" style="border:2px solid #10b981;background:linear-gradient(180deg,#ecfdf5 0%,#fff 40%)">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title" style="color:#065f46">Data 100% di RS/Klinik</div>
+        <div class="feature-desc"><b>Kami tidak menyimpan data pasien, transaksi, atau dokumen RS/Klinik Anda di server kami.</b> Database SQLite tersimpan lokal di PC RS/Klinik. Sesuai Permenkes 269/2008 tentang rekam medis.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏥</div>
+        <div class="feature-title">Kontinuitas Operasional</div>
+        <div class="feature-desc">Internet mati? Sistem tetap jalan. Server kami down? Tidak masalah — semua data ada di jaringan RS/Klinik Anda. Lisensi tetap aktif sampai masa berlaku habis.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <div class="feature-title">Multi-Unit LAN</div>
+        <div class="feature-desc">Install 1× di PC server RS/Klinik. Semua unit (UGD, poli, rawat inap, farmasi, lab) akses via browser dari PC atau HP di jaringan lokal yang sama.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Laporan Profesional</div>
+        <div class="feature-desc">Download laporan Excel siap cetak — lengkap dengan kop RS/Klinik, tanda tangan digital direktur, nomor dokumen, dan format audit-ready.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Ownership Data</div>
+        <div class="feature-desc"><b>Anda pemilik data — bukan kami.</b> Stop berlangganan pun, database SQLite tetap di PC RS/Klinik. Tidak ada lock-in, tidak ada tebusan data.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <div class="feature-title">Hardware-Bound License</div>
+        <div class="feature-desc">Lisensi terikat HWID (hardware ID) PC server RS/Klinik. Tidak bisa di-copy ke komputer lain. Satu RS/Klinik, satu lisensi — tanpa risiko lisensi bocor.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <div class="feature-title">Auto-Update Aman</div>
+        <div class="feature-desc">Fitur baru otomatis terkirim ke aplikasi Anda. Yang dikirim cuma <b>software</b> — bukan data. Database Anda tidak pernah di-upload kemana-mana.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">Dukungan Langsung</div>
+        <div class="feature-desc">Tim support via WhatsApp — instalasi, konfigurasi, troubleshooting. Kalau butuh remote support, akses dikontrol langsung oleh tim IT RS/Klinik Anda.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚖️</div>
+        <div class="feature-title">Compliance-Ready</div>
+        <div class="feature-desc">Model on-premise membuat RS/Klinik <b>tetap memegang kendali data rekam medis</b>. Siap audit Kemenkes, akreditasi KARS, dan persyaratan JCI tentang data residency.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;padding:24px;background:#f0fdf4;border:2px dashed #10b981;border-radius:16px">
+      <div style="font-size:18px;font-weight:700;color:#065f46;margin-bottom:6px">🛡️ Janji Privasi TeknoMedis</div>
+      <div style="font-size:14px;color:#14532d;max-width:720px;margin:0 auto;line-height:1.6">
+        Kami <b>tidak pernah, tidak akan, dan tidak bisa</b> mengakses data pasien, transaksi, inventori, atau dokumen internal RS/Klinik Anda. Server kami hanya memegang lisensi. Kalau server kami di-hack sekalipun — data RS/Klinik Anda <b>tidak terkena</b>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA PAKAI -->
+<section id="cara-pakai" style="padding:80px 0;background:#f8fafc">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Cara Pakai</div>
+      <h2 class="section-title">4 Langkah Mulai Pakai</h2>
+      <p class="section-desc">Install Hub dulu sebagai launcher, lalu download produk yang dibutuhkan — semua gratis, aktivasi lisensi saat siap deploy</p>
+    </div>
+
+    <!-- Hub Hero Callout -->
+    <div style="background:linear-gradient(135deg,#0d2137 0%,#0891b2 100%);border-radius:20px;padding:32px;margin:0 0 32px;color:#fff;display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:center;flex-wrap:wrap">
+      <div style="width:80px;height:80px;border-radius:20px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:38px">🎛️</div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:#67e8f9;text-transform:uppercase;margin-bottom:6px">STEP 1 — WAJIB DULU</div>
+        <h3 style="font-size:22px;font-weight:800;margin-bottom:6px">TeknoMedis Hub</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;max-width:600px">
+          Aplikasi pusat untuk <b>beli lisensi</b> (pembayaran Midtrans) dan <b>launcher</b> produk yang sudah terinstall.
+          Install 1× di PC server RS/Klinik.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:200px">
+        <a href="/downloads/TeknoMedisHubSetup.exe" download id="hub-dl-btn" style="background:#fff;color:#0d2137;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;display:block">⬇ Download Installer (.exe)</a>
+        <a href="/downloads/TeknoMedis-Hub-v1.0.0.zip" download style="background:rgba(255,255,255,0.1);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:11px;text-align:center;display:block;border:1px solid rgba(255,255,255,0.2)">Alt: ZIP cross-platform (24K)</a>
+        <div style="font-size:11px;color:rgba(255,255,255,0.7);text-align:center">Windows self-contained (no Python needed)</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">1</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">🎛️ Install Hub</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Extract Hub ZIP, jalankan <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">install.bat</code> → <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">start.bat</code>. Buka <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px">localhost:8050</code>.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">2</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">💳 Beli dari Hub</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Di Hub tab <b>Store</b>, pilih produk + paket → bayar via Midtrans. License key otomatis dikirim ke email, terikat HWID PC.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">3</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">⬇ Download Produk</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Download ZIP produk (MedOps/UnitCost/Kalibrasi) dari section <b>Produk</b> di atas. Install dengan installer yang sama.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1.5px solid var(--border)">
+        <div style="width:40px;height:40px;border-radius:50%;background:#10b981;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">4</div>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">✓ Aktivasi & Jalan</h3>
+        <p style="font-size:13px;color:var(--text2);line-height:1.6">Paste license key di aplikasi produk, atau buka via Hub → tab <b>Lisensi Saya</b>. Siap dipakai semua unit di LAN klinik.</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:20px;background:#fffbeb;border:1.5px solid #fde68a;border-radius:12px;text-align:center">
+      <div style="font-size:13px;color:#78350f;line-height:1.6">
+        📌 <b>Penting:</b> Hub + produk gratis di-download & di-install — Anda bisa eksplor fitur sebelum beli lisensi.
+        File ZIP tersimpan di server TeknoMedis, tapi <b>saat dijalankan, semua data RS/Klinik tersimpan lokal di PC Anda</b>, tidak pernah ke server kami.
+      </div>
+    </div>
+
+    <!-- Windows SmartScreen heads-up -->
+    <div style="margin-top:14px;padding:16px 20px;background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px">
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <div style="font-size:20px;flex-shrink:0">🛡️</div>
+        <div style="font-size:12px;color:#1e3a8a;line-height:1.6">
+          <b>Catatan Windows Defender:</b> Saat pertama kali buka <code style="background:#dbeafe;padding:2px 6px;border-radius:4px">TeknoMedisHubSetup.exe</code>, Windows mungkin tampil popup
+          <i>"Windows protected your PC"</i>. Ini <b>bukan virus</b> — normal untuk semua installer baru yang belum code-signed.
+          <b>Cara bypass:</b> Klik link <i>"More info"</i> → tombol <i>"Run anyway"</i>. Installer akan jalan aman.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="harga">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Harga</div>
+      <h2 class="section-title">Harga per Produk</h2>
+      <p class="section-desc">Klik produk untuk melihat paket & harga. Semua termasuk instalasi, training, dan dukungan teknis.</p>
+    </div>
+
+    <!-- Product Selector -->
+    <div class="price-tabs" style="grid-template-columns:repeat(5,1fr)">
+      <button class="price-tab active" onclick="showPricing('hris',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca);color:#fff">👥</span>
+        <span>
+          <span class="ptab-name">HRIS</span>
+          <span class="ptab-desc">Manajemen SDM · SaaS</span>
+        </span>
+        <span class="ptab-badge ready">Tersedia</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('medops',this)">
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-medops.svg" style="width:100%;height:100%"></span>
+        <span>
+          <span class="ptab-name">MedOps Pro</span>
+          <span class="ptab-desc">Manajemen ATK & RTK</span>
+        </span>
+        <span class="ptab-badge ready">Tersedia</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('casemix',this)">
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-casemix.svg" style="width:100%;height:100%"></span>
+        <span>
+          <span class="ptab-name">CaseMix Pro</span>
+          <span class="ptab-desc">Dashboard Monitoring</span>
+        </span>
+        <span class="ptab-badge coming">Segera</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('unitcost',this)">
+        <span class="ptab-icon" style="border-radius:10px;overflow:hidden"><img src="/assets/logo-unitcost.svg" style="width:100%;height:100%"></span>
+        <span>
+          <span class="ptab-name">UnitCost Pro</span>
+          <span class="ptab-desc">Perhitungan Unit Cost</span>
+        </span>
+        <span class="ptab-badge coming">Segera</span>
+      </button>
+      <button class="price-tab" onclick="showPricing('bundle',this)">
+        <span class="ptab-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">🎁</span>
+        <span>
+          <span class="ptab-name">Bundle</span>
+          <span class="ptab-desc">Semua Produk</span>
+        </span>
+        <span class="ptab-badge bundle">Hemat</span>
+      </button>
+    </div>
+
+    <!-- HRIS Pricing (dynamic from API catalog) -->
+    <div class="price-panel" id="price-hris">
+      <div class="pricing-grid" id="hris-plans-grid">
+        <div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">⏳ Memuat paket HRIS…</div>
+      </div>
+      <div style="margin-top:20px;padding:16px;background:#eef2ff;border-left:4px solid #6366f1;border-radius:8px;color:#3730a3;font-size:13px;line-height:1.7">
+        ℹ️ <b>HRIS adalah SaaS cloud</b> — data karyawan + payroll di-hosting di server TeknoMedis (bukan on-premise seperti produk lain). Trial <b>14 hari gratis</b> tanpa kartu kredit, auto-provision dalam 60 detik setelah signup.
+      </div>
+    </div>
+
+    <!-- MedOps Pro Pricing -->
+    <div class="price-panel" id="price-medops" style="display:none">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Basic</div>
+          <div class="price-desc">RS/Klinik kecil · maks 5 user</div>
+          <div class="price-amount">150<span>rb</span></div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Maks 5 user aktif</li>
+            <li>Dukungan WhatsApp</li>
+            <li>Update otomatis</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Pilih Basic</a>
+        </div>
+        <div class="price-card popular">
+          <div class="price-name">Pro</div>
+          <div class="price-desc">RS/Klinik menengah · maks 15 user</div>
+          <div class="price-amount">300<span>rb</span></div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Maks 15 user aktif</li>
+            <li>Dukungan prioritas</li>
+            <li>Update otomatis</li>
+            <li>Training online</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-primary">Pilih Pro</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Enterprise</div>
+          <div class="price-desc">Rumah sakit · unlimited user</div>
+          <div class="price-amount">Custom</div>
+          <div class="price-period">hubungi kami</div>
+          <ul class="price-features">
+            <li>MedOps Pro full fitur</li>
+            <li>Unlimited user</li>
+            <li>Instalasi on-site</li>
+            <li>Kustomisasi fitur</li>
+            <li>SLA & dedicated support</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Hubungi Sales</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CaseMix Pro Pricing -->
+    <div class="price-panel" id="price-casemix" style="display:none">
+      <div style="text-align:center;padding:48px 20px">
+        <div style="font-size:48px;margin-bottom:16px">📊</div>
+        <h3 style="font-size:22px;color:var(--dark);margin-bottom:8px">CaseMix Pro</h3>
+        <p style="color:var(--text2);font-size:15px;margin-bottom:24px;max-width:450px;margin-left:auto;margin-right:auto">Sedang dalam tahap pengembangan. Daftar untuk mendapatkan akses awal dan harga spesial launching.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="#kontak" class="btn-sm btn-download">Daftar Waiting List</a>
+          <a href="#kontak" class="btn-sm btn-demo">Minta Info Lengkap</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UnitCost Pro Pricing -->
+    <div class="price-panel" id="price-unitcost" style="display:none">
+      <div style="text-align:center;padding:48px 20px">
+        <div style="font-size:48px;margin-bottom:16px">💰</div>
+        <h3 style="font-size:22px;color:var(--dark);margin-bottom:8px">UnitCost Pro</h3>
+        <p style="color:var(--text2);font-size:15px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto">Sistem perhitungan unit cost per layanan dengan metode double distribution. Sedang dalam pengembangan — daftar untuk akses awal dan harga spesial.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="#kontak" class="btn-sm btn-download">Daftar Waiting List</a>
+          <a href="#kontak" class="btn-sm btn-demo">Minta Info Lengkap</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bundle Pricing -->
+    <div class="price-panel" id="price-bundle" style="display:none">
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr">
+        <div class="price-card">
+          <div class="price-name">Bundle Pro</div>
+          <div class="price-desc">Semua produk TeknoMedis · 15 user</div>
+          <div class="price-amount">500<span>rb</span></div>
+          <div class="price-period">per bulan <span style="font-size:11px;color:var(--accent);font-weight:700;margin-left:4px">Hemat 17%</span></div>
+          <ul class="price-features">
+            <li>MedOps Pro — full fitur</li>
+            <li>CaseMix Pro (saat tersedia)</li>
+            <li>Modul baru gratis saat rilis</li>
+            <li>Maks 15 user aktif</li>
+            <li>Dukungan prioritas</li>
+            <li>Training online</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-primary">Pilih Bundle Pro</a>
+        </div>
+        <div class="price-card popular">
+          <div class="price-name">Bundle Enterprise</div>
+          <div class="price-desc">Semua produk · unlimited user</div>
+          <div class="price-amount">Custom</div>
+          <div class="price-period">hubungi kami</div>
+          <ul class="price-features">
+            <li>Semua produk TeknoMedis</li>
+            <li>Unlimited user</li>
+            <li>Instalasi on-site</li>
+            <li>Kustomisasi fitur</li>
+            <li>SLA & dedicated support</li>
+            <li>Akses fitur beta</li>
+          </ul>
+          <a href="#kontak" class="btn-price btn-price-outline">Hubungi Sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontak">
+  <div class="container">
+    <h2>Siap Digitalisasi RS/Klinik Anda dengan Aman?</h2>
+    <p>Konsultasikan kebutuhan Anda secara gratis. Kami bantu dari pemilihan paket, instalasi, hingga training tim.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/6288211213393?text=Halo%20TeknoMedis%2C%20saya%20tertarik%20dengan%20produk%20Anda" target="_blank" class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Kami
+      </a>
+      <a href="mailto:fariszakbarassady@gmail.com?subject=Inquiry%20TeknoMedis" class="btn-email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo-icon" style="width:30px;height:30px;font-size:14px;border-radius:8px">M</div>
+        <span class="footer-brand-name">TeknoMedis</span>
+      </div>
+      <div class="footer-links">
+        <a href="#produk">Produk</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#harga">Harga</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 TeknoMedis. Solusi Digital untuk Rumah Sakit & Klinik Indonesia.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Pricing tabs
+function showPricing(id, btn) {
+  document.querySelectorAll('.price-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('price-' + id);
+  if (panel) panel.style.display = 'block';
+  btn.classList.add('active');
+}
+
+// Load HRIS plans dari catalog API — sync dengan super admin
+async function loadHrisPlans() {
+  try {
+    const res = await fetch('/api/catalog');
+    const data = await res.json();
+    const hris = (data.products || []).find(p => p.code === 'hris');
+    if (!hris || !hris.packages || hris.packages.length === 0) {
+      document.getElementById('hris-plans-grid').innerHTML =
+        '<div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">Belum ada paket aktif. Hubungi kami.</div>';
+      return;
+    }
+    // Sort by price ascending
+    const plans = hris.packages.sort((a, b) => (a.price || 0) - (b.price || 0));
+    const popularIdx = Math.min(1, plans.length - 1);  // 2nd cheapest = most popular
+    const fmtRp = n => Math.round(n).toLocaleString('id-ID');
+    document.getElementById('hris-plans-grid').innerHTML = plans.map((p, i) => {
+      const popular = i === popularIdx && plans.length > 2;
+      const unlimited = p.users >= 999;
+      return `
+        <div class="price-card${popular ? ' popular' : ''}">
+          <div class="price-name">${p.name}</div>
+          <div class="price-desc">${unlimited ? 'Unlimited karyawan' : 'Maks ' + p.users + ' karyawan'}</div>
+          <div class="price-amount">${fmtRp(p.price)}</div>
+          <div class="price-period">per bulan</div>
+          <ul class="price-features">
+            <li>Absensi selfie + GPS geofencing</li>
+            <li>Payroll PPh21 TER otomatis</li>
+            <li>Cuti berjenjang + upload dokumen</li>
+            <li>Approval direktur + TTD digital</li>
+            ${unlimited ? '<li>Unlimited karyawan + Priority Support</li>' : '<li>Max ' + p.users + ' karyawan aktif</li>'}
+            <li>Trial 14 hari gratis</li>
+          </ul>
+          <a href="https://hris.teknomedis.com/register?plan=${p.id}" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">🚀 Mulai Trial</a>
+        </div>
+      `;
+    }).join('');
+  } catch (e) {
+    console.error('HRIS plans load error', e);
+    document.getElementById('hris-plans-grid').innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:40px">Gagal load paket. Refresh page atau hubungi kami.</div>';
+  }
+}
+loadHrisPlans();
+
+// Dynamic download buttons — scan /api/downloads untuk versi terbaru per produk
+async function loadDownloadLinks() {
+  try {
+    const res = await fetch('/downloads.json');
+    const data = await res.json();
+    const prods = data.products || {};
+    document.querySelectorAll('.dl-btn').forEach(btn => {
+      const code = btn.dataset.product;
+      const info = prods[code];
+      if (info) {
+        btn.href = info.url;
+        btn.textContent = '⬇ Download v' + info.version;
+      } else {
+        btn.textContent = '⬇ Tidak tersedia';
+        btn.style.opacity = '0.5';
+        btn.style.pointerEvents = 'none';
+      }
+    });
+    // Hub installer — pakai latest .exe
+    const hubBtn = document.getElementById('hub-dl-btn');
+    if (hubBtn && prods.hub) {
+      hubBtn.href = prods.hub.url;
+      hubBtn.textContent = '⬇ Download Installer v' + prods.hub.version;
+    }
+  } catch (e) { console.error('Download scan error', e); }
+}
+loadDownloadLinks();
+</script>
+</body>
+</html>

@@ -33,6 +33,12 @@ def _scan_downloads():
         code = name.lower().replace('-pro', '').replace(' ', '').replace('_', '')
         if code.startswith('teknomedis'):
             code = code.replace('teknomedishubsetup', 'hub').replace('teknomedishub', 'hub').replace('teknomedis', 'hub')
+        # Normalize "<product>setup" -> "<product>" (Inno Setup .exe naming).
+        # Contoh: CaseMixProSetup -> casemixprosetup -> casemix
+        if code.endswith('setup'):
+            code = code[:-5]  # strip 'setup'
+        if code == 'casemixpro':
+            code = 'casemix'
         full_path = os.path.join(DOWNLOADS_DIR, fname)
         size = os.path.getsize(full_path)
         entry = {
@@ -44,7 +50,18 @@ def _scan_downloads():
             'ext': ext.lower(),
         }
         existing = products.get(code)
-        if not existing or version > existing.get('version_tuple', (0, 0, 0)):
+        # Prefer higher version; kalau version sama prefer .exe (complete installer)
+        # over .zip (app code only, butuh Python pre-installed).
+        ext_priority = {'exe': 3, 'apk': 2, 'zip': 1}
+        should_replace = False
+        if not existing:
+            should_replace = True
+        elif version > existing.get('version_tuple', (0, 0, 0)):
+            should_replace = True
+        elif (version == existing.get('version_tuple')
+                and ext_priority.get(ext.lower(), 0) > ext_priority.get(existing.get('ext', ''), 0)):
+            should_replace = True
+        if should_replace:
             products[code] = entry
     for v in products.values():
         v.pop('version_tuple', None)

@@ -1,7 +1,14 @@
 """TeknoMedis — Landing Page Server."""
 import os
 import re
+import time
+import json as _json
+import urllib.request as _urlreq
 from flask import Flask, send_from_directory, jsonify
+
+LICENSE_SERVER = os.environ.get('LICENSE_SERVER', 'http://localhost:8061')
+_PRICING_CACHE = {'data': None, 'fetched_at': 0}
+_PRICING_CACHE_TTL = 60  # detik — biar landing gak hammer license-server
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
@@ -47,6 +54,29 @@ def _scan_downloads():
 @app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
+
+
+@app.route('/api/license-catalog')
+def api_license_catalog():
+    """Proxy ke license-server /api/catalog. Cache 60 detik biar gak hammer.
+
+    Single source of truth pricing — admin ubah harga di license-server panel
+    -> landing auto-update tanpa redeploy.
+    """
+    now = time.time()
+    if _PRICING_CACHE['data'] and (now - _PRICING_CACHE['fetched_at']) < _PRICING_CACHE_TTL:
+        return jsonify(_PRICING_CACHE['data'])
+    try:
+        with _urlreq.urlopen(f'{LICENSE_SERVER}/api/catalog', timeout=5) as resp:
+            data = _json.loads(resp.read())
+        _PRICING_CACHE['data'] = data
+        _PRICING_CACHE['fetched_at'] = now
+        return jsonify(data)
+    except Exception as e:
+        # Kalau license-server down, return cache lama (kalau ada) atau error
+        if _PRICING_CACHE['data']:
+            return jsonify(_PRICING_CACHE['data'])
+        return jsonify({'ok': False, 'error': f'License server unreachable: {e}'}), 502
 
 
 @app.route('/downloads.json')

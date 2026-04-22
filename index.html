@@ -676,12 +676,6 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download MedOps Pro',
     priceNote: 'Mulai dari Rp 150.000/bulan',
     color: '#0891b2',
-    comingSoon: true,
-    pricingTiers: [
-      {name:'Starter', desc:'RS/Klinik kecil · 5 user', price:'150', unit:'rb', period:'per 30 hari', features:['MedOps Pro full fitur','Maks 5 user aktif','Dukungan WhatsApp','Atau Rp 1.2jt/tahun']},
-      {name:'Pro', desc:'RS/Klinik menengah · 15 user', price:'300', unit:'rb', period:'per 30 hari', popular:true, features:['MedOps Pro full fitur','Maks 15 user aktif','Dukungan prioritas','Update otomatis','Atau Rp 2.5jt/tahun']},
-      {name:'Enterprise', desc:'RS besar · unlimited user', price:'4', unit:'jt', period:'per tahun', features:['Unlimited user','Instalasi on-site','SLA & dedicated support','Custom report (opsional)']},
-    ],
   },
   unitcost: {
     icon: '💰',
@@ -713,10 +707,6 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download UnitCost Pro',
     priceNote: 'Mulai dari Rp 250rb (30 hari) / Rp 2jt (1 tahun)',
     color: '#10b981',
-    pricingTiers: [
-      {name:'Pro', desc:'RS Tipe C/D · 10 user', price:'250', unit:'rb', period:'per 30 hari', popular:true, features:['UnitCost Pro full fitur','Maks 10 user aktif','Metode double distribution & step-down','Gap analysis INA-CBG vs real cost','Atau Rp 2jt/tahun']},
-      {name:'Enterprise', desc:'RS Tipe A/B · unlimited user', price:'4', unit:'jt', period:'per tahun', features:['Unlimited user + cost center','Simulasi tarif & break-even','Custom cost driver','Priority support + training','Integrasi SIMRS (opsional)']},
-    ],
   },
   kalibrasi: {
     icon: '🔬',
@@ -747,11 +737,6 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download Kalibrasi Pro',
     priceNote: 'Mulai dari Rp 100rb (30 hari) / Rp 800rb (1 tahun)',
     color: '#8b5cf6',
-    pricingTiers: [
-      {name:'Starter', desc:'Klinik kecil · 50 alat · 3 user', price:'100', unit:'rb', period:'per 30 hari', features:['Kalibrasi Pro full fitur','Maks 50 alat terdaftar','Alert email jatuh tempo','Atau Rp 800rb/tahun']},
-      {name:'Pro', desc:'RS/Klinik menengah · 200 alat · 10 user', price:'200', unit:'rb', period:'per 30 hari', popular:true, features:['Kalibrasi Pro full fitur','Maks 200 alat terdaftar','Alert + laporan otomatis','Siap audit KARS/JCI','Atau Rp 1.8jt/tahun']},
-      {name:'Enterprise', desc:'Rumah sakit · unlimited alat', price:'3.5', unit:'jt', period:'per tahun', features:['Unlimited alat terdaftar','Instalasi on-site','Integrasi sistem RS','SLA & dedicated support']},
-    ],
   },
   hris: {
     icon: '👥',
@@ -825,12 +810,6 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download CaseMix Pro',
     priceNote: 'Mulai dari Rp 200rb (30 hari) / Rp 1.5jt (1 tahun)',
     color: '#f59e0b',
-    pricingTiers: [
-      {name:'Trial', desc:'Coba gratis · 1 hari · 5 user', price:'Gratis', unit:'', period:'1× per HWID', features:['Akses semua fitur 9 tabs','Maks 5 user','Eksplorasi penuh selama 24 jam','Aktivasi dari dalam app']},
-      {name:'Basic', desc:'Klinik / RS-D · 5 user', price:'200', unit:'rb', period:'per 30 hari', features:['9 dashboard tabs lengkap','Maks 5 user aktif','Upload TXT E-Klaim unlimited','Auto INM Report Kemenkes','Atau Rp 1.5jt/tahun']},
-      {name:'Pro', desc:'RS-C menengah · 15 user', price:'400', unit:'rb', period:'per 30 hari', popular:true, features:['9 dashboard tabs + DPJP Scorecard','Maks 15 user aktif','Optimization Engine + Audit Shield','Clinical Profile + Comorbidity','Master Spesialisasi KKI','Atau Rp 3jt/tahun']},
-      {name:'Enterprise', desc:'RS-A/B besar · unlimited user', price:'5', unit:'jt', period:'per tahun', features:['Unlimited user','Semua fitur + DPJP Deduplication','Priority support + training','Custom report (opsional)','Integrasi SIMRS (opsional)']},
-    ],
   },
 };
 
@@ -880,7 +859,6 @@ function showProductPage(code) {
         <div class="pd-title">${p.name}</div>
         <div style="font-size:14px;font-weight:600;color:${p.color};margin-bottom:10px">${p.tagline}</div>
         <div class="pd-subtitle">${p.desc}</div>
-        <div style="margin-top:14px;font-size:13px;font-weight:600;color:var(--text2)">💰 ${p.priceNote}</div>
       </div>
       <div class="pd-actions">${actionsHtml}</div>
     </div>
@@ -908,31 +886,76 @@ function showProductPage(code) {
       </div>
     </div>
 
-    ${p.pricingTiers && p.pricingTiers.length ? `
-    <div class="pd-pricing">
+    <div id="pd-pricing-mount" class="pd-pricing">
       <h3 style="margin-bottom:18px;font-size:22px;font-weight:800;color:var(--dark)">Paket Harga ${p.name}</h3>
-      <div class="pricing-grid">
-        ${p.pricingTiers.map(t => `
-          <div class="price-card${t.popular ? ' popular' : ''}">
-            ${t.popular ? '<div class="popular-badge">POPULER</div>' : ''}
-            <div class="price-name">${t.name}</div>
-            <div class="price-desc">${t.desc || ''}</div>
-            <div class="price-amount">${t.price}${t.unit ? `<sub>${t.unit}</sub>` : ''}</div>
-            <div class="price-period">${t.period || ''}</div>
-            <ul class="price-features">
-              ${t.features.map(f => `<li>${f}</li>`).join('')}
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price ${t.popular ? 'btn-price-primary' : 'btn-price-outline'}">Pilih ${t.name}</a>
-          </div>
-        `).join('')}
+      <div id="pd-pricing-grid" class="pricing-grid">
+        <div style="grid-column:1/-1;text-align:center;color:var(--text3);padding:40px">⏳ Memuat harga...</div>
       </div>
     </div>
-    ` : ''}
   `;
 
   showPage('product');
-  // Load dynamic download link if available
   loadProductDownload(code);
+  loadProductPricing(code);  // dynamic fetch dari license-server (single source)
+}
+
+// Format harga: 200000 -> "200<sub>rb</sub>", 1500000 -> "1.5<sub>jt</sub>"
+function _formatPrice(rp) {
+  if (rp >= 1_000_000) {
+    const v = rp / 1_000_000;
+    return `${v % 1 === 0 ? v : v.toFixed(1)}<sub>jt</sub>`;
+  }
+  if (rp >= 1_000) {
+    return `${Math.round(rp / 1_000)}<sub>rb</sub>`;
+  }
+  return rp;
+}
+
+// Dynamic pricing dari license-server /api/catalog (proxied via /api/license-catalog)
+// Source of truth tunggal — admin ubah pricing.json -> landing auto-update.
+async function loadProductPricing(code) {
+  const grid = document.getElementById('pd-pricing-grid');
+  if (!grid) return;
+
+  // HRIS tetap pakai HRIS API (existing pattern)
+  if (code === 'hris') {
+    grid.innerHTML = '';
+    grid.id = 'hris-plans-grid';  // re-use existing loader
+    loadHrisPlans();
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/license-catalog');
+    const data = await res.json();
+    const products = data.products || [];
+    const prod = products.find(p => p.code === code);
+    if (!prod || !prod.packages || !prod.packages.length) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text3);padding:30px">Pricing belum tersedia. Hubungi sales.</div>';
+      return;
+    }
+
+    // Sort by price ascending. POPULER = paket termurah ke-2 atau yang plan='pro'.
+    const pkgs = [...prod.packages].sort((a, b) => (a.price || 0) - (b.price || 0));
+    const popularIdx = pkgs.findIndex(p => p.plan === 'pro');
+
+    grid.innerHTML = pkgs.map((p, i) => {
+      const popular = i === (popularIdx >= 0 ? popularIdx : Math.min(1, pkgs.length - 1));
+      const userLabel = p.users >= 999 ? 'Unlimited user' : `Maks ${p.users} user`;
+      return `
+        <div class="price-card${popular ? ' popular' : ''}">
+          ${popular ? '<div class="popular-badge">POPULER</div>' : ''}
+          <div class="price-name">${p.name}</div>
+          <div class="price-desc">${userLabel}</div>
+          <div class="price-amount">${_formatPrice(p.price)}</div>
+          <div class="price-period">${p.days >= 365 ? 'per tahun' : `per ${p.days} hari`}</div>
+          <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Pilih</a>
+        </div>
+      `;
+    }).join('');
+  } catch (e) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--error)">⚠️ Gagal load pricing. Silakan refresh.</div>';
+  }
 }
 
 function smoothTo(id) {

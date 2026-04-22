@@ -442,23 +442,24 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       </div>
 
       <!-- CaseMix Pro -->
-      <div class="product-card coming">
+      <div class="product-card" onclick="showProductPage('casemix')">
         <div class="pc-top">
           <div class="pc-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
             <img src="/assets/logo-casemix.svg" onerror="this.style.display='none';this.parentNode.textContent='📊'" style="width:100%;height:100%;object-fit:contain">
           </div>
-          <span class="product-status status-coming">Segera Hadir</span>
+          <span class="product-status status-ready">Tersedia</span>
         </div>
         <div class="pc-name">CaseMix Pro</div>
-        <div class="pc-desc">Dashboard monitoring casemix — visualisasi data, trend diagnosis, dan optimasi klaim BPJS Kesehatan.</div>
+        <div class="pc-desc">Analitik klaim BPJS INA-CBG — Executive Overview, DPJP Scorecard, Optimization Engine, Audit Shield, Clinical Profile, dan auto-report Kemenkes (INM).</div>
         <div class="pc-features">
-          <span class="pc-feature-tag">Real-time dashboard</span>
-          <span class="pc-feature-tag">Monitoring BPJS</span>
-          <span class="pc-feature-tag">Trend diagnosis</span>
+          <span class="pc-feature-tag">9 dashboard tabs</span>
+          <span class="pc-feature-tag">DPJP scorecard</span>
+          <span class="pc-feature-tag">Auto INM Kemenkes</span>
+          <span class="pc-feature-tag">On-premise</span>
         </div>
         <div class="pc-footer">
-          <span class="pc-coming-note">Dalam pengembangan</span>
-          <a href="#kontak" onclick="smoothTo('kontak')" style="font-size:13px;color:var(--accent2);font-weight:600">Daftar waiting list</a>
+          <span class="pc-cta">Lihat Detail →</span>
+          <span style="font-size:12px;color:var(--text3)">Mulai Rp 200rb/bln</span>
         </div>
       </div>
 
@@ -729,13 +730,50 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 
       <!-- CaseMix -->
       <div class="price-panel" id="price-casemix" style="display:none">
-        <div class="coming-panel">
-          <div class="big-icon">📊</div>
-          <h3>CaseMix Pro</h3>
-          <p>Sedang dalam tahap pengembangan. Daftar untuk mendapatkan akses awal dan harga spesial launching.</p>
-          <div class="coming-actions">
-            <button onclick="smoothTo('kontak')" class="btn-primary">Daftar Waiting List</button>
-            <button onclick="smoothTo('kontak')" class="btn-secondary">Minta Info Lengkap</button>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-name">Basic</div>
+            <div class="price-desc">Klinik / RS-D · 5 user</div>
+            <div class="price-amount">200<sub>rb</sub></div>
+            <div class="price-period">per 30 hari</div>
+            <ul class="price-features">
+              <li>9 dashboard tabs lengkap</li>
+              <li>Maks 5 user aktif</li>
+              <li>Upload TXT E-Klaim unlimited</li>
+              <li>Auto INM Report Kemenkes</li>
+              <li>Atau Rp 1.5jt/tahun</li>
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Basic</a>
+          </div>
+          <div class="price-card popular">
+            <div class="popular-badge">POPULER</div>
+            <div class="price-name">Pro</div>
+            <div class="price-desc">RS-C menengah · 15 user</div>
+            <div class="price-amount">400<sub>rb</sub></div>
+            <div class="price-period">per 30 hari</div>
+            <ul class="price-features">
+              <li>9 dashboard tabs + DPJP Scorecard</li>
+              <li>Maks 15 user aktif</li>
+              <li>Optimization Engine + Audit Shield</li>
+              <li>Clinical Profile + Comorbidity</li>
+              <li>Master Spesialisasi KKI</li>
+              <li>Atau Rp 3jt/tahun</li>
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Pro</a>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Enterprise</div>
+            <div class="price-desc">RS-A/B besar · unlimited user</div>
+            <div class="price-amount">5<sub>jt</sub></div>
+            <div class="price-period">per tahun</div>
+            <ul class="price-features">
+              <li>Unlimited user</li>
+              <li>Semua fitur + DPJP Deduplication</li>
+              <li>Priority support + training</li>
+              <li>Custom report (opsional)</li>
+              <li>Integrasi SIMRS (opsional)</li>
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Hubungi Sales</a>
           </div>
         </div>
       </div>
@@ -753,7 +791,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
             <li>MedOps Pro — full fitur</li>
             <li>UnitCost Pro (saat tersedia)</li>
             <li>Kalibrasi Pro — full fitur</li>
-            <li>CaseMix Pro (saat tersedia)</li>
+            <li>CaseMix Pro — full fitur (9 tabs)</li>
             <li>Modul baru gratis saat rilis</li>
             <li>Maks 15 user aktif</li>
             <li>Dukungan prioritas + training</li>
@@ -978,6 +1016,39 @@ const PRODUCTS = {
     `,
     priceNote: 'Trial 14 hari gratis',
     color: '#6366f1',
+  },
+  casemix: {
+    icon: '📊',
+    iconBg: 'linear-gradient(135deg,#f59e0b,#d97706)',
+    status: 'Tersedia',
+    statusClass: 'status-ready',
+    name: 'CaseMix Pro',
+    tagline: 'Analitik Klaim BPJS INA-CBG',
+    desc: 'Platform analitik komprehensif untuk klaim BPJS INA-CBG. Upload TXT E-Klaim periodik, dapatkan Executive Overview, DPJP Scorecard, Optimization Engine (deteksi under-coding & top-up), Audit Shield untuk hadapi visitasi BPJS, Clinical Profile per spesialis, dan auto-generate INM Report Kemenkes.',
+    features: [
+      'Executive Overview: KPI, revenue trend + forecast',
+      'Financial Deep Dive: DRG profitability + heatmap DRG×DPJP',
+      'DPJP Scorecard: ranking per dokter + badge auto',
+      'Optimization Engine: deteksi under-coding & top-up opportunity',
+      'Case Manager Workbench: attention queue + discharge planning',
+      'Audit & Quality Shield: risk scoring + Justifikasi Klinis HTML',
+      'Clinical Profile: comorbidity, mortality, LOS distribution',
+      'Reports & Export: PDF Executive + Excel raw + INM Kemenkes',
+      'Master Spesialisasi KKI + DPJP Deduplication',
+      'Multi-user via LAN (1 install untuk seluruh RS)',
+    ],
+    specs: [
+      {label:'Tipe', val:'On-premise (local)'},
+      {label:'Database', val:'SQLite (lokal)'},
+      {label:'Platform', val:'Windows (web interface)'},
+      {label:'Multi-user', val:'Ya, via LAN'},
+      {label:'Internet', val:'Tidak diperlukan'},
+      {label:'Update', val:'Auto via Hub'},
+    ],
+    downloadBtn: true,
+    downloadLabel: '⬇ Download CaseMix Pro',
+    priceNote: 'Mulai dari Rp 200rb (30 hari) / Rp 1.5jt (1 tahun)',
+    color: '#f59e0b',
   },
 };
 

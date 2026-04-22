@@ -119,6 +119,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .pd-grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
 .pd-card{background:#fff;border-radius:16px;border:1.5px solid var(--border);padding:28px}
 .pd-card h4{font-size:14px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px}
+.pd-pricing{margin-top:32px;padding-top:32px;border-top:2px solid var(--border)}
 .feature-list{list-style:none;display:flex;flex-direction:column;gap:10px}
 .feature-list li{font-size:14px;color:var(--text);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .feature-list li::before{content:'';width:17px;height:17px;border-radius:50%;background:var(--primary-light);border:2px solid var(--primary);flex-shrink:0;margin-top:1px}
@@ -276,7 +277,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <button onclick="showPage('home');smoothTo('produk')">Produk</button>
       <button onclick="showPage('home');smoothTo('fitur')">Fitur</button>
       <button onclick="showPage('home');smoothTo('cara-pakai')">Download</button>
-      <button onclick="showPage('home');smoothTo('harga')">Harga</button>
+      <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>
       <button onclick="showPage('home');smoothTo('kontak')" class="nav-cta">Hubungi Kami</button>
     </div>
   </div>
@@ -361,7 +362,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <div class="pc-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
             <img src="/assets/logo-medops.svg" onerror="this.style.display='none';this.parentNode.textContent='📦'" style="width:100%;height:100%;object-fit:contain">
           </div>
-          <span class="product-status status-ready">Tersedia</span>
+          <span class="product-status status-coming">Segera Hadir</span>
         </div>
         <div class="pc-name">MedOps Pro</div>
         <div class="pc-desc">Manajemen pengadaan ATK & RTK — dari permintaan unit, persetujuan direktur, pembelian, hingga distribusi dan pelaporan.</div>
@@ -383,7 +384,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <div class="pc-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
             <img src="/assets/logo-unitcost.svg" onerror="this.style.display='none';this.parentNode.textContent='💰'" style="width:100%;height:100%;object-fit:contain">
           </div>
-          <span class="product-status status-ready">Tersedia</span>
+          <span class="product-status status-coming">Segera Hadir</span>
         </div>
         <div class="pc-name">UnitCost Pro</div>
         <div class="pc-desc">Perhitungan unit cost per layanan RS/Klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</div>
@@ -395,7 +396,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
         <div class="pc-footer">
           <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Hubungi kami</span>
+          <span style="font-size:12px;color:var(--text3)">Mulai Rp 250rb/bln</span>
         </div>
       </div>
 
@@ -405,7 +406,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <div class="pc-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
             <img src="/assets/logo-kalibrasi.svg" onerror="this.style.display='none';this.parentNode.textContent='🔬'" style="width:100%;height:100%;object-fit:contain">
           </div>
-          <span class="product-status status-ready">Tersedia</span>
+          <span class="product-status status-coming">Segera Hadir</span>
         </div>
         <div class="pc-name">Kalibrasi Pro</div>
         <div class="pc-desc">Manajemen kalibrasi alat kesehatan — tracking jadwal, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi.</div>
@@ -417,7 +418,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
         <div class="pc-footer">
           <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Rp 100rb/bln</span>
+          <span style="font-size:12px;color:var(--text3)">Mulai Rp 100rb/bln</span>
         </div>
       </div>
 
@@ -511,11 +512,6 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="feature-desc">Fitur baru otomatis terkirim ke aplikasi Anda. Yang dikirim cuma software — bukan data. Database Anda tidak pernah di-upload kemana-mana.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">Dukungan Langsung</div>
-        <div class="feature-desc">Tim support via WhatsApp — instalasi, konfigurasi, troubleshooting. Remote support dikontrol langsung oleh tim IT RS/Klinik Anda.</div>
-      </div>
-      <div class="feature-card">
         <div class="feature-icon">⚖️</div>
         <div class="feature-title">Compliance-Ready</div>
         <div class="feature-desc">Model on-premise membuat RS/Klinik tetap memegang kendali data rekam medis. Siap audit Kemenkes, KARS, dan persyaratan JCI.</div>
@@ -583,239 +579,6 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="harga" class="pricing-bg">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-tag">Harga</div>
-      <h2 class="section-title">Pilih Paket yang Tepat</h2>
-      <p class="section-desc">Pilih per produk atau hemat lebih dengan paket bundle. Semua termasuk instalasi, training, dan dukungan teknis.</p>
-    </div>
-
-    <!-- Per Produk View — no bundle, harga per produk masing-masing -->
-    <div id="view-produk">
-      <div class="product-price-tabs">
-        <button class="ppt active" onclick="showPricing('hris',this)">
-          <div class="ppt-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca)">👥</div>
-          <span><span class="ppt-name">HRIS</span><span class="ppt-desc">Manajemen SDM · SaaS</span></span>
-          <span class="ppt-badge badge-ready">Tersedia</span>
-        </button>
-        <button class="ppt" onclick="showPricing('medops',this)">
-          <div class="ppt-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)">📦</div>
-          <span><span class="ppt-name">MedOps Pro</span><span class="ppt-desc">ATK & RTK</span></span>
-          <span class="ppt-badge badge-ready">Tersedia</span>
-        </button>
-        <button class="ppt" onclick="showPricing('unitcost',this)">
-          <div class="ppt-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</div>
-          <span><span class="ppt-name">UnitCost Pro</span><span class="ppt-desc">Unit Cost RS</span></span>
-          <span class="ppt-badge badge-ready">Tersedia</span>
-        </button>
-        <button class="ppt" onclick="showPricing('kalibrasi',this)">
-          <div class="ppt-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">🔬</div>
-          <span><span class="ppt-name">Kalibrasi Pro</span><span class="ppt-desc">Kalibrasi Alkes</span></span>
-          <span class="ppt-badge badge-ready">Tersedia</span>
-        </button>
-        <button class="ppt" onclick="showPricing('casemix',this)">
-          <div class="ppt-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">📊</div>
-          <span><span class="ppt-name">CaseMix Pro</span><span class="ppt-desc">Analitik BPJS</span></span>
-          <span class="ppt-badge badge-ready">Tersedia</span>
-        </button>
-      </div>
-
-      <!-- HRIS -->
-      <div class="price-panel" id="price-hris">
-        <div class="pricing-grid" id="hris-plans-grid">
-          <div style="grid-column:1/-1;text-align:center;color:var(--text3);padding:40px">⏳ Memuat paket HRIS...</div>
-        </div>
-        <div class="info-box" style="background:#eef2ff;border-left:4px solid #6366f1;border-radius:8px;color:#3730a3;margin-top:16px">
-          ℹ️ <strong>HRIS adalah SaaS cloud</strong> — data karyawan + payroll di-hosting di server TeknoMedis. Trial <strong>14 hari gratis</strong> tanpa kartu kredit, auto-provision dalam 60 detik.
-        </div>
-      </div>
-
-      <!-- MedOps Pro -->
-      <div class="price-panel" id="price-medops" style="display:none">
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-name">Basic</div>
-            <div class="price-desc">RS/Klinik kecil · maks 5 user</div>
-            <div class="price-amount">150<sub>rb</sub></div>
-            <div class="price-period">per bulan</div>
-            <ul class="price-features">
-              <li>MedOps Pro full fitur</li>
-              <li>Maks 5 user aktif</li>
-              <li>Dukungan WhatsApp</li>
-              <li>Update otomatis</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Basic</a>
-          </div>
-          <div class="price-card popular">
-            <div class="popular-badge">POPULER</div>
-            <div class="price-name">Pro</div>
-            <div class="price-desc">RS/Klinik menengah · maks 15 user</div>
-            <div class="price-amount">300<sub>rb</sub></div>
-            <div class="price-period">per bulan</div>
-            <ul class="price-features">
-              <li>MedOps Pro full fitur</li>
-              <li>Maks 15 user aktif</li>
-              <li>Dukungan prioritas</li>
-              <li>Update otomatis</li>
-              <li>Training online</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Pro</a>
-          </div>
-          <div class="price-card">
-            <div class="price-name">Enterprise</div>
-            <div class="price-desc">Rumah sakit · unlimited user</div>
-            <div class="price-amount">Custom</div>
-            <div class="price-period">hubungi kami</div>
-            <ul class="price-features">
-              <li>MedOps Pro full fitur</li>
-              <li>Unlimited user</li>
-              <li>Instalasi on-site</li>
-              <li>Kustomisasi fitur</li>
-              <li>SLA & dedicated support</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Hubungi Sales</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Kalibrasi -->
-      <!-- UnitCost Pro -->
-      <div class="price-panel" id="price-unitcost" style="display:none">
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-name">Pro</div>
-            <div class="price-desc">RS Tipe C/D · 10 user</div>
-            <div class="price-amount">250<sub>rb</sub></div>
-            <div class="price-period">per 30 hari</div>
-            <ul class="price-features">
-              <li>UnitCost Pro full fitur</li>
-              <li>Maks 10 user aktif</li>
-              <li>Metode double distribution & step-down</li>
-              <li>Gap analysis INA-CBG vs real cost</li>
-              <li>Atau Rp 2jt/tahun</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Pro</a>
-          </div>
-          <div class="price-card popular">
-            <div class="popular-badge">POPULER</div>
-            <div class="price-name">Enterprise</div>
-            <div class="price-desc">RS Tipe A/B besar · unlimited user</div>
-            <div class="price-amount">4<sub>jt</sub></div>
-            <div class="price-period">per tahun</div>
-            <ul class="price-features">
-              <li>Unlimited user + cost center</li>
-              <li>Simulasi tarif & break-even</li>
-              <li>Custom cost driver</li>
-              <li>Priority support + training</li>
-              <li>Integrasi SIMRS (opsional)</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Enterprise</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="price-panel" id="price-kalibrasi" style="display:none">
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-name">Starter</div>
-            <div class="price-desc">Klinik kecil · s/d 50 alat</div>
-            <div class="price-amount">100<sub>rb</sub></div>
-            <div class="price-period">per bulan</div>
-            <ul class="price-features">
-              <li>Kalibrasi Pro full fitur</li>
-              <li>Maks 50 alat terdaftar</li>
-              <li>Alert email jatuh tempo</li>
-              <li>Dukungan WhatsApp</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Starter</a>
-          </div>
-          <div class="price-card popular">
-            <div class="popular-badge">POPULER</div>
-            <div class="price-name">Pro</div>
-            <div class="price-desc">RS/Klinik menengah · s/d 200 alat</div>
-            <div class="price-amount">200<sub>rb</sub></div>
-            <div class="price-period">per bulan</div>
-            <ul class="price-features">
-              <li>Kalibrasi Pro full fitur</li>
-              <li>Maks 200 alat terdaftar</li>
-              <li>Alert & laporan otomatis</li>
-              <li>Siap audit KARS/JCI</li>
-              <li>Training online</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Pro</a>
-          </div>
-          <div class="price-card">
-            <div class="price-name">Enterprise</div>
-            <div class="price-desc">Rumah sakit · unlimited alat</div>
-            <div class="price-amount">Custom</div>
-            <div class="price-period">hubungi kami</div>
-            <ul class="price-features">
-              <li>Unlimited alat terdaftar</li>
-              <li>Instalasi on-site</li>
-              <li>Integrasi sistem RS</li>
-              <li>SLA & dedicated support</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Hubungi Sales</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CaseMix -->
-      <div class="price-panel" id="price-casemix" style="display:none">
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-name">Basic</div>
-            <div class="price-desc">Klinik / RS-D · 5 user</div>
-            <div class="price-amount">200<sub>rb</sub></div>
-            <div class="price-period">per 30 hari</div>
-            <ul class="price-features">
-              <li>9 dashboard tabs lengkap</li>
-              <li>Maks 5 user aktif</li>
-              <li>Upload TXT E-Klaim unlimited</li>
-              <li>Auto INM Report Kemenkes</li>
-              <li>Atau Rp 1.5jt/tahun</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Basic</a>
-          </div>
-          <div class="price-card popular">
-            <div class="popular-badge">POPULER</div>
-            <div class="price-name">Pro</div>
-            <div class="price-desc">RS-C menengah · 15 user</div>
-            <div class="price-amount">400<sub>rb</sub></div>
-            <div class="price-period">per 30 hari</div>
-            <ul class="price-features">
-              <li>9 dashboard tabs + DPJP Scorecard</li>
-              <li>Maks 15 user aktif</li>
-              <li>Optimization Engine + Audit Shield</li>
-              <li>Clinical Profile + Comorbidity</li>
-              <li>Master Spesialisasi KKI</li>
-              <li>Atau Rp 3jt/tahun</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Pro</a>
-          </div>
-          <div class="price-card">
-            <div class="price-name">Enterprise</div>
-            <div class="price-desc">RS-A/B besar · unlimited user</div>
-            <div class="price-amount">5<sub>jt</sub></div>
-            <div class="price-period">per tahun</div>
-            <ul class="price-features">
-              <li>Unlimited user</li>
-              <li>Semua fitur + DPJP Deduplication</li>
-              <li>Priority support + training</li>
-              <li>Custom report (opsional)</li>
-              <li>Integrasi SIMRS (opsional)</li>
-            </ul>
-            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Hubungi Sales</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bundle View -->
-  </div>
-</section>
 
 <!-- CTA / KONTAK -->
 <section class="cta-section" id="kontak">
@@ -886,8 +649,8 @@ const PRODUCTS = {
   medops: {
     icon: '📦',
     iconBg: 'linear-gradient(135deg,#0891b2,#0e7490)',
-    status: 'Tersedia',
-    statusClass: 'status-ready',
+    status: 'Segera Hadir',
+    statusClass: 'status-coming',
     name: 'MedOps Pro',
     tagline: 'Manajemen Pengadaan ATK & RTK',
     desc: 'Sistem manajemen pengadaan lengkap — dari permintaan unit, persetujuan direktur, pembelian, hingga distribusi dan pelaporan. Dirancang khusus untuk operasional RS/Klinik Indonesia.',
@@ -913,12 +676,18 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download MedOps Pro',
     priceNote: 'Mulai dari Rp 150.000/bulan',
     color: '#0891b2',
+    comingSoon: true,
+    pricingTiers: [
+      {name:'Starter', desc:'RS/Klinik kecil · 5 user', price:'150', unit:'rb', period:'per 30 hari', features:['MedOps Pro full fitur','Maks 5 user aktif','Dukungan WhatsApp','Atau Rp 1.2jt/tahun']},
+      {name:'Pro', desc:'RS/Klinik menengah · 15 user', price:'300', unit:'rb', period:'per 30 hari', popular:true, features:['MedOps Pro full fitur','Maks 15 user aktif','Dukungan prioritas','Update otomatis','Atau Rp 2.5jt/tahun']},
+      {name:'Enterprise', desc:'RS besar · unlimited user', price:'4', unit:'jt', period:'per tahun', features:['Unlimited user','Instalasi on-site','SLA & dedicated support','Custom report (opsional)']},
+    ],
   },
   unitcost: {
     icon: '💰',
     iconBg: 'linear-gradient(135deg,#10b981,#059669)',
-    status: 'Tersedia',
-    statusClass: 'status-ready',
+    status: 'Segera Hadir',
+    statusClass: 'status-coming',
     name: 'UnitCost Pro',
     tagline: 'Perhitungan Unit Cost per Layanan',
     desc: 'Sistem perhitungan unit cost per layanan RS/Klinik dengan metode double distribution & step-down. Analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.',
@@ -942,14 +711,18 @@ const PRODUCTS = {
     ],
     downloadBtn: true,
     downloadLabel: '⬇ Download UnitCost Pro',
-    priceNote: 'Hubungi kami untuk harga',
+    priceNote: 'Mulai dari Rp 250rb (30 hari) / Rp 2jt (1 tahun)',
     color: '#10b981',
+    pricingTiers: [
+      {name:'Pro', desc:'RS Tipe C/D · 10 user', price:'250', unit:'rb', period:'per 30 hari', popular:true, features:['UnitCost Pro full fitur','Maks 10 user aktif','Metode double distribution & step-down','Gap analysis INA-CBG vs real cost','Atau Rp 2jt/tahun']},
+      {name:'Enterprise', desc:'RS Tipe A/B · unlimited user', price:'4', unit:'jt', period:'per tahun', features:['Unlimited user + cost center','Simulasi tarif & break-even','Custom cost driver','Priority support + training','Integrasi SIMRS (opsional)']},
+    ],
   },
   kalibrasi: {
     icon: '🔬',
     iconBg: 'linear-gradient(135deg,#8b5cf6,#6d28d9)',
-    status: 'Tersedia',
-    statusClass: 'status-ready',
+    status: 'Segera Hadir',
+    statusClass: 'status-coming',
     name: 'Kalibrasi Pro',
     tagline: 'Manajemen Kalibrasi Alat Kesehatan',
     desc: 'Sistem manajemen kalibrasi alat kesehatan — tracking jadwal kalibrasi, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi KARS dan JCI.',
@@ -972,8 +745,13 @@ const PRODUCTS = {
     ],
     downloadBtn: true,
     downloadLabel: '⬇ Download Kalibrasi Pro',
-    priceNote: 'Mulai dari Rp 100.000/bulan',
+    priceNote: 'Mulai dari Rp 100rb (30 hari) / Rp 800rb (1 tahun)',
     color: '#8b5cf6',
+    pricingTiers: [
+      {name:'Starter', desc:'Klinik kecil · 50 alat · 3 user', price:'100', unit:'rb', period:'per 30 hari', features:['Kalibrasi Pro full fitur','Maks 50 alat terdaftar','Alert email jatuh tempo','Atau Rp 800rb/tahun']},
+      {name:'Pro', desc:'RS/Klinik menengah · 200 alat · 10 user', price:'200', unit:'rb', period:'per 30 hari', popular:true, features:['Kalibrasi Pro full fitur','Maks 200 alat terdaftar','Alert + laporan otomatis','Siap audit KARS/JCI','Atau Rp 1.8jt/tahun']},
+      {name:'Enterprise', desc:'Rumah sakit · unlimited alat', price:'3.5', unit:'jt', period:'per tahun', features:['Unlimited alat terdaftar','Instalasi on-site','Integrasi sistem RS','SLA & dedicated support']},
+    ],
   },
   hris: {
     icon: '👥',
@@ -1047,6 +825,12 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download CaseMix Pro',
     priceNote: 'Mulai dari Rp 200rb (30 hari) / Rp 1.5jt (1 tahun)',
     color: '#f59e0b',
+    pricingTiers: [
+      {name:'Trial', desc:'Coba gratis · 1 hari · 5 user', price:'Gratis', unit:'', period:'1× per HWID', features:['Akses semua fitur 9 tabs','Maks 5 user','Eksplorasi penuh selama 24 jam','Aktivasi dari dalam app']},
+      {name:'Basic', desc:'Klinik / RS-D · 5 user', price:'200', unit:'rb', period:'per 30 hari', features:['9 dashboard tabs lengkap','Maks 5 user aktif','Upload TXT E-Klaim unlimited','Auto INM Report Kemenkes','Atau Rp 1.5jt/tahun']},
+      {name:'Pro', desc:'RS-C menengah · 15 user', price:'400', unit:'rb', period:'per 30 hari', popular:true, features:['9 dashboard tabs + DPJP Scorecard','Maks 15 user aktif','Optimization Engine + Audit Shield','Clinical Profile + Comorbidity','Master Spesialisasi KKI','Atau Rp 3jt/tahun']},
+      {name:'Enterprise', desc:'RS-A/B besar · unlimited user', price:'5', unit:'jt', period:'per tahun', features:['Unlimited user','Semua fitur + DPJP Deduplication','Priority support + training','Custom report (opsional)','Integrasi SIMRS (opsional)']},
+    ],
   },
 };
 
@@ -1085,9 +869,8 @@ function showProductPage(code) {
     `;
   }
 
-  actionsHtml += `
-    <button onclick="showPage('home');setTimeout(()=>smoothTo('harga'),100)" class="btn-secondary" style="margin-top:4px">Lihat Harga</button>
-  `;
+  // Pricing inline diagregate di section pd-pricing (di-render dibawah).
+  // Tidak ada lagi button "Lihat Harga" karena udah inline di detail page.
 
   document.getElementById('product-detail-content').innerHTML = `
     <div class="pd-hero">
@@ -1124,6 +907,27 @@ function showProductPage(code) {
         </div>
       </div>
     </div>
+
+    ${p.pricingTiers && p.pricingTiers.length ? `
+    <div class="pd-pricing">
+      <h3 style="margin-bottom:18px;font-size:22px;font-weight:800;color:var(--dark)">Paket Harga ${p.name}</h3>
+      <div class="pricing-grid">
+        ${p.pricingTiers.map(t => `
+          <div class="price-card${t.popular ? ' popular' : ''}">
+            ${t.popular ? '<div class="popular-badge">POPULER</div>' : ''}
+            <div class="price-name">${t.name}</div>
+            <div class="price-desc">${t.desc || ''}</div>
+            <div class="price-amount">${t.price}${t.unit ? `<sub>${t.unit}</sub>` : ''}</div>
+            <div class="price-period">${t.period || ''}</div>
+            <ul class="price-features">
+              ${t.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price ${t.popular ? 'btn-price-primary' : 'btn-price-outline'}">Pilih ${t.name}</a>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    ` : ''}
   `;
 
   showPage('product');
@@ -1140,15 +944,6 @@ function smoothTo(id) {
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
-
-// Pricing tabs
-function showPricing(id, btn) {
-  document.querySelectorAll('#view-produk .price-panel').forEach(p => p.style.display = 'none');
-  document.querySelectorAll('.ppt').forEach(t => t.classList.remove('active'));
-  const panel = document.getElementById('price-' + id);
-  if (panel) panel.style.display = 'block';
-  if (btn) btn.classList.add('active');
-}
 
 // Load HRIS plans from HRIS API directly
 async function loadHrisPlans() {

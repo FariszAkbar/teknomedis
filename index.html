@@ -926,7 +926,10 @@ async function loadProductPricing(code) {
   }
 
   try {
-    const res = await fetch('/api/license-catalog');
+    // Production: nginx route /api/catalog ke license-server.
+    // Local dev tanpa nginx: fallback ke /api/license-catalog proxy landing.
+    let res = await fetch('/api/catalog');
+    if (!res.ok) res = await fetch('/api/license-catalog');
     const data = await res.json();
     const products = data.products || [];
     const prod = products.find(p => p.code === code);

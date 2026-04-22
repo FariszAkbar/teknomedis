@@ -592,13 +592,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <p class="section-desc">Pilih per produk atau hemat lebih dengan paket bundle. Semua termasuk instalasi, training, dan dukungan teknis.</p>
     </div>
 
-    <!-- Mode Toggle -->
-    <div class="price-mode-toggle">
-      <button class="pmt-btn active" id="mode-produk" onclick="setPriceMode('produk')">Per Produk</button>
-      <button class="pmt-btn" id="mode-bundle" onclick="setPriceMode('bundle')">Paket Bundle 🎁</button>
-    </div>
-
-    <!-- Per Produk View -->
+    <!-- Per Produk View — no bundle, harga per produk masing-masing -->
     <div id="view-produk">
       <div class="product-price-tabs">
         <button class="ppt active" onclick="showPricing('hris',this)">
@@ -611,6 +605,11 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <span><span class="ppt-name">MedOps Pro</span><span class="ppt-desc">ATK & RTK</span></span>
           <span class="ppt-badge badge-ready">Tersedia</span>
         </button>
+        <button class="ppt" onclick="showPricing('unitcost',this)">
+          <div class="ppt-icon" style="background:linear-gradient(135deg,#10b981,#059669)">💰</div>
+          <span><span class="ppt-name">UnitCost Pro</span><span class="ppt-desc">Unit Cost RS</span></span>
+          <span class="ppt-badge badge-ready">Tersedia</span>
+        </button>
         <button class="ppt" onclick="showPricing('kalibrasi',this)">
           <div class="ppt-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">🔬</div>
           <span><span class="ppt-name">Kalibrasi Pro</span><span class="ppt-desc">Kalibrasi Alkes</span></span>
@@ -618,8 +617,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </button>
         <button class="ppt" onclick="showPricing('casemix',this)">
           <div class="ppt-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">📊</div>
-          <span><span class="ppt-name">CaseMix Pro</span><span class="ppt-desc">Dashboard</span></span>
-          <span class="ppt-badge badge-coming">Segera</span>
+          <span><span class="ppt-name">CaseMix Pro</span><span class="ppt-desc">Analitik BPJS</span></span>
+          <span class="ppt-badge badge-ready">Tersedia</span>
         </button>
       </div>
 
@@ -682,6 +681,41 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       </div>
 
       <!-- Kalibrasi -->
+      <!-- UnitCost Pro -->
+      <div class="price-panel" id="price-unitcost" style="display:none">
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-name">Pro</div>
+            <div class="price-desc">RS Tipe C/D · 10 user</div>
+            <div class="price-amount">250<sub>rb</sub></div>
+            <div class="price-period">per 30 hari</div>
+            <ul class="price-features">
+              <li>UnitCost Pro full fitur</li>
+              <li>Maks 10 user aktif</li>
+              <li>Metode double distribution & step-down</li>
+              <li>Gap analysis INA-CBG vs real cost</li>
+              <li>Atau Rp 2jt/tahun</li>
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Pilih Pro</a>
+          </div>
+          <div class="price-card popular">
+            <div class="popular-badge">POPULER</div>
+            <div class="price-name">Enterprise</div>
+            <div class="price-desc">RS Tipe A/B besar · unlimited user</div>
+            <div class="price-amount">4<sub>jt</sub></div>
+            <div class="price-period">per tahun</div>
+            <ul class="price-features">
+              <li>Unlimited user + cost center</li>
+              <li>Simulasi tarif & break-even</li>
+              <li>Custom cost driver</li>
+              <li>Priority support + training</li>
+              <li>Integrasi SIMRS (opsional)</li>
+            </ul>
+            <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Enterprise</a>
+          </div>
+        </div>
+      </div>
+
       <div class="price-panel" id="price-kalibrasi" style="display:none">
         <div class="pricing-grid">
           <div class="price-card">
@@ -780,42 +814,6 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     </div>
 
     <!-- Bundle View -->
-    <div id="view-bundle" style="display:none">
-      <div class="bundle-grid">
-        <div class="price-card">
-          <div class="price-name">Bundle Pro</div>
-          <div class="price-desc">Semua produk on-premise · 15 user · <strong style="color:var(--accent)">Hemat 17%</strong></div>
-          <div class="price-amount">500<sub>rb</sub></div>
-          <div class="price-period">per bulan</div>
-          <ul class="price-features">
-            <li>MedOps Pro — full fitur</li>
-            <li>UnitCost Pro (saat tersedia)</li>
-            <li>Kalibrasi Pro — full fitur</li>
-            <li>CaseMix Pro — full fitur (9 tabs)</li>
-            <li>Modul baru gratis saat rilis</li>
-            <li>Maks 15 user aktif</li>
-            <li>Dukungan prioritas + training</li>
-          </ul>
-          <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-primary">Pilih Bundle Pro</a>
-        </div>
-        <div class="price-card popular">
-          <div class="popular-badge">TERLENGKAP</div>
-          <div class="price-name">Bundle Enterprise</div>
-          <div class="price-desc">Semua produk · unlimited user · kustomisasi</div>
-          <div class="price-amount">Custom</div>
-          <div class="price-period">hubungi kami untuk penawaran</div>
-          <ul class="price-features">
-            <li>Semua produk TeknoMedis</li>
-            <li>Unlimited user</li>
-            <li>Instalasi on-site oleh tim kami</li>
-            <li>Kustomisasi fitur sesuai kebutuhan</li>
-            <li>SLA & dedicated support</li>
-            <li>Akses fitur beta eksklusif</li>
-          </ul>
-          <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price btn-price-outline">Hubungi Sales</a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1150,13 +1148,6 @@ function showPricing(id, btn) {
   const panel = document.getElementById('price-' + id);
   if (panel) panel.style.display = 'block';
   if (btn) btn.classList.add('active');
-}
-
-function setPriceMode(mode) {
-  document.getElementById('view-produk').style.display = mode === 'produk' ? 'block' : 'none';
-  document.getElementById('view-bundle').style.display = mode === 'bundle' ? 'block' : 'none';
-  document.getElementById('mode-produk').classList.toggle('active', mode === 'produk');
-  document.getElementById('mode-bundle').classList.toggle('active', mode === 'bundle');
 }
 
 // Load HRIS plans from HRIS API directly

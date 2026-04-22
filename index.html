@@ -1072,11 +1072,18 @@ function showProductPage(code) {
   if (p.extraActions) {
     actionsHtml = p.extraActions;
   } else if (p.downloadBtn) {
+    // Single funnel: semua produk on-premise di-install via Hub TeknoMedis.
+    // RS download Hub sekali → dari Hub UI bisa pilih produk + bayar +
+    // auto-install. Manfaat: cross-sell ke produk lain.
     actionsHtml = `
-      <a href="#" download id="pd-dl-btn" data-product="${code}" class="btn-primary">
-        ${p.downloadLabel}
+      <a href="/downloads/TeknoMedisHubSetup-1.0.4.exe" download class="btn-primary">
+        ⬇ Install via Hub TeknoMedis
       </a>
-      <button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary">Panduan Install</button>
+      <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
+        💡 ${p.name} di-install melalui Hub TeknoMedis (1 installer untuk semua produk).
+        Setelah Hub terpasang → buka Hub → pilih ${p.name} → aktivasi license.
+      </div>
+      <button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary" style="margin-top:8px">Panduan 4 Langkah</button>
     `;
   }
 

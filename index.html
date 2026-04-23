@@ -542,8 +542,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       </div>
       <div class="hub-dl">
         <a href="/downloads/TeknoMedisHubSetup-1.0.4.exe" download id="hub-dl-btn" class="hub-dl-btn">⬇ Download Installer (.exe)</a>
-        <a href="/downloads/TeknoMedis-Hub-v1.0.0.zip" download class="hub-dl-alt">ZIP cross-platform (24K)</a>
-        <div class="hub-dl-note">Windows self-contained · no Python needed</div>
+        <a href="/downloads/TeknoMedis-Hub-v1.1.0.zip" download class="hub-dl-alt" id="hub-dl-zip">ZIP cross-platform</a>
+        <div class="hub-dl-note" id="hub-dl-note">Auto-update aktif · update selanjutnya otomatis</div>
       </div>
     </div>
 
@@ -1040,9 +1040,37 @@ async function loadProductDownload(code) {
       }
     }
     const hubBtn = document.getElementById('hub-dl-btn');
-    if (hubBtn && prods.hub) {
-      hubBtn.href = prods.hub.url;
-      hubBtn.textContent = `⬇ Download Installer v${prods.hub.version}`;
+    const hubZip = document.getElementById('hub-dl-zip');
+    // Find exe + zip variants (scan all keys karena normalisasi kode bisa beda file)
+    let hubExe = null, hubZipFile = null;
+    for (const key of Object.keys(prods)) {
+      const p = prods[key];
+      if (key !== 'hub') continue;
+      if (p.ext === 'exe') hubExe = p;
+      if (p.ext === 'zip') hubZipFile = p;
+    }
+    // Juga scan file Hub ZIP terpisah (kalau landing picks exe sebagai "hub")
+    if (!hubZipFile) {
+      for (const key of Object.keys(prods)) {
+        const p = prods[key];
+        if (p.filename && p.filename.toLowerCase().includes('teknomedis-hub') && p.ext === 'zip') {
+          hubZipFile = p;
+          break;
+        }
+      }
+    }
+    const hubLatest = hubExe || hubZipFile || prods.hub;
+    if (hubBtn && hubLatest) {
+      hubBtn.href = hubLatest.url;
+      const label = hubLatest.ext === 'exe' ? 'Installer (.exe)' : 'ZIP (cross-platform)';
+      hubBtn.textContent = `⬇ Download ${label} v${hubLatest.version}`;
+    }
+    if (hubZip && hubZipFile && hubZipFile !== hubLatest) {
+      hubZip.href = hubZipFile.url;
+      hubZip.textContent = `ZIP cross-platform v${hubZipFile.version} (${hubZipFile.size_mb}MB)`;
+    } else if (hubZip && hubLatest && hubLatest.ext === 'exe') {
+      // Hide zip alt kalau cuma exe yg ada
+      hubZip.style.display = 'none';
     }
   } catch (e) {}
 }

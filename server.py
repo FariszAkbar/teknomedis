@@ -29,8 +29,8 @@ def _scan_downloads():
             continue
         name, maj, mnr, pt, ext = m.groups()
         version = (int(maj), int(mnr), int(pt))
-        # Normalize product name → code
-        code = name.lower().replace('-pro', '').replace(' ', '').replace('_', '')
+        # Normalize product name → code (lowercase, strip separators/suffixes)
+        code = name.lower().replace('-pro', '').replace('-', '').replace(' ', '').replace('_', '')
         if code.startswith('teknomedis'):
             code = code.replace('teknomedishubsetup', 'hub').replace('teknomedishub', 'hub').replace('teknomedis', 'hub')
         # Normalize "<product>setup" -> "<product>" (Inno Setup .exe naming).

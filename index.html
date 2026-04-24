@@ -425,7 +425,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <!-- HRIS -->
       <div class="product-card" onclick="showProductPage('hris')">
         <div class="pc-top">
-          <div class="pc-icon" style="background:linear-gradient(135deg,#6366f1,#4338ca)">👥</div>
+          <div class="pc-icon" style="background:#fff;padding:6px"><img src="/assets/hris-icon.png" alt="HRIS" style="width:100%;height:100%;object-fit:contain"></div>
           <span class="product-status status-saas">Tersedia · SaaS</span>
         </div>
         <div class="pc-name">HRIS TeknoMedis</div>
@@ -739,8 +739,8 @@ const PRODUCTS = {
     color: '#8b5cf6',
   },
   hris: {
-    icon: '👥',
-    iconBg: 'linear-gradient(135deg,#6366f1,#4338ca)',
+    icon: '<img src="/assets/hris-icon.png" alt="HRIS" style="width:72%;height:72%;object-fit:contain">',
+    iconBg: '#fff',
     status: 'Tersedia · SaaS',
     statusClass: 'status-saas',
     name: 'HRIS TeknoMedis',

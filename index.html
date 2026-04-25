@@ -378,47 +378,25 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
       </div>
 
-      <!-- UnitCost Pro -->
-      <div class="product-card" onclick="showProductPage('unitcost')">
+      <!-- TeknoMedis Care -->
+      <div class="product-card" onclick="showProductPage('care')">
         <div class="pc-top">
-          <div class="pc-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
-            <img src="/assets/logo-unitcost.svg" onerror="this.style.display='none';this.parentNode.textContent='💰'" style="width:100%;height:100%;object-fit:contain">
+          <div class="pc-icon" style="background:linear-gradient(135deg,#0d7a8a,#0891b2)">
+            <img src="/assets/logo-care.svg" onerror="this.style.display='none';this.parentNode.textContent='🩺'" style="width:100%;height:100%;object-fit:contain">
           </div>
-          <span class="product-status status-coming">Segera Hadir</span>
+          <span class="product-status status-saas">Tersedia · SaaS</span>
         </div>
-        <div class="pc-name">UnitCost Pro</div>
-        <div class="pc-desc">Perhitungan unit cost per layanan RS/Klinik — analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.</div>
+        <div class="pc-name">TeknoMedis Care</div>
+        <div class="pc-desc">Telemedicine SaaS — pasien booking online via app Halo Hasna, dokter terima notif via Dokter Hasna. Plus chatbot AI untuk customer service 24/7.</div>
         <div class="pc-features">
-          <span class="pc-feature-tag">Double distribution</span>
-          <span class="pc-feature-tag">Gap analysis INA-CBG</span>
-          <span class="pc-feature-tag">Break-even</span>
-          <span class="pc-feature-tag">On-premise</span>
+          <span class="pc-feature-tag">Mobile app pasien & dokter</span>
+          <span class="pc-feature-tag">Booking online</span>
+          <span class="pc-feature-tag">Chat AI 24/7</span>
+          <span class="pc-feature-tag">Cloud SaaS</span>
         </div>
         <div class="pc-footer">
           <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Mulai Rp 250rb/bln</span>
-        </div>
-      </div>
-
-      <!-- Kalibrasi Pro -->
-      <div class="product-card" onclick="showProductPage('kalibrasi')">
-        <div class="pc-top">
-          <div class="pc-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
-            <img src="/assets/logo-kalibrasi.svg" onerror="this.style.display='none';this.parentNode.textContent='🔬'" style="width:100%;height:100%;object-fit:contain">
-          </div>
-          <span class="product-status status-coming">Segera Hadir</span>
-        </div>
-        <div class="pc-name">Kalibrasi Pro</div>
-        <div class="pc-desc">Manajemen kalibrasi alat kesehatan — tracking jadwal, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi.</div>
-        <div class="pc-features">
-          <span class="pc-feature-tag">Alert jatuh tempo</span>
-          <span class="pc-feature-tag">Siap KARS/JCI</span>
-          <span class="pc-feature-tag">Riwayat per alat</span>
-          <span class="pc-feature-tag">On-premise</span>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Mulai Rp 100rb/bln</span>
+          <span style="font-size:12px;color:var(--text3)">Mulai Rp 150rb/bln</span>
         </div>
       </div>
 
@@ -565,7 +543,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     </div>
 
     <div class="info-box info-yellow" style="margin-top:20px">
-      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix, MedOps, Kalibrasi), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Hub cuma untuk pembelian + manajemen lisensi.
+      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix, MedOps), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Untuk SaaS (HRIS, TeknoMedis Care), data tersimpan di cloud TeknoMedis dengan enkripsi.
     </div>
   </div>
 </section>
@@ -668,66 +646,44 @@ const PRODUCTS = {
     priceNote: 'Mulai dari Rp 150.000/bulan',
     color: '#0891b2',
   },
-  unitcost: {
-    icon: '💰',
-    iconBg: 'linear-gradient(135deg,#10b981,#059669)',
-    status: 'Segera Hadir',
-    statusClass: 'status-coming',
-    name: 'UnitCost Pro',
-    tagline: 'Perhitungan Unit Cost per Layanan',
-    desc: 'Sistem perhitungan unit cost per layanan RS/Klinik dengan metode double distribution & step-down. Analisa biaya satuan, evaluasi tarif, dan optimasi efisiensi operasional.',
+  care: {
+    icon: '🩺',
+    iconBg: 'linear-gradient(135deg,#0d7a8a,#0891b2)',
+    status: 'Tersedia · SaaS',
+    statusClass: 'status-saas',
+    name: 'TeknoMedis Care',
+    tagline: 'Telemedicine SaaS — Halo Hasna + Dokter Hasna',
+    desc: 'Platform telemedicine cloud — pasien booking online via app Halo Hasna, dokter terima notifikasi via app Dokter Hasna. Plus chatbot AI 24/7 untuk customer service via WhatsApp. Auto-provision tenant 60 detik setelah pembelian.',
     features: [
-      'Perhitungan biaya satuan per tindakan/layanan',
-      'Analisa cost center & cost driver',
-      'Metode double distribution & step-down',
-      'Perbandingan tarif RS vs unit cost aktual',
-      'Simulasi tarif & break-even analysis',
-      'Gap analysis INA-CBG vs real cost',
-      'Laporan per unit, layanan, periode',
-      'Dashboard visual cost efficiency',
+      'App pasien Halo Hasna (Android) — booking, chat, video call',
+      'App dokter Dokter Hasna (Android) — schedule, notif, chat pasien',
+      'Booking online layanan klinik (offline visit + telemedicine)',
+      'Chat AI customer service 24/7 (WhatsApp via Fonnte)',
+      'Knowledge base + FAQ chatbot per klinik',
+      'Take-over manual chat oleh staff klinik',
+      'Push notification real-time (FCM)',
+      'Branding klinik: logo, warna, jam operasional',
+      'Multi-tenant cloud — auto-provision setelah bayar',
+      'Magic-link login (1 klik dari email)',
     ],
     specs: [
-      {label:'Tipe', val:'On-premise (local)'},
-      {label:'Database', val:'SQLite (lokal)'},
-      {label:'Platform', val:'Windows (web interface)'},
-      {label:'Metode', val:'Double distribution, Step-down'},
-      {label:'Internet', val:'Tidak diperlukan'},
-      {label:'Update', val:'Auto via Hub'},
+      {label:'Tipe', val:'SaaS Cloud'},
+      {label:'Database', val:'Server TeknoMedis'},
+      {label:'Platform', val:'Web admin + 2 Android APK'},
+      {label:'Mobile App', val:'Halo Hasna + Dokter Hasna'},
+      {label:'Internet', val:'Diperlukan'},
+      {label:'Provision', val:'Auto 60 detik'},
     ],
-    downloadBtn: true,
-    downloadLabel: '⬇ Download UnitCost Pro',
-    priceNote: 'Mulai dari Rp 250rb (30 hari) / Rp 2jt (1 tahun)',
-    color: '#10b981',
-  },
-  kalibrasi: {
-    icon: '🔬',
-    iconBg: 'linear-gradient(135deg,#8b5cf6,#6d28d9)',
-    status: 'Segera Hadir',
-    statusClass: 'status-coming',
-    name: 'Kalibrasi Pro',
-    tagline: 'Manajemen Kalibrasi Alat Kesehatan',
-    desc: 'Sistem manajemen kalibrasi alat kesehatan — tracking jadwal kalibrasi, sertifikat, vendor, dan alert jatuh tempo untuk compliance akreditasi KARS dan JCI.',
-    features: [
-      'Master data alkes & vendor kalibrasi',
-      'Jadwal kalibrasi tahunan per alat',
-      'Tracking sertifikat & dokumen pendukung',
-      'Alert otomatis jatuh tempo kalibrasi',
-      'Riwayat kalibrasi & hasil uji per alat',
-      'Compliance siap audit KARS/JCI',
-      'Laporan per unit / periode / vendor',
-    ],
-    specs: [
-      {label:'Tipe', val:'On-premise (local)'},
-      {label:'Database', val:'SQLite (lokal)'},
-      {label:'Platform', val:'Windows (web interface)'},
-      {label:'Compliance', val:'KARS, JCI, Kemenkes'},
-      {label:'Internet', val:'Tidak diperlukan'},
-      {label:'Update', val:'Auto via Hub'},
-    ],
-    downloadBtn: true,
-    downloadLabel: '⬇ Download Kalibrasi Pro',
-    priceNote: 'Mulai dari Rp 100rb (30 hari) / Rp 800rb (1 tahun)',
-    color: '#8b5cf6',
+    downloadBtn: false,
+    extraActions: `
+      <a href="https://hub.teknomedis.com" target="_blank" class="btn-primary" style="background:#0d7a8a">🌐 Beli via Hub</a>
+      <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
+        ☁️ TeknoMedis Care SaaS — beli langsung di Hub web. Tenant otomatis aktif + email berisi link login (1 klik).
+      </div>
+      <a href="https://care.teknomedis.com" target="_blank" class="btn-secondary" style="margin-top:8px;display:inline-block">🔐 Login Admin Care</a>
+    `,
+    priceNote: 'Mulai dari Rp 150rb (Premium 30 hari) / Rp 1,5jt (1 tahun) / Rp 3,5jt (Enterprise +Telemedicine 1 tahun)',
+    color: '#0d7a8a',
   },
   hris: {
     icon: '<img src="/assets/hris-icon.png" alt="HRIS" style="width:72%;height:72%;object-fit:contain">',

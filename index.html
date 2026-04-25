@@ -889,9 +889,16 @@ async function loadProductPricing(code) {
     const pkgs = [...prod.packages].sort((a, b) => (a.price || 0) - (b.price || 0));
     const popularIdx = pkgs.findIndex(p => p.plan === 'pro');
 
+    // Label kontekstual per produk
+    const unitLabel = (
+      code === 'hris' ? 'karyawan' :
+      code === 'care' ? 'staf klinik' :
+      'operator'  // casemix, medops, kalibrasi, unitcost
+    );
+
     grid.innerHTML = pkgs.map((p, i) => {
       const popular = i === (popularIdx >= 0 ? popularIdx : Math.min(1, pkgs.length - 1));
-      const userLabel = p.users >= 999 ? 'Unlimited user' : `Maks ${p.users} user`;
+      const userLabel = p.users >= 999 ? `Unlimited ${unitLabel}` : `Maks ${p.users} ${unitLabel}`;
       return `
         <div class="price-card${popular ? ' popular' : ''}">
           ${popular ? '<div class="popular-badge">POPULER</div>' : ''}

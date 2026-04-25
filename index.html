@@ -533,7 +533,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <p class="section-desc">Download Hub dulu sebagai launcher — gratis. Produk bisa diexplore sebelum beli lisensi.</p>
     </div>
 
-    <div class="hub-callout">
+    <div class="hub-callout" id="download-hub">
       <div class="hub-icon">🏗️</div>
       <div>
         <div class="hub-step-label">LANGKAH 1 — WAJIB DULU</div>
@@ -541,8 +541,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="hub-desc">Aplikasi pusat untuk <strong>beli lisensi</strong> (pembayaran Midtrans) dan <strong>launcher</strong> semua produk yang sudah terinstall. Install 1× di PC server RS/Klinik.</div>
       </div>
       <div class="hub-dl">
-        <a href="/downloads/TeknoMedisHubSetup-1.0.4.exe" download id="hub-dl-btn" class="hub-dl-btn">⬇ Download Installer (.exe)</a>
-        <a href="/downloads/TeknoMedis-Hub-v1.1.0.zip" download class="hub-dl-alt" id="hub-dl-zip">ZIP cross-platform</a>
+        <a href="/downloads/TeknoMedisHubSetup.exe" download id="hub-dl-btn" class="hub-dl-btn">⬇ Download Installer (.exe)</a>
+        <a href="/downloads/TeknoMedis-Hub-v1.1.5.zip" download class="hub-dl-alt" id="hub-dl-zip">ZIP cross-platform</a>
         <div class="hub-dl-note" id="hub-dl-note">Auto-update aktif · update selanjutnya otomatis</div>
       </div>
     </div>
@@ -768,7 +768,7 @@ const PRODUCTS = {
     ],
     downloadBtn: false,
     extraActions: `
-      <a href="https://hris.teknomedis.com/register" target="_blank" class="btn-primary" style="background:var(--indigo)">🚀 Mulai Trial Gratis</a>
+      <a href="#download-hub" target="_blank" class="btn-primary" style="background:var(--indigo)">📥 Install Hub Sekarang</a>
       <a href="/downloads/HRIS-v0.2.0-arm64.apk" download class="btn-secondary">📱 Download APK arm64 (23MB)</a>
       <div style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.6">
         HP lama? <a href="/downloads/HRIS-v0.2.0-armv7.apk" download style="color:var(--indigo)">armv7 (21MB)</a> ·
@@ -837,7 +837,7 @@ function showProductPage(code) {
     // RS download Hub sekali → dari Hub UI bisa pilih produk + bayar +
     // auto-install. Manfaat: cross-sell ke produk lain.
     actionsHtml = `
-      <a href="/downloads/TeknoMedisHubSetup-1.0.4.exe" download class="btn-primary">
+      <a href="/downloads/TeknoMedisHubSetup.exe" download class="btn-primary">
         ⬇ Install via Hub TeknoMedis
       </a>
       <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
@@ -1008,15 +1008,15 @@ async function loadHrisPlans() {
             <li>${unlimited ? 'Unlimited karyawan + Priority Support' : 'Max ' + p.employee_limit + ' karyawan aktif'}</li>
             <li>Trial 14 hari gratis</li>
           </ul>
-          <a href="https://hris.teknomedis.com/register" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">🚀 Mulai Trial</a>
+          <a href="#download-hub" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">📥 Install Hub</a>
         </div>
       `;
     }).join('');
   } catch (e) {
     grid.innerHTML = `
-      <div class="price-card"><div class="price-name">Starter</div><div class="price-desc">Maks 10 karyawan</div><div class="price-amount">99<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Cuti berjenjang</li><li>Trial 14 hari gratis</li></ul><a href="https://hris.teknomedis.com/register" target="_blank" class="btn-price btn-price-outline">Mulai Trial</a></div>
-      <div class="price-card popular"><div class="popular-badge">POPULER</div><div class="price-name">Basic</div><div class="price-desc">Maks 25 karyawan</div><div class="price-amount">249<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Jasa medis dokter</li><li>TTD digital direktur</li><li>Trial 14 hari gratis</li></ul><a href="https://hris.teknomedis.com/register" target="_blank" class="btn-price btn-price-primary">Mulai Trial</a></div>
-      <div class="price-card"><div class="price-name">Pro</div><div class="price-desc">Maks 50 karyawan</div><div class="price-amount">499<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Semua fitur Basic</li><li>Excel bulk upload</li><li>Priority support</li><li>Trial 14 hari gratis</li></ul><a href="https://hris.teknomedis.com/register" target="_blank" class="btn-price btn-price-outline">Mulai Trial</a></div>
+      <div class="price-card"><div class="price-name">Starter</div><div class="price-desc">Maks 10 karyawan</div><div class="price-amount">99<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Cuti berjenjang</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
+      <div class="price-card popular"><div class="popular-badge">POPULER</div><div class="price-name">Basic</div><div class="price-desc">Maks 25 karyawan</div><div class="price-amount">249<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Jasa medis dokter</li><li>TTD digital direktur</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-primary">Install Hub</a></div>
+      <div class="price-card"><div class="price-name">Pro</div><div class="price-desc">Maks 50 karyawan</div><div class="price-amount">499<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Semua fitur Basic</li><li>Excel bulk upload</li><li>Priority support</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
     `;
   }
 }

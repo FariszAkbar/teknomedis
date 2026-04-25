@@ -528,53 +528,44 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 <section id="cara-pakai" class="cara-pakai">
   <div class="container">
     <div class="section-head">
-      <div class="section-tag">Download & Mulai</div>
-      <h2 class="section-title">4 Langkah Mulai Pakai</h2>
-      <p class="section-desc">Download Hub dulu sebagai launcher — gratis. Produk bisa diexplore sebelum beli lisensi.</p>
+      <div class="section-tag">Cara Mulai</div>
+      <h2 class="section-title">3 Langkah Mulai Pakai</h2>
+      <p class="section-desc">Buka TeknoMedis Hub di browser, pilih produk, bayar — license dikirim otomatis ke email Anda.</p>
     </div>
 
     <div class="hub-callout" id="download-hub">
-      <div class="hub-icon">🏗️</div>
+      <div class="hub-icon">☁️</div>
       <div>
-        <div class="hub-step-label">LANGKAH 1 — WAJIB DULU</div>
-        <div class="hub-title">TeknoMedis Hub</div>
-        <div class="hub-desc">Aplikasi pusat untuk <strong>beli lisensi</strong> (pembayaran Midtrans) dan <strong>launcher</strong> semua produk yang sudah terinstall. Install 1× di PC server RS/Klinik.</div>
+        <div class="hub-step-label">LANGKAH 1 — BUKA DI BROWSER</div>
+        <div class="hub-title">TeknoMedis Hub Online</div>
+        <div class="hub-desc">Portal pusat untuk <strong>beli paket</strong> (pembayaran Midtrans) + <strong>kelola subscription</strong> semua produk TeknoMedis. Tidak perlu install — buka langsung di browser.</div>
       </div>
       <div class="hub-dl">
-        <a href="/downloads/TeknoMedisHubSetup.exe" download id="hub-dl-btn" class="hub-dl-btn">⬇ Download Installer (.exe)</a>
-        <a href="/downloads/TeknoMedis-Hub-v1.1.5.zip" download class="hub-dl-alt" id="hub-dl-zip">ZIP cross-platform</a>
-        <div class="hub-dl-note" id="hub-dl-note">Auto-update aktif · update selanjutnya otomatis</div>
+        <a href="https://hub.teknomedis.com" target="_blank" id="hub-dl-btn" class="hub-dl-btn">🌐 Buka Hub Online</a>
+        <div class="hub-dl-note" id="hub-dl-note">hub.teknomedis.com · selalu versi terbaru</div>
       </div>
     </div>
 
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num" style="background:var(--primary)">1</div>
-        <div class="step-title">🏗️ Install Hub</div>
-        <div class="step-desc">Jalankan installer atau extract ZIP lalu <code>install.bat</code> → <code>start.bat</code>. Buka <code>localhost:8050</code> di browser.</div>
+        <div class="step-title">🌐 Buka Hub di Browser</div>
+        <div class="step-desc">Akses <a href="https://hub.teknomedis.com" target="_blank" style="color:var(--primary);font-weight:600">hub.teknomedis.com</a> dari browser apa saja. Lihat semua produk, paket, dan harga.</div>
       </div>
       <div class="step-card">
         <div class="step-num" style="background:var(--primary)">2</div>
-        <div class="step-title">💳 Beli dari Hub</div>
-        <div class="step-desc">Di tab <strong>Store</strong>, pilih produk + paket — bayar via Midtrans. License key otomatis dikirim ke email, terikat HWID PC.</div>
+        <div class="step-title">💳 Beli Paket</div>
+        <div class="step-desc">Pilih produk + paket → bayar via Midtrans (VA, e-wallet, kartu kredit). Untuk on-premise: input HWID PC klinik. Untuk SaaS (HRIS, Care): cukup email.</div>
       </div>
       <div class="step-card">
-        <div class="step-num" style="background:var(--primary)">3</div>
-        <div class="step-title">⬇ Download Produk</div>
-        <div class="step-desc">Download ZIP produk (MedOps/UnitCost/Kalibrasi) dari halaman produk masing-masing. Install dengan installer yang sama.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num" style="background:var(--accent)">4</div>
-        <div class="step-title">✓ Aktivasi & Jalan</div>
-        <div class="step-desc">Paste license key di aplikasi, atau buka via Hub → tab <strong>Lisensi Saya</strong>. Siap dipakai semua unit di LAN klinik.</div>
+        <div class="step-num" style="background:var(--accent)">3</div>
+        <div class="step-title">✓ Akses Aplikasi</div>
+        <div class="step-desc"><strong>SaaS</strong>: email berisi link login otomatis (1 klik).<br><strong>On-premise</strong>: email berisi license key + link installer per-produk → install di PC klinik.</div>
       </div>
     </div>
 
     <div class="info-box info-yellow" style="margin-top:20px">
-      📌 <strong>Penting:</strong> Hub + produk gratis di-download & di-install. Anda bisa eksplor fitur sebelum beli lisensi. Saat dijalankan, semua data RS/Klinik tersimpan lokal di PC Anda — tidak pernah ke server kami.
-    </div>
-    <div class="info-box info-blue" style="margin-top:12px">
-      🛡️ <strong>Windows Defender:</strong> Saat pertama buka <code>TeknoMedisHubSetup.exe</code>, Windows mungkin tampil <em>"Windows protected your PC"</em>. Ini normal untuk installer baru yang belum code-signed. Klik <em>"More info"</em> → <em>"Run anyway"</em> untuk melanjutkan.
+      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix, MedOps, Kalibrasi), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Hub cuma untuk pembelian + manajemen lisensi.
     </div>
   </div>
 </section>
@@ -833,18 +824,18 @@ function showProductPage(code) {
   if (p.extraActions) {
     actionsHtml = p.extraActions;
   } else if (p.downloadBtn) {
-    // Single funnel: semua produk on-premise di-install via Hub TeknoMedis.
-    // RS download Hub sekali → dari Hub UI bisa pilih produk + bayar +
-    // auto-install. Manfaat: cross-sell ke produk lain.
+    // Single funnel: semua produk dibeli via Hub web (hub.teknomedis.com).
+    // Klinik gak perlu install Hub — buka di browser, beli, dapat installer
+    // per-produk via email + license key.
     actionsHtml = `
-      <a href="/downloads/TeknoMedisHubSetup.exe" download class="btn-primary">
-        ⬇ Install via Hub TeknoMedis
+      <a href="https://hub.teknomedis.com" target="_blank" class="btn-primary">
+        🌐 Beli via Hub TeknoMedis
       </a>
       <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
-        💡 ${p.name} di-install melalui Hub TeknoMedis (1 installer untuk semua produk).
-        Setelah Hub terpasang → buka Hub → pilih ${p.name} → aktivasi license.
+        💡 ${p.name} bisa dibeli langsung di Hub TeknoMedis (web).
+        Pilih ${p.name} → bayar → email berisi license key + link installer.
       </div>
-      <button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary" style="margin-top:8px">Panduan 4 Langkah</button>
+      <button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary" style="margin-top:8px">Panduan 3 Langkah</button>
     `;
   }
 
@@ -1039,44 +1030,13 @@ async function loadProductDownload(code) {
         btn.style.pointerEvents = 'none';
       }
     }
-    const hubBtn = document.getElementById('hub-dl-btn');
-    const hubZip = document.getElementById('hub-dl-zip');
-    // Find exe + zip variants (scan all keys karena normalisasi kode bisa beda file)
-    let hubExe = null, hubZipFile = null;
-    for (const key of Object.keys(prods)) {
-      const p = prods[key];
-      if (key !== 'hub') continue;
-      if (p.ext === 'exe') hubExe = p;
-      if (p.ext === 'zip') hubZipFile = p;
-    }
-    // Juga scan file Hub ZIP terpisah (kalau landing picks exe sebagai "hub")
-    if (!hubZipFile) {
-      for (const key of Object.keys(prods)) {
-        const p = prods[key];
-        if (p.filename && p.filename.toLowerCase().includes('teknomedis-hub') && p.ext === 'zip') {
-          hubZipFile = p;
-          break;
-        }
-      }
-    }
-    const hubLatest = hubExe || hubZipFile || prods.hub;
-    if (hubBtn && hubLatest) {
-      hubBtn.href = hubLatest.url;
-      const label = hubLatest.ext === 'exe' ? 'Installer (.exe)' : 'ZIP (cross-platform)';
-      hubBtn.textContent = `⬇ Download ${label} v${hubLatest.version}`;
-    }
-    if (hubZip && hubZipFile && hubZipFile !== hubLatest) {
-      hubZip.href = hubZipFile.url;
-      hubZip.textContent = `ZIP cross-platform v${hubZipFile.version} (${hubZipFile.size_mb}MB)`;
-    } else if (hubZip && hubLatest && hubLatest.ext === 'exe') {
-      // Hide zip alt kalau cuma exe yg ada
-      hubZip.style.display = 'none';
-    }
+    // Hub button is now a link ke hub.teknomedis.com (web), bukan download.
+    // Tidak perlu auto-fill version dari /api/products.
   } catch (e) {}
 }
 
 loadHrisPlans();
-loadProductDownload('hub');
+// Hub now web-based (hub.teknomedis.com) — no auto-fill download link needed
 </script>
 </body>
 </html>

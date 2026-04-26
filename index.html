@@ -564,6 +564,40 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         Email
       </a>
     </div>
+
+    <!-- LEAD CAPTURE FORM -->
+    <div style="max-width:520px;margin:40px auto 0;padding:28px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-align:left">
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px;color:#fff;text-align:center">📞 Atau isi form ini</div>
+      <div style="font-size:13px;color:#cbd5e1;margin-bottom:20px;text-align:center">Tim kami akan menghubungi via WhatsApp dalam 24 jam</div>
+      <form id="leadForm" onsubmit="submitLead(event)" style="display:flex;flex-direction:column;gap:12px">
+        <input id="lf_clinic" type="text" placeholder="Nama RS / Klinik *" required maxlength="100"
+               style="padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;width:100%">
+        <input id="lf_phone" type="tel" placeholder="Nomor HP/WA aktif * (62812xxxxx)" required maxlength="20"
+               style="padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;width:100%">
+        <input id="lf_email" type="email" placeholder="Email (opsional)" maxlength="100"
+               style="padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;width:100%">
+        <select id="lf_product"
+                style="padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;width:100%">
+          <option value="">Tertarik produk apa?</option>
+          <option value="hris">TeknoMedis HRIS (HR + Payroll)</option>
+          <option value="care">TeknoMedis Care (Telemedicine)</option>
+          <option value="casemix">CaseMix Pro (BPJS Analitik)</option>
+          <option value="all">Bundling semua produk</option>
+          <option value="konsultasi">Konsultasi umum</option>
+        </select>
+        <textarea id="lf_message" placeholder="Pertanyaan atau kebutuhan spesifik (opsional)" rows="3" maxlength="500"
+                  style="padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;width:100%;font-family:inherit;resize:vertical"></textarea>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#cbd5e1;line-height:1.5">
+          <input id="lf_consent" type="checkbox" required style="margin-top:3px;flex-shrink:0">
+          <span>Saya setuju dihubungi oleh tim TeknoMedis via WhatsApp/email terkait inquiry ini.</span>
+        </label>
+        <button type="submit" id="lf_submit"
+                style="padding:14px;background:linear-gradient(135deg,#0d7a8a,#0891b2);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px">
+          Kirim — Saya Mau Dihubungi
+        </button>
+        <div id="lf_result" style="display:none;padding:12px;border-radius:8px;font-size:13px;text-align:center"></div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -1000,6 +1034,53 @@ async function loadProductDownload(code) {
 
 loadHrisPlans();
 // Hub now web-based (hub.teknomedis.com) — no auto-fill download link needed
+
+// === LEAD CAPTURE FORM ===
+async function submitLead(e) {
+  e.preventDefault();
+  const btn = document.getElementById('lf_submit');
+  const result = document.getElementById('lf_result');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Mengirim...';
+  result.style.display = 'none';
+
+  const payload = {
+    clinic_name: document.getElementById('lf_clinic').value.trim(),
+    phone: document.getElementById('lf_phone').value.trim(),
+    email: document.getElementById('lf_email').value.trim(),
+    product_interest: document.getElementById('lf_product').value,
+    message: document.getElementById('lf_message').value.trim(),
+    consent: document.getElementById('lf_consent').checked,
+  };
+  try {
+    const r = await fetch('/api/leads/capture', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    });
+    const d = await r.json();
+    if (d.ok) {
+      result.style.display = 'block';
+      result.style.background = 'rgba(34,197,94,0.15)';
+      result.style.border = '1px solid rgba(34,197,94,0.4)';
+      result.style.color = '#86efac';
+      result.textContent = '✓ ' + (d.message || 'Form berhasil dikirim!');
+      document.getElementById('leadForm').reset();
+    } else {
+      throw new Error(d.error || 'Submit gagal');
+    }
+  } catch (err) {
+    result.style.display = 'block';
+    result.style.background = 'rgba(239,68,68,0.15)';
+    result.style.border = '1px solid rgba(239,68,68,0.4)';
+    result.style.color = '#fca5a5';
+    result.textContent = '✗ Error: ' + err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
 </script>
 </body>
 </html>

@@ -392,11 +392,11 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <span class="pc-feature-tag">Mobile app pasien & dokter</span>
           <span class="pc-feature-tag">Booking online</span>
           <span class="pc-feature-tag">Chat AI 24/7</span>
-          <span class="pc-feature-tag">Cloud SaaS</span>
+          <span class="pc-feature-tag">Trial 20 hari</span>
         </div>
         <div class="pc-footer">
           <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Mulai Rp 150rb/bln</span>
+          <span style="font-size:12px;color:var(--text3)">Trial gratis · Mulai 150rb/bln</span>
         </div>
       </div>
 
@@ -411,7 +411,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="pc-features">
           <span class="pc-feature-tag">Absensi selfie + GPS</span>
           <span class="pc-feature-tag">Payroll PPh21</span>
-          <span class="pc-feature-tag">Trial 14 hari</span>
+          <span class="pc-feature-tag">Trial 20 hari</span>
           <span class="pc-feature-tag">APK Android</span>
         </div>
         <div class="pc-footer">
@@ -687,16 +687,18 @@ const PRODUCTS = {
     statusClass: 'status-saas',
     name: 'TeknoMedis Care',
     tagline: 'Telemedicine SaaS — Aplikasi Pasien + Aplikasi Dokter',
-    desc: 'Platform telemedicine cloud — pasien booking online via aplikasi Pasien, dokter terima notifikasi via aplikasi Dokter. Plus chatbot AI 24/7 untuk customer service via WhatsApp. Auto-provision tenant 60 detik setelah pembelian.',
+    desc: 'Platform telemedicine cloud — pasien booking online via aplikasi Pasien, dokter terima notifikasi via aplikasi Dokter. Plus chatbot AI 24/7 untuk customer service via WhatsApp. Trial 20 hari gratis untuk klinik baru — coba semua fitur dulu sebelum mulai berlangganan.',
     features: [
-      'Aplikasi Pasien (Android) — booking, chat, video call',
+      'Trial 20 hari gratis — semua fitur, tanpa kartu kredit',
+      'Aplikasi Pasien (Android) — booking, chat, scan QR klinik',
       'Aplikasi Dokter (Android) — schedule, notif, chat pasien',
+      'Multi-tenant: pasien bisa cari klinik via QR / search / GPS terdekat',
       'Booking online layanan klinik (offline visit + telemedicine)',
       'Chat AI customer service 24/7 (WhatsApp via Fonnte)',
       'Knowledge base + FAQ chatbot per klinik',
       'Take-over manual chat oleh staff klinik',
       'Push notification real-time (FCM)',
-      'Branding klinik: logo, warna, jam operasional',
+      'Branding klinik: logo, warna, koordinat GPS, jam operasional',
       'Multi-tenant cloud — auto-provision setelah bayar',
       'Magic-link login (1 klik dari email)',
     ],
@@ -726,7 +728,7 @@ const PRODUCTS = {
     statusClass: 'status-saas',
     name: 'HRIS TeknoMedis',
     tagline: 'Manajemen SDM Klinik Berbasis Cloud',
-    desc: 'Platform HRIS cloud untuk manajemen SDM klinik — absensi GPS, payroll PPh21 TER otomatis, cuti berjenjang, jasa medis dokter, dan approval direktur. Trial 14 hari gratis tanpa kartu kredit.',
+    desc: 'Platform HRIS cloud untuk manajemen SDM klinik — absensi GPS, payroll PPh21 TER otomatis, cuti berjenjang, jasa medis dokter, dan approval direktur. Trial 20 hari gratis tanpa kartu kredit.',
     features: [
       'Absensi selfie + GPS geofencing',
       'Payroll PPh21 TER + BPJS otomatis',
@@ -737,13 +739,13 @@ const PRODUCTS = {
       'Tukar shift 2-langkah (rekan → HR)',
       'Multi-role: HR / Manager / Direktur',
       'Cloud SaaS — akses dari mana saja',
-      'Trial 14 hari gratis, auto-provision 60 detik',
+      'Trial 20 hari gratis, auto-provision 60 detik',
     ],
     specs: [
       {label:'Tipe', val:'SaaS Cloud'},
       {label:'Database', val:'Server TeknoMedis'},
       {label:'Platform', val:'Web + Android APK'},
-      {label:'Trial', val:'14 hari gratis'},
+      {label:'Trial', val:'20 hari gratis'},
       {label:'Internet', val:'Diperlukan'},
       {label:'APK', val:'Android v0.2.0'},
     ],
@@ -756,7 +758,7 @@ const PRODUCTS = {
         <a href="/downloads/HRIS-v0.2.0.apk" download style="color:var(--indigo)">Universal (58MB)</a>
       </div>
     `,
-    priceNote: 'Trial 14 hari gratis',
+    priceNote: 'Trial 20 hari gratis',
     color: '#6366f1',
   },
   casemix: {
@@ -994,7 +996,7 @@ async function loadHrisPlans() {
             <li>Cuti berjenjang + approval direktur</li>
             <li>Reimbursement + tukar shift</li>
             <li>${unlimited ? 'Unlimited karyawan + Priority Support' : 'Max ' + p.employee_limit + ' karyawan aktif'}</li>
-            <li>Trial 14 hari gratis</li>
+            <li>Trial 20 hari gratis</li>
           </ul>
           <a href="#download-hub" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">📥 Install Hub</a>
         </div>
@@ -1002,9 +1004,9 @@ async function loadHrisPlans() {
     }).join('');
   } catch (e) {
     grid.innerHTML = `
-      <div class="price-card"><div class="price-name">Starter</div><div class="price-desc">Maks 10 karyawan</div><div class="price-amount">99<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Cuti berjenjang</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
-      <div class="price-card popular"><div class="popular-badge">POPULER</div><div class="price-name">Basic</div><div class="price-desc">Maks 25 karyawan</div><div class="price-amount">249<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Jasa medis dokter</li><li>TTD digital direktur</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-primary">Install Hub</a></div>
-      <div class="price-card"><div class="price-name">Pro</div><div class="price-desc">Maks 50 karyawan</div><div class="price-amount">499<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Semua fitur Basic</li><li>Excel bulk upload</li><li>Priority support</li><li>Trial 14 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
+      <div class="price-card"><div class="price-name">Starter</div><div class="price-desc">Maks 10 karyawan</div><div class="price-amount">99<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Cuti berjenjang</li><li>Trial 20 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
+      <div class="price-card popular"><div class="popular-badge">POPULER</div><div class="price-name">Basic</div><div class="price-desc">Maks 25 karyawan</div><div class="price-amount">249<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Absensi selfie + GPS</li><li>Payroll PPh21 TER</li><li>Jasa medis dokter</li><li>TTD digital direktur</li><li>Trial 20 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-primary">Install Hub</a></div>
+      <div class="price-card"><div class="price-name">Pro</div><div class="price-desc">Maks 50 karyawan</div><div class="price-amount">499<sub>rb</sub></div><div class="price-period">per bulan</div><ul class="price-features"><li>Semua fitur Basic</li><li>Excel bulk upload</li><li>Priority support</li><li>Trial 20 hari gratis</li></ul><a href="#download-hub" target="_blank" class="btn-price btn-price-outline">Install Hub</a></div>
     `;
   }
 }

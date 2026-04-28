@@ -442,6 +442,28 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
       </div>
 
+      <!-- Kalibrasi Pro -->
+      <div class="product-card" onclick="showProductPage('kalibrasi')">
+        <div class="pc-top">
+          <div class="pc-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
+            <span style="font-size:38px">🔧</span>
+          </div>
+          <span class="product-status status-ready">Tersedia</span>
+        </div>
+        <div class="pc-name">Kalibrasi Pro</div>
+        <div class="pc-desc">Sistem manajemen kalibrasi alat kesehatan — wajib akreditasi RS/Klinik. Reminder otomatis, sertifikat digital, audit-ready report siap untuk BPJS &amp; Kemenkes.</div>
+        <div class="pc-features">
+          <span class="pc-feature-tag">Calendar 12-bulan</span>
+          <span class="pc-feature-tag">Reminder otomatis</span>
+          <span class="pc-feature-tag">Audit compliance</span>
+          <span class="pc-feature-tag">On-premise</span>
+        </div>
+        <div class="pc-footer">
+          <span class="pc-cta">Lihat Detail →</span>
+          <span style="font-size:12px;color:var(--text3)">Lihat paket</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -793,6 +815,39 @@ const PRODUCTS = {
     downloadLabel: '⬇ Download CaseMix Pro',
     priceNote: 'Lihat paket di bawah',
     color: '#f59e0b',
+  },
+  kalibrasi: {
+    icon: '🔧',
+    iconBg: 'linear-gradient(135deg,#06b6d4,#0891b2)',
+    status: 'Tersedia',
+    statusClass: 'status-ready',
+    name: 'Kalibrasi Pro',
+    tagline: 'Sistem Manajemen Kalibrasi Alat Kesehatan',
+    desc: 'Aplikasi profesional untuk manajemen kalibrasi alkes wajib akreditasi RS/Klinik. Inventarisasi alkes lengkap, jadwal kalibrasi otomatis dengan reminder, vendor management, sertifikat digital, dan laporan compliance audit-ready siap untuk visitasi Kemenkes & BPJS.',
+    features: [
+      'Dashboard hero: Overdue, Upcoming, Compliance Rate, Biaya YTD',
+      'Calendar 12-bulan visual jadwal kalibrasi seluruh alat',
+      'Inventarisasi alkes dgn filter: status (laik/overdue/soon)',
+      'Master vendor kalibrasi + harga history per alat',
+      'Upload sertifikat digital (PDF/image) per record kalibrasi',
+      'Riwayat kalibrasi: hasil (Laik/Tidak Laik/Ulang) + biaya',
+      'Audit Compliance Report — print-ready PDF untuk akreditasi',
+      'Compliance per kategori dgn progress bar color-coded',
+      'Multi-role: Admin (full) / Direktur (review) / Unit (read)',
+      'Variance alert: alat yg overdue atau >80% biaya tahunan',
+    ],
+    specs: [
+      {label:'Tipe', val:'On-premise (local)'},
+      {label:'Database', val:'SQLite (lokal)'},
+      {label:'Platform', val:'Windows (web interface)'},
+      {label:'Multi-user', val:'Ya, via LAN'},
+      {label:'Internet', val:'Tidak diperlukan'},
+      {label:'Update', val:'Auto via Hub'},
+    ],
+    downloadBtn: true,
+    downloadLabel: '⬇ Download Kalibrasi Pro',
+    priceNote: 'Lihat paket di bawah',
+    color: '#06b6d4',
   },
 };
 

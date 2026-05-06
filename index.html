@@ -216,6 +216,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .btn-wa:hover{background:#20bd5a;transform:translateY(-2px);color:#fff}
 .btn-email{background:rgba(255,255,255,0.08);color:#fff;padding:13px 26px;border-radius:10px;font-size:14.5px;font-weight:600;border:1px solid rgba(255,255,255,0.18);display:inline-flex;align-items:center;gap:8px;transition:all .2s}
 .btn-email:hover{background:rgba(255,255,255,0.13);color:#fff}
+.affiliate-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.affiliate-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
 
 /* FOOTER */
 footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
@@ -245,6 +247,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   .pricing-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
   .bundle-grid{grid-template-columns:1fr}
   .product-price-tabs{grid-template-columns:repeat(2,1fr)}
+  .affiliate-grid{grid-template-columns:1fr}
+  .affiliate-stat-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
 }
 @media(max-width:600px){
@@ -258,6 +262,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   .features-grid{grid-template-columns:1fr}
   .steps-grid{grid-template-columns:1fr}
   .product-price-tabs{grid-template-columns:1fr 1fr}
+  .affiliate-stat-grid{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
   .price-mode-toggle{width:100%}
   .pmt-btn{flex:1}
@@ -278,6 +283,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <button onclick="showPage('home');smoothTo('fitur')">Fitur</button>
       <button onclick="showPage('home');smoothTo('cara-pakai')">Download</button>
       <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>
+      <button onclick="showPage('home');smoothTo('affiliate')">Affiliate</button>
       <button onclick="showPage('home');smoothTo('kontak')" class="nav-cta">Hubungi Kami</button>
     </div>
   </div>
@@ -571,6 +577,56 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 </section>
 
 
+<!-- AFFILIATE -->
+<section id="affiliate" style="background:#f8fafc">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Program Affiliate</div>
+      <h2 class="section-title">Daftarkan Klinik, Dapat Komisi Subscription</h2>
+      <p class="section-desc">Affiliate mendapat 20% dari subscription produk yang benar-benar berasal dari link referral. WA, AI markup, dan fee layanan tidak dihitung.</p>
+    </div>
+
+    <div class="affiliate-grid">
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;box-shadow:0 8px 24px rgba(15,23,42,.06)">
+        <div style="font-size:18px;font-weight:800;color:#0f172a;margin-bottom:6px">Daftar Affiliate</div>
+        <div style="font-size:13px;color:#64748b;line-height:1.6;margin-bottom:18px">Isi data singkat. Admin TeknoMedis akan review, lalu kode referral aktif bisa dipakai untuk share landing/Hub.</div>
+        <form id="affiliateSignupForm" onsubmit="submitAffiliateSignup(event)" style="display:flex;flex-direction:column;gap:12px">
+          <input id="af_name" required maxlength="100" placeholder="Nama lengkap / nama partner *" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+          <input id="af_email" required type="email" maxlength="100" placeholder="Email aktif *" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+          <input id="af_phone" required maxlength="24" placeholder="Nomor WA aktif *" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input id="af_bank" maxlength="40" placeholder="Bank/E-wallet" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+            <input id="af_account" maxlength="80" placeholder="Nama rekening" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+          </div>
+          <input id="af_number" maxlength="60" placeholder="Nomor rekening/e-wallet" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+          <textarea id="af_notes" rows="3" maxlength="500" placeholder="Catatan singkat: channel promosi, area, atau jaringan klinik (opsional)" style="padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea>
+          <button id="af_submit" type="submit" style="padding:13px 16px;background:#0d7a8a;color:#fff;border:0;border-radius:9px;font-weight:800;cursor:pointer">Daftar Affiliate</button>
+          <div id="af_result" style="display:none;padding:12px;border-radius:8px;font-size:13px"></div>
+        </form>
+      </div>
+
+      <div style="background:#0f172a;border:1px solid #1e293b;border-radius:14px;padding:24px;color:#fff;box-shadow:0 8px 24px rgba(15,23,42,.12)">
+        <div style="font-size:18px;font-weight:800;margin-bottom:6px">Dashboard Affiliate</div>
+        <div style="font-size:13px;color:#cbd5e1;line-height:1.6;margin-bottom:18px">Cek kode referral, total subscriber, komisi eligible, dan payout. Untuk keamanan, cukup masukkan email dan kode affiliate.</div>
+        <form id="affiliateDashboardForm" onsubmit="loadAffiliateDashboard(event)" style="display:flex;flex-direction:column;gap:12px">
+          <input id="ad_email" type="email" required placeholder="Email affiliate" style="padding:12px 14px;background:#111827;border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px">
+          <input id="ad_code" required placeholder="Kode affiliate" style="padding:12px 14px;background:#111827;border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;text-transform:uppercase">
+          <button id="ad_submit" type="submit" style="padding:13px 16px;background:#22d3ee;color:#083344;border:0;border-radius:9px;font-weight:800;cursor:pointer">Cek Komisi</button>
+        </form>
+        <div id="ad_result" style="display:none;margin-top:16px"></div>
+      </div>
+    </div>
+
+    <div class="affiliate-stat-grid">
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px"><div style="font-size:12px;color:#64748b">Komisi</div><div style="font-size:24px;font-weight:900;color:#0f172a">20%</div></div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px"><div style="font-size:12px;color:#64748b">Payout minimum</div><div style="font-size:24px;font-weight:900;color:#0f172a">Rp 50rb</div></div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px"><div style="font-size:12px;color:#64748b">Dasar komisi</div><div style="font-size:15px;font-weight:800;color:#0f172a;margin-top:4px">Subscription</div></div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px"><div style="font-size:12px;color:#64748b">Status awal</div><div style="font-size:15px;font-weight:800;color:#0f172a;margin-top:4px">Review admin</div></div>
+    </div>
+  </div>
+</section>
+
+
 <!-- CTA / KONTAK -->
 <section class="cta-section" id="kontak">
   <div class="container">
@@ -670,6 +726,44 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 
 <!-- PRODUCT DATA -->
 <script>
+const AFF_REF_KEY = 'teknomedis_affiliate_ref';
+const AFF_REF = (() => {
+  const qs = new URLSearchParams(location.search);
+  const incoming = (qs.get('ref') || qs.get('referral_code') || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 64);
+  if (incoming) {
+    localStorage.setItem(AFF_REF_KEY, JSON.stringify({ code: incoming, ts: Date.now() }));
+    return incoming;
+  }
+  try {
+    const saved = JSON.parse(localStorage.getItem(AFF_REF_KEY) || '{}');
+    if (saved.code && Date.now() - Number(saved.ts || 0) < 30 * 24 * 60 * 60 * 1000) return saved.code;
+  } catch (e) {}
+  return '';
+})();
+
+function withAffiliateRef(url) {
+  if (!AFF_REF) return url;
+  try {
+    const u = new URL(url, location.origin);
+    u.searchParams.set('ref', AFF_REF);
+    return u.toString();
+  } catch (e) {
+    return url;
+  }
+}
+
+function updateAffiliateHubLinks(root = document) {
+  root.querySelectorAll('a[href^="https://hub.teknomedis.com"]').forEach(a => {
+    a.href = withAffiliateRef(a.href);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateAffiliateHubLinks();
+  const codeInput = document.getElementById('ad_code');
+  if (codeInput && AFF_REF) codeInput.value = AFF_REF;
+});
+
 const PRODUCTS = {
   medops: {
     icon: '📦',
@@ -933,6 +1027,7 @@ function showProductPage(code) {
   `;
 
   showPage('product');
+  updateAffiliateHubLinks(document.getElementById('product-detail-content'));
   loadProductDownload(code);
   loadProductPricing(code);  // dynamic fetch dari license-server (single source)
 }
@@ -1053,7 +1148,7 @@ async function loadHrisPlans() {
             <li>${unlimited ? 'Unlimited karyawan + Priority Support' : 'Max ' + p.employee_limit + ' karyawan aktif'}</li>
             <li>Trial 20 hari gratis</li>
           </ul>
-          <a href="#download-hub" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">📥 Install Hub</a>
+          <a href="${withAffiliateRef('https://hub.teknomedis.com')}" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Buka Hub</a>
         </div>
       `;
     }).join('');
@@ -1116,6 +1211,7 @@ async function submitLead(e) {
     product_interest: document.getElementById('lf_product').value,
     message: document.getElementById('lf_message').value.trim(),
     consent: document.getElementById('lf_consent').checked,
+    referral_code: AFF_REF,
   };
   try {
     const r = await fetch('/api/leads/capture', {
@@ -1140,6 +1236,120 @@ async function submitLead(e) {
     result.style.border = '1px solid rgba(239,68,68,0.4)';
     result.style.color = '#fca5a5';
     result.textContent = '✗ Error: ' + err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
+
+function fmtIDR(n) {
+  return 'Rp ' + Math.round(Number(n || 0)).toLocaleString('id-ID');
+}
+
+function escapeText(value) {
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[ch]));
+}
+
+async function submitAffiliateSignup(e) {
+  e.preventDefault();
+  const btn = document.getElementById('af_submit');
+  const result = document.getElementById('af_result');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Mendaftarkan...';
+  result.style.display = 'none';
+  const payload = {
+    name: document.getElementById('af_name').value.trim(),
+    email: document.getElementById('af_email').value.trim(),
+    phone: document.getElementById('af_phone').value.trim(),
+    bank_name: document.getElementById('af_bank').value.trim(),
+    account_name: document.getElementById('af_account').value.trim(),
+    account_number: document.getElementById('af_number').value.trim(),
+    notes: document.getElementById('af_notes').value.trim(),
+  };
+  try {
+    const r = await fetch('/api/affiliate/signup', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Pendaftaran gagal');
+    result.style.display = 'block';
+    result.style.background = 'rgba(34,197,94,.12)';
+    result.style.border = '1px solid rgba(34,197,94,.35)';
+    result.style.color = '#166534';
+    result.innerHTML = `Pendaftaran diterima. Kode affiliate: <b>${escapeText(d.code || '-')}</b><br>${escapeText(d.message || '')}`;
+    document.getElementById('ad_email').value = payload.email;
+    document.getElementById('ad_code').value = d.code || '';
+    if (!d.already_registered) document.getElementById('affiliateSignupForm').reset();
+  } catch (err) {
+    result.style.display = 'block';
+    result.style.background = 'rgba(239,68,68,.1)';
+    result.style.border = '1px solid rgba(239,68,68,.35)';
+    result.style.color = '#991b1b';
+    result.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
+
+async function loadAffiliateDashboard(e) {
+  e.preventDefault();
+  const btn = document.getElementById('ad_submit');
+  const result = document.getElementById('ad_result');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Memuat...';
+  result.style.display = 'none';
+  try {
+    const r = await fetch('/api/affiliate/dashboard', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: document.getElementById('ad_email').value.trim(),
+        code: document.getElementById('ad_code').value.trim(),
+      }),
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Dashboard tidak ditemukan');
+    const a = d.affiliate || {};
+    const s = d.summary || {};
+    const status = a.active ? 'Aktif' : (a.status === 'pending' ? 'Pending review' : 'Nonaktif');
+    const landingLink = `https://teknomedis.com/?ref=${encodeURIComponent(a.code || '')}`;
+    const hubLink = `https://hub.teknomedis.com?ref=${encodeURIComponent(a.code || '')}`;
+    const commissions = (d.commissions || []).slice(0, 5).map(c => `
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid #334155;font-size:12px">
+        <span>${escapeText(c.product_label || c.product || '-')} · ${escapeText(c.clinic_name || c.customer_email || '-')}</span>
+        <b>${fmtIDR(c.commission_amount)}</b>
+      </div>
+    `).join('');
+    result.style.display = 'block';
+    result.innerHTML = `
+      <div style="border:1px solid #334155;border-radius:12px;overflow:hidden">
+        <div style="padding:14px;background:#111827">
+          <div style="font-size:12px;color:#94a3b8">Status</div>
+          <div style="font-size:18px;font-weight:900">${escapeText(status)}</div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:4px">Kode: <b style="color:#67e8f9">${escapeText(a.code || '-')}</b></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#334155">
+          <div style="background:#0f172a;padding:12px"><div style="font-size:11px;color:#94a3b8">Subscriber</div><b>${s.registered_users || 0}</b></div>
+          <div style="background:#0f172a;padding:12px"><div style="font-size:11px;color:#94a3b8">Eligible</div><b>${fmtIDR(s.commission_eligible)}</b></div>
+          <div style="background:#0f172a;padding:12px"><div style="font-size:11px;color:#94a3b8">Total Komisi</div><b>${fmtIDR(s.commission_total)}</b></div>
+          <div style="background:#0f172a;padding:12px"><div style="font-size:11px;color:#94a3b8">Paid</div><b>${fmtIDR(s.commission_paid)}</b></div>
+        </div>
+        <div style="padding:12px;background:#111827;font-size:12px;color:#cbd5e1;word-break:break-all">
+          Landing: ${landingLink}<br>Hub: ${hubLink}
+        </div>
+        <div style="padding:12px;background:#0f172a">${commissions || '<span style="font-size:12px;color:#94a3b8">Belum ada komisi.</span>'}</div>
+      </div>
+    `;
+  } catch (err) {
+    result.style.display = 'block';
+    result.innerHTML = `<div style="padding:12px;border:1px solid rgba(248,113,113,.5);border-radius:8px;color:#fecaca;background:rgba(239,68,68,.12);font-size:13px">${err.message}</div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = orig;

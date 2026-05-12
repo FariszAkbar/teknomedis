@@ -246,6 +246,36 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 .footer-links a:hover,.footer-links button:hover{color:#fff}
 .footer-copy{font-size:12px;text-align:center;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.25)}
 
+/* LEGAL PAGES */
+.legal-page{min-height:calc(100vh - 180px);background:#f8fafc;padding-bottom:60px}
+.legal-header{background:var(--dark);padding:88px 0 40px}
+.legal-header-inner{max-width:780px;margin:0 auto;padding:0 24px}
+.legal-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:rgba(8,145,178,.13);border-radius:20px;padding:3px 12px;margin-bottom:14px}
+.legal-h1{font-size:30px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.25}
+.legal-meta{font-size:13px;color:rgba(255,255,255,.38)}
+.legal-body{max-width:780px;margin:0 auto;padding:40px 24px}
+.legal-body h2{font-size:17px;font-weight:700;color:var(--dark);margin:36px 0 10px;padding-bottom:9px;border-bottom:2px solid #e0f2fe}
+.legal-body h2:first-child{margin-top:0}
+.legal-body h3{font-size:14.5px;font-weight:700;color:#0e7490;margin:20px 0 7px}
+.legal-body p{font-size:14px;color:#334155;line-height:1.8;margin-bottom:12px}
+.legal-body ul,.legal-body ol{font-size:14px;color:#334155;line-height:1.8;margin:8px 0 14px;padding-left:22px}
+.legal-body li{margin-bottom:5px}
+.legal-body strong{color:#0f172a;font-weight:600}
+.legal-box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:13.5px;line-height:1.7}
+.legal-box.info{background:#eff6ff;border-left:3px solid #3b82f6;color:#1e40af}
+.legal-box.warn{background:#fefce8;border-left:3px solid #f59e0b;color:#78350f}
+.legal-box.success{background:#f0fdf4;border-left:3px solid #10b981;color:#14532d}
+.legal-divider{border:none;border-top:1px solid #e2e8f0;margin:32px 0}
+/* FAQ accordion */
+.faq-cat{font-size:15px;font-weight:700;color:var(--dark);margin:28px 0 12px;padding-left:3px}
+.faq-cat:first-child{margin-top:0}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:#fff;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 18px;background:none;border:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:color .15s}
+.faq-q:hover,.faq-item.open .faq-q{color:var(--primary)}
+.faq-a{display:none;padding:0 18px 15px;font-size:13.5px;color:#475569;line-height:1.8}
+.faq-item.open .faq-a{display:block}
+.faq-chevron{font-size:10px;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
 /* RESPONSIVE */
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;text-align:center}
@@ -772,6 +802,308 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   </section>
 </div>
 
+<!-- ===== SYARAT & KETENTUAN ===== -->
+<div id="page-syarat" class="page">
+  <div class="legal-page">
+    <div class="legal-header">
+      <div class="legal-header-inner">
+        <button class="back-btn" onclick="showPage('home')" style="margin-bottom:20px">← Kembali ke Beranda</button>
+        <div class="legal-tag">Legal</div>
+        <h1 class="legal-h1">Syarat &amp; Ketentuan</h1>
+        <p class="legal-meta">Berlaku sejak 1 Januari 2026 &nbsp;·&nbsp; PT Tekno Medis Solusi Digital</p>
+      </div>
+    </div>
+    <div class="legal-body">
+      <div class="legal-box info">Harap baca dokumen ini dengan seksama. Dengan mendaftar atau menggunakan layanan TeknoMedis, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh ketentuan berikut.</div>
+
+      <h2>1. Definisi</h2>
+      <p>Dalam dokumen ini, istilah-istilah berikut memiliki arti sebagaimana didefinisikan:</p>
+      <ul>
+        <li><strong>"TeknoMedis"</strong> merujuk pada PT Tekno Medis Solusi Digital, penyedia layanan perangkat lunak manajemen fasilitas kesehatan.</li>
+        <li><strong>"Layanan"</strong> merujuk pada seluruh produk perangkat lunak yang disediakan TeknoMedis, termasuk namun tidak terbatas pada TeknoMedis Care, MedOps Pro, Kalibrasi Pro, UnitCost Pro, CaseMix Pro, dan HRIS Klinik.</li>
+        <li><strong>"Pengguna"</strong> adalah rumah sakit, klinik, atau entitas fasilitas kesehatan yang mendaftarkan diri dan menggunakan Layanan.</li>
+        <li><strong>"Akun"</strong> adalah akses unik yang diberikan kepada Pengguna setelah pendaftaran dan pembayaran berhasil diproses.</li>
+        <li><strong>"Data Pengguna"</strong> adalah seluruh informasi yang dimasukkan, diunggah, atau diproses oleh Pengguna melalui Layanan.</li>
+        <li><strong>"Hub TeknoMedis"</strong> adalah platform storefront daring di hub.teknomedis.com sebagai pusat pembelian dan manajemen langganan.</li>
+      </ul>
+
+      <h2>2. Penerimaan Syarat</h2>
+      <p>Penggunaan Layanan TeknoMedis menandakan persetujuan Pengguna terhadap Syarat &amp; Ketentuan ini. Jika Pengguna tidak menyetujui, harap hentikan penggunaan Layanan dan hubungi kami untuk proses penghentian akun.</p>
+      <p>Syarat ini berlaku untuk seluruh penggunaan Layanan, termasuk uji coba, akses demo, dan langganan berbayar.</p>
+
+      <h2>3. Akun &amp; Akses Layanan</h2>
+      <h3>3.1 Pendaftaran</h3>
+      <p>Untuk menggunakan Layanan, Pengguna wajib mendaftar melalui Hub TeknoMedis dengan data yang akurat, lengkap, dan terkini. Pengguna bertanggung jawab penuh atas keabsahan data pendaftaran yang disampaikan.</p>
+      <h3>3.2 Keamanan Akun</h3>
+      <p>Pengguna wajib menjaga kerahasiaan kredensial akun (nama pengguna dan kata sandi). Segala aktivitas yang terjadi melalui akun Pengguna — baik yang diketahui maupun tidak diketahui — menjadi tanggung jawab Pengguna sepenuhnya. Harap segera laporkan akses tidak sah ke tim kami.</p>
+      <h3>3.3 Akses Multi-Pengguna</h3>
+      <p>Paket tertentu mengizinkan akses oleh beberapa pengguna dalam satu fasilitas. Pengguna utama (admin) bertanggung jawab atas seluruh pengguna yang diberi akses di bawah akunnya.</p>
+
+      <h2>4. Paket Layanan &amp; Pembayaran</h2>
+      <h3>4.1 Jenis Layanan</h3>
+      <ul>
+        <li><strong>Produk SaaS (Berlangganan):</strong> Dibayar per bulan atau per tahun. Akses berlanjut selama langganan aktif. Contoh: TeknoMedis Care, HRIS Klinik.</li>
+        <li><strong>Produk On-Premise (Lisensi Perpetual):</strong> Dibayar sekali sebagai biaya lisensi perangkat lunak yang diinstal di infrastruktur Pengguna. Contoh: MedOps Pro, Kalibrasi Pro, UnitCost Pro, CaseMix Pro.</li>
+      </ul>
+      <h3>4.2 Pembayaran</h3>
+      <p>Pembayaran dilakukan melalui metode yang tersedia di Hub TeknoMedis. Layanan aktif setelah pembayaran berhasil dikonfirmasi. TeknoMedis berhak menangguhkan akses apabila pembayaran tidak diterima pada tanggal jatuh tempo.</p>
+      <h3>4.3 Perubahan Harga</h3>
+      <p>TeknoMedis dapat mengubah harga Layanan dengan pemberitahuan minimal <strong>30 hari</strong> sebelum perubahan berlaku, melalui email terdaftar dan/atau notifikasi di platform. Harga lama tetap berlaku hingga akhir periode berlangganan yang sedang berjalan.</p>
+
+      <h2>5. Kewajiban Pengguna</h2>
+      <h3>5.1 Penggunaan yang Diizinkan</h3>
+      <p>Pengguna hanya diperbolehkan menggunakan Layanan untuk kebutuhan operasional fasilitas kesehatan yang sah, sesuai peraturan perundang-undangan yang berlaku di Indonesia.</p>
+      <h3>5.2 Larangan</h3>
+      <p>Pengguna dilarang keras untuk:</p>
+      <ul>
+        <li>Menyewakan, menjual kembali, atau mendistribusikan Layanan kepada pihak ketiga tanpa izin tertulis TeknoMedis.</li>
+        <li>Melakukan rekayasa balik (<em>reverse engineering</em>), mendekompilasi, atau memodifikasi kode sumber perangkat lunak.</li>
+        <li>Menggunakan Layanan untuk tujuan ilegal, penipuan, atau yang melanggar regulasi kesehatan.</li>
+        <li>Mengunggah data yang mengandung malware, virus, atau kode berbahaya lainnya.</li>
+        <li>Mengakses atau mencoba mengakses akun Pengguna lain tanpa otorisasi.</li>
+      </ul>
+      <h3>5.3 Tanggung Jawab Data Pasien</h3>
+      <p>Pengguna bertanggung jawab penuh atas keabsahan, keakuratan, dan legalitas data pasien yang dimasukkan ke dalam Layanan, serta memastikan kepatuhan terhadap regulasi perlindungan data kesehatan yang berlaku.</p>
+
+      <h2>6. Hak Kekayaan Intelektual</h2>
+      <p>Seluruh hak kekayaan intelektual atas Layanan — termasuk perangkat lunak, antarmuka, desain, logo, dan dokumentasi — adalah milik eksklusif PT Tekno Medis Solusi Digital. Pengguna hanya mendapatkan hak penggunaan (<em>license to use</em>), bukan kepemilikan.</p>
+      <p>Data yang dimasukkan oleh Pengguna tetap menjadi milik Pengguna. TeknoMedis tidak mengklaim kepemilikan atas Data Pengguna.</p>
+
+      <h2>7. Kerahasiaan &amp; Perlindungan Data</h2>
+      <p>TeknoMedis berkomitmen menjaga kerahasiaan Data Pengguna. Data tidak akan dijual, disewakan, atau dibagikan kepada pihak ketiga tanpa persetujuan Pengguna, kecuali diwajibkan oleh hukum atau regulasi yang berlaku.</p>
+      <p>Untuk produk on-premise, Data Pengguna sepenuhnya tersimpan di infrastruktur Pengguna sendiri dan tidak meninggalkan lingkungan server Pengguna. Untuk produk SaaS, TeknoMedis menerapkan enkripsi dan kontrol akses standar industri.</p>
+
+      <h2>8. Jaminan &amp; Batasan Tanggung Jawab</h2>
+      <p>TeknoMedis berupaya memberikan Layanan dengan ketersediaan tinggi dan kualitas terbaik. Namun, Layanan disediakan <em>"sebagaimana adanya"</em> (<em>as-is</em>) tanpa jaminan ketersediaan 100%.</p>
+      <div class="legal-box warn">TeknoMedis tidak bertanggung jawab atas kehilangan data akibat kesalahan penggunaan, bencana alam, serangan siber di luar kendali TeknoMedis, atau kerusakan infrastruktur pihak ketiga. Pengguna sangat disarankan melakukan backup data secara berkala.</div>
+      <p>Tanggung jawab maksimal TeknoMedis dalam segala bentuk klaim tidak melebihi total pembayaran yang diterima dari Pengguna dalam 3 (tiga) bulan terakhir sebelum kejadian klaim.</p>
+
+      <h2>9. Penangguhan &amp; Pengakhiran Layanan</h2>
+      <p>TeknoMedis berhak menangguhkan atau mengakhiri akses Pengguna dalam kondisi berikut:</p>
+      <ul>
+        <li>Pelanggaran terhadap Syarat &amp; Ketentuan ini.</li>
+        <li>Keterlambatan pembayaran lebih dari 14 hari sejak jatuh tempo.</li>
+        <li>Penggunaan Layanan untuk tujuan ilegal atau merugikan pihak lain.</li>
+      </ul>
+      <p>Pengguna dapat mengakhiri langganan kapan saja melalui Hub TeknoMedis. Pengakhiran berlaku di akhir periode berlangganan yang sedang berjalan.</p>
+
+      <h2>10. Perubahan Syarat</h2>
+      <p>TeknoMedis dapat memperbarui Syarat &amp; Ketentuan ini sewaktu-waktu. Perubahan material akan diberitahukan minimal 14 hari sebelum berlaku melalui email terdaftar. Penggunaan Layanan setelah tanggal berlaku perubahan dianggap sebagai persetujuan terhadap syarat baru.</p>
+
+      <h2>11. Hukum yang Berlaku</h2>
+      <p>Syarat &amp; Ketentuan ini tunduk pada dan diinterpretasikan berdasarkan hukum Republik Indonesia. Segala sengketa yang timbul akan diselesaikan secara musyawarah mufakat. Apabila tidak tercapai kesepakatan, sengketa akan diselesaikan melalui Pengadilan Negeri yang berwenang di wilayah hukum tempat kantor PT Tekno Medis Solusi Digital berkedudukan.</p>
+
+      <h2>12. Kontak</h2>
+      <p>Pertanyaan terkait Syarat &amp; Ketentuan dapat disampaikan kepada:</p>
+      <div class="legal-box success">
+        <strong>PT Tekno Medis Solusi Digital</strong><br>
+        Email: <a href="mailto:legal@teknomedis.com" style="color:#065f46">legal@teknomedis.com</a><br>
+        WhatsApp: <a href="https://wa.me/6283189038399" target="_blank" style="color:#065f46">083189038399</a><br>
+        Website: teknomedis.com
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEBIJAKAN PENGEMBALIAN DANA ===== -->
+<div id="page-refund" class="page">
+  <div class="legal-page">
+    <div class="legal-header">
+      <div class="legal-header-inner">
+        <button class="back-btn" onclick="showPage('home')" style="margin-bottom:20px">← Kembali ke Beranda</button>
+        <div class="legal-tag">Legal</div>
+        <h1 class="legal-h1">Kebijakan Pengembalian Dana</h1>
+        <p class="legal-meta">Berlaku sejak 1 Januari 2026 &nbsp;·&nbsp; PT Tekno Medis Solusi Digital</p>
+      </div>
+    </div>
+    <div class="legal-body">
+      <div class="legal-box info">Kami ingin Anda puas dengan Layanan TeknoMedis. Jika ada kendala, tim kami siap membantu sebelum Anda mempertimbangkan pengembalian dana.</div>
+
+      <h2>1. Produk SaaS — Berlangganan</h2>
+      <p>Untuk produk berbasis langganan (TeknoMedis Care, HRIS Klinik), berlaku ketentuan berikut:</p>
+      <h3>1.1 Garansi 7 Hari</h3>
+      <p>Pengguna baru yang melakukan pembayaran pertama kali berhak mengajukan pengembalian dana penuh dalam <strong>7 hari kalender</strong> sejak tanggal aktivasi, dengan syarat:</p>
+      <ul>
+        <li>Pengajuan disampaikan secara tertulis melalui WhatsApp atau email.</li>
+        <li>Layanan belum digunakan secara intensif (kurang dari 50 transaksi data atau broadcast).</li>
+        <li>Belum ada data pasien aktif yang sudah digunakan untuk pengiriman WA broadcast.</li>
+      </ul>
+      <h3>1.2 Setelah 7 Hari</h3>
+      <p>Di luar periode garansi, pembayaran bersifat <strong>tidak dapat dikembalikan</strong>. Akses tetap aktif hingga akhir periode berlangganan yang telah dibayar. Pengguna dapat menghentikan perpanjangan otomatis kapan saja melalui Hub TeknoMedis.</p>
+      <h3>1.3 Paket Tahunan</h3>
+      <p>Untuk langganan tahunan yang dibatalkan setelah 7 hari pertama namun sebelum 30 hari pertama, pengembalian dana dapat diberikan secara <em>pro-rata</em> untuk sisa bulan penuh yang belum digunakan, dikurangi biaya administrasi sebesar 10%.</p>
+
+      <h2>2. Produk On-Premise — Lisensi</h2>
+      <p>Untuk produk berbasis lisensi yang diinstal di infrastruktur Pengguna (MedOps Pro, Kalibrasi Pro, UnitCost Pro, CaseMix Pro), berlaku ketentuan berikut:</p>
+      <h3>2.1 Garansi Fungsionalitas</h3>
+      <p>TeknoMedis memberikan <strong>garansi fungsionalitas 14 hari</strong> sejak tanggal aktivasi lisensi. Jika perangkat lunak tidak dapat berjalan sesuai spesifikasi yang tercantum dalam dokumentasi resmi, dan tim support TeknoMedis tidak dapat menyelesaikan permasalahan dalam periode tersebut, Pengguna berhak mendapatkan pengembalian dana penuh.</p>
+      <h3>2.2 Setelah 14 Hari / Lisensi Aktif</h3>
+      <p>Biaya lisensi yang telah dibayarkan <strong>tidak dapat dikembalikan</strong> setelah melewati periode garansi atau setelah lisensi diaktifkan dan digunakan dalam lingkungan produksi.</p>
+      <h3>2.3 Biaya Setup &amp; Implementasi</h3>
+      <p>Biaya setup, instalasi, pelatihan, dan implementasi bersifat tidak dapat dikembalikan setelah layanan tersebut diberikan.</p>
+
+      <h2>3. Proses Pengajuan Pengembalian Dana</h2>
+      <p>Untuk mengajukan pengembalian dana, ikuti langkah berikut:</p>
+      <ol>
+        <li>Hubungi tim TeknoMedis melalui <strong>WhatsApp 083189038399</strong> atau email <strong>support@teknomedis.com</strong>.</li>
+        <li>Sampaikan nomor pesanan (Order ID) dari Hub TeknoMedis dan alasan pengajuan refund.</li>
+        <li>Tim kami akan meninjau pengajuan dalam <strong>1–2 hari kerja</strong>.</li>
+        <li>Jika disetujui, proses pengembalian dana akan dilakukan dalam <strong>5–10 hari kerja</strong>.</li>
+      </ol>
+      <div class="legal-box warn">Pengajuan yang tidak menyertakan nomor pesanan atau alasan yang jelas dapat mengalami penundaan proses.</div>
+
+      <h2>4. Metode Pengembalian Dana</h2>
+      <p>Pengembalian dana dilakukan ke rekening/metode pembayaran asal yang digunakan saat transaksi:</p>
+      <ul>
+        <li><strong>Transfer Bank:</strong> Dikembalikan ke rekening bank yang didaftarkan saat pembayaran.</li>
+        <li><strong>Virtual Account / QRIS:</strong> Dikembalikan ke rekening terdaftar. Konfirmasi nomor rekening diperlukan.</li>
+        <li><strong>Kartu Kredit:</strong> Dikembalikan ke kartu yang digunakan, sesuai proses bank penerbit (biasanya 7–14 hari kerja setelah persetujuan).</li>
+      </ul>
+
+      <h2>5. Pengecualian</h2>
+      <p>Pengembalian dana <strong>tidak berlaku</strong> dalam kondisi berikut:</p>
+      <ul>
+        <li>Pengguna melanggar Syarat &amp; Ketentuan TeknoMedis.</li>
+        <li>Akun ditangguhkan akibat penyalahgunaan Layanan.</li>
+        <li>Pengajuan disampaikan di luar periode yang dipersyaratkan.</li>
+        <li>Permasalahan disebabkan oleh ketidaksesuaian spesifikasi perangkat keras Pengguna yang tidak memenuhi persyaratan minimum yang telah dikomunikasikan sebelum pembelian.</li>
+        <li>Gangguan yang disebabkan oleh perubahan konfigurasi atau modifikasi sistem oleh Pengguna sendiri.</li>
+      </ul>
+
+      <h2>6. Kontak</h2>
+      <div class="legal-box success">
+        <strong>Tim Support TeknoMedis</strong><br>
+        WhatsApp: <a href="https://wa.me/6283189038399" target="_blank" style="color:#065f46">083189038399</a><br>
+        Email: <a href="mailto:support@teknomedis.com" style="color:#065f46">support@teknomedis.com</a><br>
+        Jam layanan: Senin–Jumat, 08.00–17.00 WIB
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="page-faq" class="page">
+  <div class="legal-page">
+    <div class="legal-header">
+      <div class="legal-header-inner">
+        <button class="back-btn" onclick="showPage('home')" style="margin-bottom:20px">← Kembali ke Beranda</button>
+        <div class="legal-tag">Bantuan</div>
+        <h1 class="legal-h1">Pertanyaan yang Sering Diajukan</h1>
+        <p class="legal-meta">FAQ &nbsp;·&nbsp; Diperbarui Mei 2026</p>
+      </div>
+    </div>
+    <div class="legal-body">
+      <p style="margin-bottom:24px;color:#64748b">Tidak menemukan jawaban yang Anda cari? Hubungi kami via <a href="https://wa.me/6283189038399" target="_blank" style="color:var(--primary);font-weight:600">WhatsApp</a> — kami siap membantu.</p>
+
+      <div class="faq-cat">🏥 Umum</div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apa itu TeknoMedis?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">TeknoMedis adalah platform software manajemen fasilitas kesehatan yang dikembangkan oleh PT Tekno Medis Solusi Digital. Kami menyediakan berbagai produk untuk membantu rumah sakit dan klinik beroperasi lebih efisien — mulai dari manajemen operasional, rekam medis, kalibrasi alat, analitik klaim BPJS, hingga pengelolaan SDM.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apa perbedaan produk SaaS dan on-premise?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a"><strong>SaaS (cloud-based):</strong> Anda mengakses aplikasi melalui internet, data tersimpan di server TeknoMedis yang aman. Pembayaran berlangganan bulanan/tahunan. Tidak perlu server sendiri. Contoh: TeknoMedis Care, HRIS Klinik.<br><br><strong>On-Premise:</strong> Aplikasi diinstal dan berjalan di server/komputer fasilitas Anda sendiri. Data 100% ada di tempat Anda. Pembayaran lisensi sekali bayar. Cocok untuk fasilitas yang mengutamakan kontrol penuh atas data. Contoh: MedOps Pro, Kalibrasi Pro, UnitCost Pro, CaseMix Pro.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah tersedia demo atau uji coba gratis?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Ya! Kami menyediakan sesi demo langsung dengan tim kami untuk menjelaskan fitur dan menyesuaikan kebutuhan fasilitas Anda. Hubungi kami via WhatsApp untuk menjadwalkan demo. Beberapa produk juga menyediakan periode uji coba terbatas — tanyakan kepada tim kami untuk detailnya.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah data pasien kami aman?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Keamanan data adalah prioritas utama kami. Untuk produk on-premise, semua data pasien tersimpan sepenuhnya di server fasilitas Anda — tidak ada data yang meninggalkan lingkungan Anda. Untuk produk SaaS, kami menerapkan enkripsi data (in-transit dan at-rest), kontrol akses berbasis peran, dan audit log. TeknoMedis tidak menjual atau membagikan data Anda kepada pihak ketiga.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah produk TeknoMedis sesuai dengan regulasi Kemenkes?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Produk kami dirancang untuk mendukung kepatuhan terhadap regulasi fasilitas kesehatan di Indonesia, termasuk standar rekam medis dan pelaporan. Untuk produk on-premise, arsitektur data sepenuhnya berada di bawah kendali fasilitas sehingga memudahkan audit dan sertifikasi (KARS, JCI). Konsultasikan kebutuhan spesifik regulasi Anda dengan tim kami.</div>
+      </div>
+
+      <div class="faq-cat">💳 Pembelian &amp; Pembayaran</div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara membeli produk TeknoMedis?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Pembelian dilakukan melalui <strong>Hub TeknoMedis</strong> di hub.teknomedis.com:<br><br>1. Kunjungi hub.teknomedis.com dan daftarkan akun fasilitas Anda.<br>2. Pilih produk dan paket yang sesuai kebutuhan.<br>3. Lakukan pembayaran melalui metode yang tersedia.<br>4. Untuk produk SaaS: akses aktif otomatis dalam beberapa menit.<br>5. Untuk produk on-premise: tim kami menghubungi Anda untuk proses instalasi dan aktivasi lisensi.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Metode pembayaran apa yang diterima?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Kami menerima berbagai metode pembayaran melalui platform kami, termasuk:<br>• Transfer bank (BCA, BRI, BNI, Mandiri, dan lainnya) via Virtual Account<br>• QRIS<br>• Kartu kredit/debit Visa &amp; Mastercard<br>• Dompet digital<br><br>Faktur (invoice) tersedia di dashboard Hub TeknoMedis setelah pembayaran berhasil.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ada kontrak jangka panjang yang mengikat?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Tidak ada kontrak jangka panjang yang memaksa. Untuk produk SaaS, Anda dapat berlangganan bulanan dan berhenti kapan saja. Kami menawarkan diskon untuk paket tahunan, namun itu pilihan — bukan kewajiban. Untuk produk on-premise, pembelian lisensi bersifat sekali bayar tanpa biaya berulang wajib (kecuali perpanjangan garansi/support opsional).</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara mendapatkan faktur resmi untuk keperluan akuntansi?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Faktur digital tersedia secara otomatis di dashboard Hub TeknoMedis setiap kali pembayaran berhasil. Anda dapat mengunduhnya dalam format PDF. Jika memerlukan faktur fisik, kwitansi berlogo perusahaan, atau dokumen untuk keperluan audit, silakan hubungi tim kami via WhatsApp atau email.</div>
+      </div>
+
+      <div class="faq-cat">⚙️ Teknis &amp; Instalasi</div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa lama proses instalasi produk on-premise?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Setelah pembayaran dikonfirmasi, tim kami akan menghubungi Anda untuk menjadwalkan sesi instalasi. Proses instalasi umumnya berlangsung <strong>1–3 hari kerja</strong> tergantung kompleksitas infrastruktur dan jumlah pengguna. Kami menyediakan panduan teknis dan pendampingan selama proses instalasi.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Spesifikasi server apa yang diperlukan untuk produk on-premise?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Spesifikasi minimum bervariasi per produk. Secara umum, produk kami dapat berjalan di komputer/server dengan spesifikasi standar perkantoran. Kami akan menginformasikan spesifikasi yang diperlukan sebelum pembelian. Hubungi tim kami untuk assessment kebutuhan teknis spesifik fasilitas Anda.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah mendukung beberapa pengguna secara bersamaan?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Ya, seluruh produk TeknoMedis mendukung multi-pengguna dengan kontrol hak akses berbasis peran (role-based access control). Admin dapat mengelola siapa yang dapat mengakses modul apa. Jumlah pengguna bersamaan yang didukung tergantung pada paket yang dipilih.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana proses pembaruan (update) software?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a"><strong>Produk SaaS:</strong> Pembaruan diterapkan secara otomatis oleh tim TeknoMedis tanpa gangguan operasional. Anda selalu menggunakan versi terbaru.<br><br><strong>Produk On-Premise:</strong> Pembaruan tersedia dan dikirimkan kepada Pengguna dengan paket support aktif. Proses update didampingi tim kami. Frekuensi update mengikuti roadmap pengembangan produk.</div>
+      </div>
+
+      <div class="faq-cat">🔄 Langganan &amp; Perpanjangan</div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara memperpanjang langganan?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Perpanjangan dapat dilakukan langsung melalui Hub TeknoMedis sebelum masa berlangganan berakhir. Sistem akan mengirimkan notifikasi pengingat melalui email dan WhatsApp 7 hari sebelum jatuh tempo. Anda juga dapat mengaktifkan perpanjangan otomatis di pengaturan akun.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apa yang terjadi jika langganan kedaluwarsa?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Jika langganan tidak diperpanjang setelah masa aktif berakhir, akses ke Layanan akan dinonaktifkan sementara. Data Anda <strong>tidak akan dihapus</strong> selama 30 hari setelah kedaluwarsa — Anda masih bisa memperpanjang dan langsung mengakses kembali tanpa kehilangan data. Setelah 30 hari tanpa perpanjangan, data mungkin dihapus permanen sesuai kebijakan retensi kami.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bisakah upgrade atau downgrade paket?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Ya. Upgrade paket dapat dilakukan kapan saja dan berlaku langsung (selisih biaya disesuaikan secara pro-rata). Downgrade paket berlaku di awal periode berlangganan berikutnya. Hubungi tim kami untuk membantu proses perubahan paket.</div>
+      </div>
+
+      <div class="faq-cat">🛟 Dukungan &amp; Layanan</div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara menghubungi support TeknoMedis?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Tim support kami dapat dihubungi melalui:<br>• <strong>WhatsApp:</strong> <a href="https://wa.me/6283189038399" target="_blank" style="color:var(--primary)">083189038399</a> (respons paling cepat)<br>• <strong>Email:</strong> support@teknomedis.com<br><br>Untuk laporan bug atau permintaan fitur, Anda juga dapat menyampaikannya melalui WhatsApp dengan menyertakan screenshot dan deskripsi masalah.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Jam berapa support tersedia?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Tim support kami tersedia pada:<br>• <strong>Senin – Jumat:</strong> 08.00 – 17.00 WIB<br>• <strong>Sabtu:</strong> 09.00 – 13.00 WIB (terbatas)<br>• <strong>Minggu &amp; Hari Libur Nasional:</strong> Tidak tersedia (kecuali darurat untuk paket Enterprise)<br><br>Pesan yang masuk di luar jam operasional akan direspons pada hari kerja berikutnya.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah tersedia pelatihan atau onboarding untuk staf?<span class="faq-chevron">▼</span></button>
+        <div class="faq-a">Ya. Setiap pembelian produk mencakup sesi onboarding dasar untuk membantu staf Anda memahami alur penggunaan utama. Untuk pelatihan mendalam (training intensif, pelatihan multi-sesi, atau pelatihan di lokasi fasilitas), tersedia sebagai layanan tambahan berbayar. Hubungi kami untuk informasi lebih lanjut.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER (shown on all pages) -->
 <footer>
   <div class="container">
@@ -788,7 +1120,12 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <button onclick="showPage('home');smoothTo('kontak')">Kontak</button>
       </div>
     </div>
-    <div class="footer-copy">&copy; 2026 TeknoMedis (PT Tekno Medis Solusi Digital). Solusi Digital untuk Rumah Sakit & Klinik Indonesia.</div>
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)">
+      <button onclick="showPage('syarat')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Syarat &amp; Ketentuan</button>
+      <button onclick="showPage('refund')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Kebijakan Refund</button>
+      <button onclick="showPage('faq')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">FAQ</button>
+    </div>
+    <div class="footer-copy">&copy; 2026 TeknoMedis (PT Tekno Medis Solusi Digital). Solusi Digital untuk Rumah Sakit &amp; Klinik Indonesia.</div>
   </div>
 </footer>
 
@@ -999,6 +1336,13 @@ function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
 }
 
 function showProductPage(code) {

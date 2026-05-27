@@ -443,12 +443,12 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="pc-features">
           <span class="pc-feature-tag">Absensi selfie + GPS</span>
           <span class="pc-feature-tag">Payroll PPh21</span>
-          <span class="pc-feature-tag">Trial 20 hari</span>
+          <span class="pc-feature-tag">Harga per pegawai</span>
           <span class="pc-feature-tag">Play Store ready</span>
         </div>
         <div class="pc-footer">
           <span class="pc-cta" style="color:var(--indigo)">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Trial gratis</span>
+          <span style="font-size:12px;color:var(--text3)">Paket per pegawai</span>
         </div>
       </div>
 
@@ -1169,7 +1169,7 @@ const PRODUCTS = {
     statusClass: 'status-saas',
     name: 'HRIS TeknoMedis',
     tagline: 'Manajemen SDM Klinik Berbasis Cloud',
-    desc: 'Platform HRIS cloud untuk manajemen SDM klinik — absensi GPS, payroll PPh21 TER otomatis, cuti berjenjang, jasa medis dokter, dan approval direktur. Trial 20 hari gratis tanpa kartu kredit.',
+    desc: 'Platform HRIS cloud untuk manajemen SDM klinik — absensi GPS, payroll PPh21 TER otomatis, cuti berjenjang, jasa medis dokter, dan approval direktur dengan paket per karyawan aktif.',
     features: [
       'Absensi selfie + GPS geofencing',
       'Payroll PPh21 TER + BPJS otomatis',
@@ -1180,18 +1180,18 @@ const PRODUCTS = {
       'Tukar shift 2-langkah (rekan → HR)',
       'Multi-role: HR / Manager / Direktur',
       'Cloud SaaS — akses dari mana saja',
-      'Trial 20 hari gratis, auto-provision 60 detik',
+      'Harga transparan per karyawan aktif',
     ],
     specs: [
       {label:'Tipe', val:'SaaS Cloud'},
       {label:'Database', val:'Server TeknoMedis'},
       {label:'Platform', val:'Web + aplikasi mobile'},
-      {label:'Trial', val:'20 hari gratis'},
+      {label:'Billing', val:'Per karyawan aktif'},
       {label:'Internet', val:'Diperlukan'},
       {label:'Mobile App', val:'Disiapkan di Play Store'},
     ],
     appTarget: 'playstore',
-    priceNote: 'Trial 20 hari gratis',
+    priceNote: 'Harga per karyawan aktif',
     color: '#6366f1',
   },
   casemix: {
@@ -1427,7 +1427,7 @@ async function loadHrisPlans() {
             <li>Cuti berjenjang + approval direktur</li>
             <li>Reimbursement + tukar shift</li>
             <li>${unlimited ? 'Unlimited karyawan + Priority Support' : 'Max ' + p.employee_limit + ' karyawan aktif'}</li>
-            <li>Trial 20 hari gratis</li>
+            <li>Billing per karyawan aktif</li>
           </ul>
           <a href="${hubUrl}" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Beli via Hub</a>
         </div>

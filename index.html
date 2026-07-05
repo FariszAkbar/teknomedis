@@ -393,8 +393,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 <!-- STATS -->
 <div class="stats-row">
   <div class="stats-inner">
-    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Produk Software</div></div>
-    <div class="stat-card"><div class="stat-num">63+</div><div class="stat-label">Fitur & API</div></div>
+    <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Produk Software</div></div>
+    <div class="stat-card"><div class="stat-num">75+</div><div class="stat-label">Fitur & API</div></div>
     <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Dukungan Teknis</div></div>
     <div class="stat-card" style="border:2px solid #10b981"><div class="stat-num" style="color:#10b981">100%</div><div class="stat-label">Data di RS/Klinik</div></div>
   </div>
@@ -474,6 +474,25 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
       </div>
 
+      <!-- TeknoMedis Monitoring -->
+      <div class="product-card" onclick="showProductPage('monitoring')">
+        <div class="pc-top">
+          <div class="pc-icon" style="background:linear-gradient(135deg,#0d7a8a,#10b981)">📈</div>
+          <span class="product-status status-saas">Tersedia · SaaS</span>
+        </div>
+        <div class="pc-name">TeknoMedis Monitoring</div>
+        <div class="pc-desc">Dashboard monitoring capaian vs target RS/Klinik — rekap kunjungan Rajal/UGD/Ranap, Klaim BPJS, analitik Spesialis, Beban &amp; Proyeksi laba-rugi, plus Analisa AI. Data tetap tersimpan di Google Drive klinik Anda.</div>
+        <div class="pc-features">
+          <span class="pc-feature-tag">Capaian & target</span>
+          <span class="pc-feature-tag">Klaim BPJS & Spesialis</span>
+          <span class="pc-feature-tag">Analisa AI</span>
+          <span class="pc-feature-tag">Data di Drive klinik</span>
+        </div>
+        <div class="pc-footer">
+          <span class="pc-cta">Lihat Detail →</span>
+          <span style="font-size:12px;color:var(--text3)">Bulanan / Tahunan</span>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -576,7 +595,12 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     </div>
 
     <div class="info-box info-yellow" style="margin-top:20px">
-      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Untuk SaaS (HRIS, TeknoMedis Care), data tersimpan di cloud TeknoMedis dengan enkripsi.
+      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Untuk SaaS (HRIS, TeknoMedis Care), data tersimpan di cloud TeknoMedis dengan enkripsi. TeknoMedis Monitoring menyimpan datanya di <strong>Google Drive milik klinik</strong> sendiri.
+    </div>
+
+    <div class="info-box" style="margin-top:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span style="font-weight:700;color:var(--primary);white-space:nowrap">💳 Pembayaran Aman</span>
+      <span style="color:var(--text2);font-size:14px">Langganan produk dibayar via <strong>Transfer Bank BCA/BNI</strong> (kode unik, konfirmasi otomatis). Pembayaran online — top-up saldo WA/AI &amp; pembayaran pasien di aplikasi Care — <strong>didukung Midtrans</strong>: Virtual Account, e-wallet (GoPay/OVO/Dana/ShopeePay), QRIS, &amp; kartu kredit, konfirmasi instan.</span>
     </div>
   </div>
 </section>
@@ -1081,6 +1105,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <button onclick="showPage('refund')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Kebijakan Refund</button>
       <button onclick="showPage('faq')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">FAQ</button>
     </div>
+    <div style="text-align:center;margin-top:14px;color:rgba(255,255,255,0.4);font-size:12px">🔒 Pembayaran online aman didukung <strong style="color:rgba(255,255,255,0.7)">Midtrans</strong> — Virtual Account · e-wallet · QRIS · kartu kredit</div>
     <div class="footer-copy">&copy; 2026 TeknoMedis (PT Tekno Medis Solusi Digital). Solusi Digital untuk Rumah Sakit &amp; Klinik Indonesia.</div>
   </div>
 </footer>
@@ -1140,9 +1165,11 @@ const PRODUCTS = {
       'Aplikasi Dokter (Android) — schedule, notif, chat pasien',
       'Multi-tenant: pasien bisa cari klinik via QR / search / GPS terdekat',
       'Booking online layanan klinik (offline visit + telemedicine)',
-      'Chat AI customer service 24/7 (WhatsApp via Fonnte)',
+      'Chat AI customer service 24/7 — WhatsApp resmi + chat in-app aplikasi Pasien',
       'Knowledge base + FAQ chatbot per klinik',
       'Take-over manual chat oleh staff klinik',
+      'Broadcast reminder kontrol otomatis (H-3) + recall pasien lama',
+      'Integrasi SIMRS klinik (opsional) — data kunjungan otomatis',
       'Push notification real-time (FCM)',
       'Branding klinik: logo, warna, koordinat GPS, jam operasional',
       'Multi-tenant cloud — auto-provision setelah bayar',
@@ -1224,6 +1251,39 @@ const PRODUCTS = {
     ],
     priceNote: 'Lihat paket di bawah',
     color: '#f59e0b',
+  },
+  monitoring: {
+    icon: '📈',
+    iconBg: 'linear-gradient(135deg,#0d7a8a,#10b981)',
+    status: 'Tersedia · SaaS',
+    statusClass: 'status-saas',
+    name: 'TeknoMedis Monitoring',
+    tagline: 'Dashboard Monitoring Capaian & Target RS/Klinik',
+    desc: 'Platform monitoring berbasis web untuk pantau capaian vs target operasional RS/Klinik — rekap kunjungan Rajal/UGD/Rawat Inap, Pasien Baru, Klaim BPJS INA-CBG, analitik Spesialis, Beban Operasional & Proyeksi Laba-Rugi, hingga Marketing pasien rujukan. Dilengkapi Analisa AI dan upload data pintar (auto-mapping format tiap RS). Data tetap tersimpan di Google Drive milik klinik — bukan di server kami.',
+    features: [
+      'Dashboard capaian vs target — Rajal, UGD, Rawat Inap',
+      'Rekap kunjungan harian + Pasien Baru (episode) per unit',
+      'Klaim BPJS INA-CBG — klaim kunjungan & pendapatan',
+      'Analitik Spesialis — jadwal poli, kapasitas, tindakan (DNI), rasio rajal-ranap',
+      'Beban Operasional & Proyeksi Laba-Rugi (Laba Kotor / EBITDA / EBT / Net)',
+      'Marketing — pasien BPJS ber-rujukan (Free Event Support)',
+      'Analisa AI — chat asisten baca ringkasan agregat klinik',
+      'Upload data pintar — AI auto-mapping format tiap RS',
+      'Multi-role: Superadmin, Direktur, Keuangan, Case Manager, Spesialis',
+      'Data tetap di Google Drive klinik — bukan di server kami',
+    ],
+    specs: [
+      {label:'Tipe', val:'SaaS Web'},
+      {label:'Data', val:'Google Drive klinik'},
+      {label:'Platform', val:'Web (browser)'},
+      {label:'Multi-user', val:'Ya, role-based'},
+      {label:'Internet', val:'Diperlukan'},
+      {label:'AI', val:'Analisa AI (opsional)'},
+    ],
+    loginUrl: 'https://monitoring.teknomedis.com',
+    loginLabel: 'Login Monitoring',
+    priceNote: 'Paket Bulanan & Tahunan · Lihat detail di bawah',
+    color: '#0d7a8a',
   },
 };
 

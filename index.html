@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TeknoMedis">
 <meta property="og:title" content="TeknoMedis — Solusi Digital untuk Rumah Sakit &amp; Klinik">
-<meta property="og:description" content="Software profesional untuk manajemen rumah sakit dan klinik: rekam medis, HRIS, casemix, monitoring, dan lainnya.">
+<meta property="og:description" content="Software profesional untuk manajemen rumah sakit dan klinik: rekam medis, telemedicine, dan HRIS.">
 <meta property="og:image" content="https://www.teknomedis.com/assets/og-teknomedis.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -367,7 +367,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           100% Data di RS/Klinik — Bukan di Server Kami
         </div>
         <h1>Kelola RS/Klinik <span>Tanpa Kompromi Privasi</span></h1>
-        <p>Software on-premise dan SaaS untuk CaseMix, TeknoMedis Care, HRIS Klinik, dan digitalisasi proses rumah sakit & klinik. <strong style="color:#22d3ee">Data pasien & transaksi tetap di PC RS/Klinik Anda</strong> — kami tidak menyimpan atau mengakses data Anda.</p>
+        <p>Software untuk TeknoMedis Care, HRIS Klinik, dan digitalisasi proses rumah sakit &amp; klinik — <strong style="color:#22d3ee">rekam medis, telemedicine, sampai kepegawaian</strong> dalam satu ekosistem.</p>
         <div class="hero-btns">
           <button class="btn btn-white" onclick="smoothTo('produk')">Lihat Produk</button>
           <button class="btn btn-ghost" onclick="smoothTo('playstore')">Aplikasi Mobile</button>
@@ -388,18 +388,18 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
             <span style="font-size:11px;color:#4a6070;margin-left:8px;font-family:monospace">teknomedis-hub — bash</span>
           </div>
           <div class="terminal-body">
-            <span class="t-dim">$ </span><span class="t-white">casemix-pro --start</span><br>
+            <span class="t-dim">$ </span><span class="t-white">teknomedis-hub --start</span><br>
             <br>
             <span class="t-dim">──────────────────────────────</span><br>
-            <span class="t-yellow"> CaseMix Pro</span><span class="t-dim"> · Server Running</span><br>
+            <span class="t-yellow"> TeknoMedis Hub</span><span class="t-dim"> · Running</span><br>
             <span class="t-dim">──────────────────────────────</span><br>
             <span class="t-dim"> Mode:&nbsp;&nbsp;</span><span class="t-cyan">PRODUCTION</span><br>
-            <span class="t-dim"> Local:&nbsp;&nbsp;http://</span><span class="t-white">localhost:8070</span><br>
+            <span class="t-dim"> Local:&nbsp;&nbsp;http://</span><span class="t-white">localhost:8050</span><br>
             <span class="t-dim"> License:</span><span class="t-green"> ACTIVE</span><br>
             <span class="t-dim"> HWID:&nbsp;&nbsp;</span><span class="t-white">PC-RS-MEDIKA-01</span><br>
             <span class="t-dim">──────────────────────────────</span><br>
             <br>
-            <span class="t-green">✓ Ready.</span><span class="t-dim"> Klaim BPJS · Audit Shield · 0 errors</span>
+            <span class="t-green">✓ Ready.</span><span class="t-dim"> Care · HRIS · 0 errors</span>
           </div>
         </div>
       </div>
@@ -466,48 +466,6 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="pc-footer">
           <span class="pc-cta" style="color:var(--indigo)">Lihat Detail →</span>
           <span style="font-size:12px;color:var(--text3)">Paket per pegawai</span>
-        </div>
-      </div>
-
-      <!-- CaseMix Pro -->
-      <div class="product-card" onclick="showProductPage('casemix')">
-        <div class="pc-top">
-          <div class="pc-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-            <img src="/assets/logo-casemix.svg" onerror="this.style.display='none';this.parentNode.textContent='📊'" style="width:100%;height:100%;object-fit:contain">
-          </div>
-          <span class="product-status status-ready">Tersedia</span>
-        </div>
-        <div class="pc-name">CaseMix Pro</div>
-        <div class="pc-desc">Analitik klaim BPJS INA-CBG — Executive Overview, DPJP Scorecard, Optimization Engine, Audit Shield, Clinical Profile, dan auto-report Kemenkes (INM).</div>
-        <div class="pc-features">
-          <span class="pc-feature-tag">9 dashboard tabs</span>
-          <span class="pc-feature-tag">DPJP scorecard</span>
-          <span class="pc-feature-tag">Auto INM Kemenkes</span>
-          <span class="pc-feature-tag">On-premise</span>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Lihat paket</span>
-        </div>
-      </div>
-
-      <!-- TeknoMedis Monitoring -->
-      <div class="product-card" onclick="showProductPage('monitoring')">
-        <div class="pc-top">
-          <div class="pc-icon" style="background:linear-gradient(135deg,#0d7a8a,#10b981)">📈</div>
-          <span class="product-status status-saas">Tersedia · SaaS</span>
-        </div>
-        <div class="pc-name">TeknoMedis Monitoring</div>
-        <div class="pc-desc">Dashboard monitoring capaian vs target RS/Klinik — rekap kunjungan Rajal/UGD/Ranap, Klaim BPJS, analitik Spesialis, Beban &amp; Proyeksi laba-rugi, plus Analisa AI. Data tetap tersimpan di Google Drive klinik Anda.</div>
-        <div class="pc-features">
-          <span class="pc-feature-tag">Capaian & target</span>
-          <span class="pc-feature-tag">Klaim BPJS & Spesialis</span>
-          <span class="pc-feature-tag">Analisa AI</span>
-          <span class="pc-feature-tag">Data di Drive klinik</span>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-cta">Lihat Detail →</span>
-          <span style="font-size:12px;color:var(--text3)">Bulanan / Tahunan</span>
         </div>
       </div>
 
@@ -659,7 +617,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     </div>
 
     <div class="info-box info-yellow" style="margin-top:20px">
-      📌 <strong>Penting:</strong> Untuk produk on-premise (CaseMix), aplikasi tetap di-install di PC klinik — semua data RS/Klinik tersimpan lokal, tidak pernah ke server kami. Untuk SaaS (HRIS, TeknoMedis Care), data tersimpan di cloud TeknoMedis dengan enkripsi. TeknoMedis Monitoring menyimpan datanya di <strong>Google Drive milik klinik</strong> sendiri.
+      📌 <strong>Penting:</strong> Untuk produk SaaS (HRIS, TeknoMedis Care), data tersimpan di cloud TeknoMedis dengan enkripsi. Untuk produk on-premise, aplikasi di-install di PC klinik dan data RS/Klinik tersimpan lokal, tidak pernah ke server kami.
     </div>
 
     <div class="info-box" style="margin-top:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
@@ -801,7 +759,6 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <option value="">Tertarik produk apa?</option>
           <option value="hris">TeknoMedis HRIS (HR + Payroll)</option>
           <option value="care">TeknoMedis Care (Telemedicine)</option>
-          <option value="casemix">CaseMix Pro (BPJS Analitik)</option>
           <option value="all">Bundling semua produk</option>
           <option value="konsultasi">Konsultasi umum</option>
         </select>
@@ -865,7 +822,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <p>Dalam dokumen ini, istilah-istilah berikut memiliki arti sebagaimana didefinisikan:</p>
       <ul>
         <li><strong>"TeknoMedis"</strong> merujuk pada PT Tekno Medis Solusi Digital, penyedia layanan perangkat lunak manajemen fasilitas kesehatan.</li>
-        <li><strong>"Layanan"</strong> merujuk pada seluruh produk perangkat lunak yang disediakan TeknoMedis, termasuk namun tidak terbatas pada TeknoMedis Care, CaseMix Pro, dan HRIS Klinik.</li>
+        <li><strong>"Layanan"</strong> merujuk pada seluruh produk perangkat lunak yang disediakan TeknoMedis, termasuk namun tidak terbatas pada TeknoMedis Care dan HRIS Klinik.</li>
         <li><strong>"Pengguna"</strong> adalah rumah sakit, klinik, atau entitas fasilitas kesehatan yang mendaftarkan diri dan menggunakan Layanan.</li>
         <li><strong>"Akun"</strong> adalah akses unik yang diberikan kepada Pengguna setelah pendaftaran dan pembayaran berhasil diproses.</li>
         <li><strong>"Data Pengguna"</strong> adalah seluruh informasi yang dimasukkan, diunggah, atau diproses oleh Pengguna melalui Layanan.</li>
@@ -888,7 +845,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <h3>4.1 Jenis Layanan</h3>
       <ul>
         <li><strong>Produk SaaS (Berlangganan):</strong> Dibayar per bulan atau per tahun. Akses berlanjut selama langganan aktif. Contoh: TeknoMedis Care, HRIS Klinik.</li>
-        <li><strong>Produk On-Premise (Berlangganan):</strong> Diinstal di infrastruktur Pengguna sendiri, dengan pembayaran berlangganan sesuai paket yang dipilih (bulanan, tahunan, atau paket lain yang tersedia). Contoh: CaseMix Pro.</li>
+        <li><strong>Produk On-Premise (Berlangganan):</strong> Diinstal di infrastruktur Pengguna sendiri, dengan pembayaran berlangganan sesuai paket yang dipilih (bulanan, tahunan, atau paket lain yang tersedia).</li>
       </ul>
       <h3>4.2 Pembayaran</h3>
       <p>Pembayaran dilakukan melalui metode yang tersedia di Hub TeknoMedis. Layanan aktif setelah pembayaran berhasil dikonfirmasi. TeknoMedis berhak menangguhkan akses apabila pembayaran tidak diterima pada tanggal jatuh tempo.</p>
@@ -979,7 +936,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <p>Untuk langganan tahunan yang dibatalkan setelah 7 hari pertama namun sebelum 30 hari pertama, pengembalian dana dapat diberikan secara <em>pro-rata</em> untuk sisa bulan penuh yang belum digunakan, dikurangi biaya administrasi sebesar 10%.</p>
 
       <h2>2. Produk On-Premise — Berlangganan</h2>
-      <p>Untuk produk yang diinstal di infrastruktur Pengguna dengan model berlangganan (CaseMix Pro), berlaku ketentuan berikut:</p>
+      <p>Untuk produk yang diinstal di infrastruktur Pengguna dengan model berlangganan, berlaku ketentuan berikut:</p>
       <h3>2.1 Garansi Fungsionalitas 14 Hari</h3>
       <p>TeknoMedis memberikan <strong>garansi fungsionalitas 14 hari</strong> sejak tanggal aktivasi. Jika perangkat lunak tidak dapat berjalan sesuai spesifikasi yang tercantum dalam dokumentasi resmi, dan tim support TeknoMedis tidak dapat menyelesaikan permasalahan dalam periode tersebut, Pengguna berhak mendapatkan pengembalian dana penuh untuk pembayaran pertama.</p>
       <h3>2.2 Setelah 14 Hari</h3>
@@ -1048,7 +1005,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Apa perbedaan produk SaaS dan on-premise?<span class="faq-chevron">▼</span></button>
-        <div class="faq-a"><strong>SaaS (cloud-based):</strong> Anda mengakses aplikasi melalui internet, data tersimpan di server TeknoMedis yang aman. Tidak perlu server sendiri. Contoh: TeknoMedis Care, HRIS Klinik.<br><br><strong>On-Premise:</strong> Aplikasi diinstal dan berjalan di server/komputer fasilitas Anda sendiri. Data 100% ada di tempat Anda — tidak keluar dari jaringan internal. Cocok untuk fasilitas yang mengutamakan kontrol penuh atas data. Contoh: CaseMix Pro.<br><br>Keduanya menggunakan model <strong>berlangganan</strong> (bulanan, tahunan, atau sesuai paket yang tersedia).</div>
+        <div class="faq-a"><strong>SaaS (cloud-based):</strong> Anda mengakses aplikasi melalui internet, data tersimpan di server TeknoMedis yang aman. Tidak perlu server sendiri. Contoh: TeknoMedis Care, HRIS Klinik.<br><br><strong>On-Premise:</strong> Aplikasi diinstal dan berjalan di server/komputer fasilitas Anda sendiri. Data 100% ada di tempat Anda — tidak keluar dari jaringan internal. Cocok untuk fasilitas yang mengutamakan kontrol penuh atas data.<br><br>Keduanya menggunakan model <strong>berlangganan</strong> (bulanan, tahunan, atau sesuai paket yang tersedia).</div>
       </div>
 
       <div class="faq-item">
@@ -1284,70 +1241,6 @@ const PRODUCTS = {
     priceNote: 'Harga per karyawan aktif',
     color: '#6366f1',
   },
-  casemix: {
-    icon: '📊',
-    iconBg: 'linear-gradient(135deg,#f59e0b,#d97706)',
-    status: 'Tersedia',
-    statusClass: 'status-ready',
-    name: 'CaseMix Pro',
-    tagline: 'Analitik Klaim BPJS INA-CBG',
-    desc: 'Platform analitik komprehensif untuk klaim BPJS INA-CBG. Upload TXT E-Klaim periodik, dapatkan Executive Overview, DPJP Scorecard, Optimization Engine (deteksi under-coding & top-up), Audit Shield untuk hadapi visitasi BPJS, Clinical Profile per spesialis, dan auto-generate INM Report Kemenkes.',
-    features: [
-      'Executive Overview: KPI, revenue trend + forecast',
-      'Financial Deep Dive: DRG profitability + heatmap DRG×DPJP',
-      'DPJP Scorecard: ranking per dokter + badge auto',
-      'Optimization Engine: deteksi under-coding & top-up opportunity',
-      'Case Manager Workbench: attention queue + discharge planning',
-      'Audit & Quality Shield: risk scoring + Justifikasi Klinis HTML',
-      'Clinical Profile: comorbidity, mortality, LOS distribution',
-      'Reports & Export: PDF Executive + Excel raw + INM Kemenkes',
-      'Master Spesialisasi KKI + DPJP Deduplication',
-      'Multi-user via LAN (1 install untuk seluruh RS)',
-    ],
-    specs: [
-      {label:'Tipe', val:'On-premise (local)'},
-      {label:'Database', val:'SQLite (lokal)'},
-      {label:'Platform', val:'Windows (web interface)'},
-      {label:'Multi-user', val:'Ya, via LAN'},
-      {label:'Internet', val:'Tidak diperlukan'},
-      {label:'Update', val:'Auto via Hub'},
-    ],
-    priceNote: 'Lihat paket di bawah',
-    color: '#f59e0b',
-  },
-  monitoring: {
-    icon: '📈',
-    iconBg: 'linear-gradient(135deg,#0d7a8a,#10b981)',
-    status: 'Tersedia · SaaS',
-    statusClass: 'status-saas',
-    name: 'TeknoMedis Monitoring',
-    tagline: 'Dashboard Monitoring Capaian & Target RS/Klinik',
-    desc: 'Platform monitoring berbasis web untuk pantau capaian vs target operasional RS/Klinik — rekap kunjungan Rajal/UGD/Rawat Inap, Pasien Baru, Klaim BPJS INA-CBG, analitik Spesialis, Beban Operasional & Proyeksi Laba-Rugi, hingga Marketing pasien rujukan. Dilengkapi Analisa AI dan upload data pintar (auto-mapping format tiap RS). Data tetap tersimpan di Google Drive milik klinik — bukan di server kami.',
-    features: [
-      'Dashboard capaian vs target — Rajal, UGD, Rawat Inap',
-      'Rekap kunjungan harian + Pasien Baru (episode) per unit',
-      'Klaim BPJS INA-CBG — klaim kunjungan & pendapatan',
-      'Analitik Spesialis — jadwal poli, kapasitas, tindakan (DNI), rasio rajal-ranap',
-      'Beban Operasional & Proyeksi Laba-Rugi (Laba Kotor / EBITDA / EBT / Net)',
-      'Marketing — pasien BPJS ber-rujukan (Free Event Support)',
-      'Analisa AI — chat asisten baca ringkasan agregat klinik',
-      'Upload data pintar — AI auto-mapping format tiap RS',
-      'Multi-role: Superadmin, Direktur, Keuangan, Case Manager, Spesialis',
-      'Data tetap di Google Drive klinik — bukan di server kami',
-    ],
-    specs: [
-      {label:'Tipe', val:'SaaS Web'},
-      {label:'Data', val:'Google Drive klinik'},
-      {label:'Platform', val:'Web (browser)'},
-      {label:'Multi-user', val:'Ya, role-based'},
-      {label:'Internet', val:'Diperlukan'},
-      {label:'AI', val:'Analisa AI (opsional)'},
-    ],
-    loginUrl: 'https://monitoring.teknomedis.com',
-    loginLabel: 'Login Monitoring',
-    priceNote: 'Paket Bulanan & Tahunan · Lihat detail di bawah',
-    color: '#0d7a8a',
-  },
 };
 
 // SPA routing
@@ -1480,7 +1373,7 @@ async function loadProductPricing(code) {
     const unitLabel = (
       code === 'hris' ? 'karyawan' :
       code === 'care' ? 'staf klinik' :
-      'operator'  // casemix
+      'pengguna'
     );
 
     grid.innerHTML = pkgs.map((p, i) => {

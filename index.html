@@ -3,9 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/assets/logo-teknomedis.svg">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0a2042">
 <title>TeknoMedis — Solusi Digital untuk Rumah Sakit & Klinik</title>
 <meta name="description" content="TeknoMedis menyediakan software profesional untuk manajemen rumah sakit dan klinik.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TeknoMedis">
+<meta property="og:title" content="TeknoMedis — Solusi Digital untuk Rumah Sakit &amp; Klinik">
+<meta property="og:description" content="Software profesional untuk manajemen rumah sakit dan klinik: rekam medis, HRIS, casemix, monitoring, dan lainnya.">
+<meta property="og:image" content="https://www.teknomedis.com/assets/og-teknomedis.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.teknomedis.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TeknoMedis — Solusi Digital untuk Rumah Sakit &amp; Klinik">
+<meta name="twitter:description" content="Software profesional untuk manajemen rumah sakit dan klinik.">
+<meta name="twitter:image" content="https://www.teknomedis.com/assets/og-teknomedis.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -31,6 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:1100px;margin:0 auto}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--dark);cursor:pointer}
+.nav-logo img{height:38px;width:auto;display:block}
 .nav-logo-icon{width:34px;height:34px;border-radius:9px;overflow:hidden;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
 .nav-links{display:flex;gap:4px;align-items:center}
 .nav-links a,.nav-links button{color:var(--text2);font-size:13.5px;font-weight:600;transition:color .2s,background .2s;background:none;border:none;cursor:pointer;font-family:inherit;padding:0 12px;border-radius:8px;height:36px;display:flex;align-items:center;justify-content:center;white-space:nowrap;line-height:1}
@@ -300,6 +317,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   .nav-links{display:none}
 }
 @media(max-width:600px){
+  .nav-logo img{height:30px}
   .hero{padding:110px 0 70px}
   .hero h1{font-size:26px}
   section{padding:36px 0}
@@ -323,8 +341,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 <nav id="navbar">
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')">
-      <div class="nav-logo-icon">TM</div>
-      TeknoMedis
+      <img src="/assets/logo-teknomedis-lockup.png" alt="TeknoMedis — Solusi Digital">
     </div>
     <div class="nav-links">
       <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>
@@ -1136,8 +1153,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="nav-logo-icon" style="width:28px;height:28px;font-size:11px;border-radius:7px">TM</div>
-        <span class="footer-brand-name">TeknoMedis</span>
+        <img src="/assets/logo-teknomedis-lockup-white.png" alt="TeknoMedis — Solusi Digital" style="height:34px;width:auto;display:block">
       </div>
       <div class="footer-links">
         <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>

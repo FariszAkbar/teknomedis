@@ -98,6 +98,13 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.8px;text-transform:uppercase}
 .section-title{font-size:32px;font-weight:800;color:var(--dark);letter-spacing:-0.3px}
 .section-desc{font-size:15px;color:var(--text2);margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto}
+/* Infrastruktur & integrasi resmi */
+.integrasi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;max-width:900px;margin:0 auto}
+.integrasi-card{display:flex;gap:16px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 6px 20px rgba(15,23,42,.05)}
+.integrasi-logo{width:54px;height:54px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);overflow:hidden;padding:6px}
+.integrasi-name{font-weight:800;font-size:16px;color:var(--dark)}
+.integrasi-role{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+.integrasi-desc{font-size:13.5px;color:var(--text2);line-height:1.6;margin-top:8px}
 
 /* PRODUCT CARDS */
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -469,6 +476,45 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUKTUR & INTEGRASI RESMI
+     Framing sengaja "integrasi resmi", BUKAN "mitra/partner": Midtrans itu
+     payment gateway tempat kita jadi merchant, Meta itu platform tempat kita
+     bangun — dua-duanya bukan kemitraan yang mereka endorse. Klaim "partner"
+     tanpa program resminya berisiko dipersoalkan.
+     Logo Meta/WhatsApp TIDAK dipasang — merek dagang, wajib aset resmi tanpa
+     modifikasi. Slot logonya sudah disiapkan di kartu kedua. -->
+<section id="integrasi" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Infrastruktur</div>
+      <h2 class="section-title">Dibangun di Atas Layanan Resmi</h2>
+      <p class="section-desc">Pembayaran dan layanan pesan TeknoMedis berjalan di atas penyedia resmi berskala nasional dan global — bukan jalur pihak ketiga.</p>
+    </div>
+
+    <div class="integrasi-grid">
+      <div class="integrasi-card">
+        <div class="integrasi-logo" style="background:#fff">
+          <img src="/assets/logo-midtrans.png" alt="Midtrans" style="width:100%;height:100%;object-fit:contain">
+        </div>
+        <div class="integrasi-body">
+          <div class="integrasi-name">Midtrans</div>
+          <div class="integrasi-role">Payment Gateway</div>
+          <p class="integrasi-desc">Seluruh pembayaran online diproses lewat Midtrans — Virtual Account, e-wallet, QRIS, dan kartu kredit. Data kartu tidak pernah menyentuh server kami.</p>
+        </div>
+      </div>
+
+      <div class="integrasi-card">
+        <div class="integrasi-logo" style="background:linear-gradient(135deg,#0d7a8a,#0891b2);color:#fff;font-size:26px">💬</div>
+        <div class="integrasi-body">
+          <div class="integrasi-name">WhatsApp Business Platform</div>
+          <div class="integrasi-role">Cloud API resmi dari Meta</div>
+          <p class="integrasi-desc">Pengingat jadwal, OTP, dan balasan customer service dikirim lewat Cloud API resmi Meta. TeknoMedis telah lolos App Review Meta untuk onboarding nomor WhatsApp Business klinik.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1125,11 +1171,9 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <button onclick="showPage('refund')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Kebijakan Refund</button>
       <button onclick="showPage('faq')" style="color:rgba(255,255,255,0.35);font-size:12px;background:none;border:none;font-family:inherit;cursor:pointer;transition:color .2s;padding:0" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">FAQ</button>
     </div>
-    <div style="text-align:center;margin-top:14px;color:rgba(255,255,255,0.4);font-size:12px">🔒 Pembayaran online aman didukung <strong style="color:rgba(255,255,255,0.7)">Midtrans</strong> — Virtual Account · e-wallet · QRIS · kartu kredit</div>
-    <!-- Atribusi teks saja — TIDAK memakai logo Meta/WhatsApp. Logo mereka merek
-         dagang; pemakaiannya wajib aset resmi tanpa modifikasi. Kalau nanti aset
-         resminya sudah ada, badge bisa ditaruh di sini menggantikan baris ini. -->
-    <div style="text-align:center;margin-top:8px;color:rgba(255,255,255,0.4);font-size:12px">💬 Layanan pesan berjalan di atas <strong style="color:rgba(255,255,255,0.7)">WhatsApp Business Platform (Cloud API)</strong> resmi dari Meta</div>
+    <!-- Atribusi lengkap pindah ke section #integrasi (punya logo + penjelasan).
+         Di sini disisakan satu baris ringkas saja biar tidak dobel. -->
+    <div style="text-align:center;margin-top:14px;color:rgba(255,255,255,0.4);font-size:12px">🔒 Pembayaran via <strong style="color:rgba(255,255,255,0.7)">Midtrans</strong> · Layanan pesan via <strong style="color:rgba(255,255,255,0.7)">WhatsApp Business Platform</strong> resmi dari Meta</div>
     <div class="footer-copy">&copy; 2026 TeknoMedis (PT Tekno Medis Solusi Digital). Solusi Digital untuk Rumah Sakit &amp; Klinik Indonesia.</div>
   </div>
 </footer>

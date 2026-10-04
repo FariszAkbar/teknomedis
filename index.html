@@ -118,6 +118,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .status-ready{background:#ecfdf5;color:#059669}
 .status-coming{background:#fffbeb;color:#b45309}
 .status-saas{background:#eef2ff;color:#4338ca}
+.status-new{background:#ecfdf5;color:#047857}
 .pc-name{font-size:17px;font-weight:700;color:var(--dark)}
 .pc-desc{font-size:13.5px;color:var(--text2);line-height:1.65;flex:1}
 .pc-features{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
@@ -371,10 +372,10 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <div>
         <div class="hero-badge">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="#10b981"><path d="M8 0L10.5 5.5L16 6.5L12 10.5L13 16L8 13.5L3 16L4 10.5L0 6.5L5.5 5.5Z"/></svg>
-          Rekam Medis · Telemedicine · Kepegawaian
+          Telemedicine · Chatbot AI WhatsApp · Kepegawaian
         </div>
         <h1>Kelola RS/Klinik <span>Tanpa Ribet</span></h1>
-        <p>Software untuk TeknoMedis Care, HRIS Klinik, dan digitalisasi proses rumah sakit &amp; klinik — <strong style="color:#22d3ee">rekam medis, telemedicine, sampai kepegawaian</strong> dalam satu ekosistem.</p>
+        <p>Software untuk TeknoMedis Care, TeknoMedis ChatBot, HRIS Klinik, dan digitalisasi proses rumah sakit &amp; klinik — <strong style="color:#22d3ee">telemedicine, customer service AI di WhatsApp, sampai kepegawaian</strong> dalam satu ekosistem.</p>
         <div class="hero-btns">
           <button class="btn btn-white" onclick="smoothTo('produk')">Lihat Produk</button>
           <button class="btn btn-ghost" onclick="smoothTo('playstore')">Aplikasi Mobile</button>
@@ -406,7 +407,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
             <span class="t-dim"> Klinik:&nbsp;</span><span class="t-white">RS MEDIKA</span><br>
             <span class="t-dim">──────────────────────────────</span><br>
             <br>
-            <span class="t-green">✓ Ready.</span><span class="t-dim"> Care · HRIS · 0 errors</span>
+            <span class="t-green">✓ Ready.</span><span class="t-dim"> Care · ChatBot · HRIS · 0 errors</span>
           </div>
         </div>
       </div>
@@ -417,7 +418,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 <!-- STATS -->
 <div class="stats-row">
   <div class="stats-inner">
-    <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Produk Software</div></div>
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Produk Software</div></div>
     <div class="stat-card"><div class="stat-num">75+</div><div class="stat-label">Fitur & API</div></div>
     <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Dukungan Teknis</div></div>
     <div class="stat-card" style="border:2px solid #10b981"><div class="stat-num" style="color:#10b981">100%</div><div class="stat-label">Data Terenkripsi</div></div>
@@ -453,6 +454,28 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <div class="pc-footer">
           <span class="pc-cta">Lihat Detail →</span>
           <span style="font-size:12px;color:var(--text3)">Bulanan / Tahunan</span>
+        </div>
+      </div>
+
+      <!-- TeknoMedis ChatBot -->
+      <div class="product-card" onclick="showProductPage('chatbot')">
+        <div class="pc-top">
+          <div class="pc-icon" style="background:transparent">
+            <img src="/assets/logo-chatbot.svg" alt="TeknoMedis ChatBot" style="width:100%;height:100%;object-fit:contain">
+          </div>
+          <span class="product-status status-new">Baru · SaaS</span>
+        </div>
+        <div class="pc-name">TeknoMedis ChatBot</div>
+        <div class="pc-desc">Customer service AI di WhatsApp untuk klinik &amp; rumah sakit — menjawab jadwal dokter, tarif, dan prosedur BPJS 24 jam dari data faskes Anda sendiri.</div>
+        <div class="pc-features">
+          <span class="pc-feature-tag">Balas pasien 24/7</span>
+          <span class="pc-feature-tag">Paham BPJS &amp; arahkan IGD</span>
+          <span class="pc-feature-tag">WhatsApp resmi Meta</span>
+          <span class="pc-feature-tag">Daftar sendiri</span>
+        </div>
+        <div class="pc-footer">
+          <span class="pc-cta" style="color:#0891b2">Lihat Detail →</span>
+          <span style="font-size:12px;color:var(--text3)">Bulanan + saldo AI</span>
         </div>
       </div>
 
@@ -592,7 +615,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <div class="feature-card">
         <div class="feature-icon">🤖</div>
         <div class="feature-title">Ada yang Membalas Jam 11 Malam</div>
-        <div class="feature-desc">Chatbot AI menjawab pertanyaan pasien soal jadwal, layanan, dan biaya di luar jam kerja. Pertanyaan yang perlu manusia diteruskan ke admin klinik.</div>
+        <div class="feature-desc">Chatbot AI menjawab pertanyaan pasien soal jadwal, layanan, biaya, dan prosedur BPJS di luar jam kerja. Pertanyaan yang perlu manusia diteruskan ke admin klinik. Tersedia di dalam TeknoMedis Care, atau berdiri sendiri sebagai <strong>TeknoMedis ChatBot</strong>.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔁</div>
@@ -1257,6 +1280,44 @@ const PRODUCTS = {
     priceNote: 'Paket Bulanan & Tahunan · Lihat detail di Hub',
     color: '#0d7a8a',
   },
+  chatbot: {
+    icon: '<img src="/assets/logo-chatbot.svg" alt="TeknoMedis ChatBot" style="width:100%;height:100%;object-fit:contain">',
+    iconBg: 'transparent',
+    status: 'Baru · SaaS',
+    statusClass: 'status-new',
+    name: 'TeknoMedis ChatBot',
+    tagline: 'Customer Service AI WhatsApp untuk Klinik & Rumah Sakit',
+    desc: 'Chatbot AI yang membalas pasien di WhatsApp 24 jam — jadwal dokter, tarif, layanan, prosedur BPJS, dan persiapan pemeriksaan — dari data faskes Anda sendiri. Pertanyaan yang perlu manusia ditawarkan ke admin, tanda gawat darurat langsung diarahkan ke IGD. Daftar sendiri, aktif hari itu juga.',
+    features: [
+      'Balas pasien 24/7 di WhatsApp dari data dokter, jadwal praktik, tarif & layanan faskes Anda',
+      'Paham BPJS: rujukan, antrean Mobile JKN, UGD tanpa rujukan — pasien BPJS diarahkan ke jalur resminya',
+      'Penjaga keselamatan: tanda gawat darurat langsung ke IGD, tanpa diagnosis dan tanpa menyebut obat',
+      'Paket Bawaan TeknoMedis — prosedur BPJS, kebijakan standar & persiapan pemeriksaan siap pakai',
+      'Form pendaftaran (umum & asuransi) dan ganti jadwal kontrol masuk ke menu Permintaan Pasien',
+      'Bot menawarkan admin saat tidak yakin; admin ambil alih chat dari Inbox atau langsung dari HP',
+      'Hubungkan WhatsApp lewat scan QR, atau nomor WhatsApp Business resmi (Cloud API) yang tetap bisa dipakai di HP',
+      'Lisensi Nomor Resmi lewat TeknoMedis sebagai Tech Provider Meta — biaya pesan Meta tanpa markup',
+      'AI Assistant menyusun knowledge dari cerita Anda; impor tarif & layanan dari Excel',
+      'Uji Bot sebelum tayang + tombol "Kurang tepat?" untuk mengoreksi jawaban',
+      'Beberapa nomor WhatsApp dalam satu akun',
+      'Saldo AI isi ulang via QRIS / transfer — bayar sesuai pemakaian',
+    ],
+    specs: [
+      {label:'Tipe', val:'SaaS Cloud'},
+      {label:'Bidang', val:'Klinik & rumah sakit'},
+      {label:'Kanal', val:'WhatsApp (scan QR / Cloud API resmi)'},
+      {label:'Platform', val:'Web — desktop & HP'},
+      {label:'Biaya AI', val:'Saldo isi ulang, per balasan'},
+      {label:'Aktivasi', val:'Daftar sendiri, hitungan menit'},
+    ],
+    loginUrl: 'https://chatbot.teknomedis.com/masuk',
+    loginLabel: 'Masuk ChatBot',
+    primaryUrl: 'https://chatbot.teknomedis.com/daftar',
+    primaryLabel: '💬 Daftar TeknoMedis ChatBot',
+    primaryNote: 'Daftar → isi data faskes (atau minta AI Assistant menyusunkan) → aktifkan langganan & isi saldo AI → hubungkan WhatsApp.',
+    priceNote: 'Langganan bulanan + saldo AI',
+    color: '#0891b2',
+  },
   hris: {
     icon: '<img src="/assets/hris-icon.png" alt="HRIS" style="width:72%;height:72%;object-fit:contain">',
     iconBg: '#fff',
@@ -1321,9 +1382,15 @@ function showProductPage(code) {
   if (p.appTarget) {
     secondaryActions.push(`<button onclick="showPage('home');setTimeout(()=>smoothTo('${p.appTarget}'),100)" class="btn-secondary">Lihat Aplikasi Mobile</button>`);
   }
-  secondaryActions.push(`<button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary">Panduan 3 Langkah</button>`);
+  if (!p.primaryUrl) {
+    secondaryActions.push(`<button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary">Panduan 3 Langkah</button>`);
+  }
 
-  const actionsHtml = `
+  const actionsHtml = p.primaryUrl ? `
+    <a href="${p.primaryUrl}" target="_blank" class="btn-primary" style="background:${p.color}">${p.primaryLabel}</a>
+    <div class="pd-action-note">${p.primaryNote}</div>
+    <div class="pd-action-links">${secondaryActions.join('')}</div>
+  ` : `
     <a href="https://hub.teknomedis.com?product=${encodeURIComponent(code)}" target="_blank" class="btn-primary" style="background:${p.color}">
       🌐 Beli via Hub TeknoMedis
     </a>
@@ -1392,6 +1459,12 @@ async function loadProductPricing(code) {
   const grid = document.getElementById('pd-pricing-grid');
   if (!grid) return;
 
+  // ChatBot: harga langsung dari ChatBot (Panel → ChatBot → Harga & Diskon)
+  if (code === 'chatbot') {
+    loadChatbotPricing(grid);
+    return;
+  }
+
   // HRIS tetap pakai HRIS API (existing pattern)
   if (code === 'hris') {
     grid.innerHTML = '';
@@ -1441,6 +1514,38 @@ async function loadProductPricing(code) {
     }).join('');
   } catch (e) {
     grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--error)">⚠️ Gagal load pricing. Silakan refresh.</div>';
+  }
+}
+
+async function loadChatbotPricing(grid) {
+  const base = 'https://chatbot.teknomedis.com';
+  const rp = (n) => 'Rp' + Math.round(n || 0).toLocaleString('id-ID');
+  grid.style.gridTemplateColumns = 'repeat(auto-fit,minmax(200px,1fr))';
+  try {
+    const d = await (await fetch(base + '/api/public/pricing')).json();
+    const subs = (d.subscription || []).slice().sort((a, b) => a.months - b.months);
+    if (!subs.length) throw new Error('kosong');
+    const best = subs.reduce((a, b) => (b.discount_pct > a.discount_pct ? b : a), subs[0]);
+    const cards = subs.map((q) => {
+      const popular = best.discount_pct > 0 && q === best;
+      return `
+        <div class="price-card${popular ? ' popular' : ''}">
+          ${popular ? '<div class="popular-badge">PALING HEMAT</div>' : ''}
+          <div class="price-name">${q.months} Bulan</div>
+          <div class="price-desc">${q.discount_pct ? `Hemat ${q.discount_pct}% · ${rp(q.per_month_rp)}/bulan` : 'Langganan bulanan'}</div>
+          <div class="price-amount">${_formatPrice(q.total_rp)}</div>
+          <div class="price-period">${q.months === 1 ? 'per bulan' : `untuk ${q.months} bulan`}</div>
+          <a href="${base}/daftar" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Daftar</a>
+        </div>`;
+    }).join('');
+    grid.innerHTML = cards + `
+      <div style="grid-column:1/-1;background:#f0fdfa;border:1px solid #99f6e4;border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.6;color:#134e4a">
+        <b>Ditambah sesuai kebutuhan:</b><br>
+        • <b>Saldo AI</b> — bayar sesuai pemakaian, isi ulang mulai ${rp(d.topup_min)} lewat QRIS / transfer.<br>
+        • <b>Lisensi Nomor Resmi</b> (opsional) — ${rp(d.meta_number_price)} per nomor per bulan untuk jalur WhatsApp resmi Meta. Biaya pesan Meta dibayar langsung ke Meta, tanpa markup dari kami. Jalur scan QR tidak memerlukan lisensi.
+      </div>`;
+  } catch (e) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--text3);padding:30px">Lihat harga terbaru di <a href="${base}/daftar" target="_blank" style="color:#0891b2;font-weight:700">chatbot.teknomedis.com</a>.</div>`;
   }
 }
 

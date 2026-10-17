@@ -4,13 +4,17 @@ import re
 import time
 import json as _json
 import urllib.request as _urlreq
-from flask import Flask, send_from_directory, jsonify
+from flask import Flask, abort, send_from_directory, jsonify
 
 LICENSE_SERVER = os.environ.get('LICENSE_SERVER', 'http://localhost:8061')
 _PRICING_CACHE = {'data': None, 'fetched_at': 0}
 _PRICING_CACHE_TTL = 60  # detik — biar landing gak hammer license-server
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+# static_folder=None: berkas publik HANYA lewat static_files() di bawah. Dulu seluruh folder disajikan
+# (static_folder='.') → .git, logs/, server.py, .venv ikut terbuka; repo .git sempat disedot pemindai
+# 14 Okt 2026 (ditemukan 17 Okt; riwayatnya diperiksa — tak ada kunci rahasia).
+app = Flask(__name__, static_folder=None)
+_PUBLIK = ('assets/', 'downloads/')
 
 DOWNLOADS_DIR = os.path.join(os.path.dirname(__file__), 'downloads')
 
@@ -105,6 +109,9 @@ def api_downloads():
 
 @app.route('/<path:path>')
 def static_files(path):
+    if path != 'index.html' and (not path.startswith(_PUBLIK)
+                                 or any(seg.startswith('.') for seg in path.split('/'))):
+        abort(404)
     return send_from_directory('.', path)
 
 

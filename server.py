@@ -107,6 +107,18 @@ def api_downloads():
     return jsonify({'ok': True, 'products': _scan_downloads()})
 
 
+# Validasi sertifikat Let's Encrypt (HTTP-01) — 18 Okt 2026 teknomedis.com & www dipindah dari proxy kvm1
+# ke nginx server sendiri; selama DNS masih ke kvm1, permintaan validasi diteruskan ke landing ini.
+_ACME_DIR = '/var/www/acme-www/.well-known/acme-challenge'
+
+
+@app.route('/.well-known/acme-challenge/<token>')
+def acme_challenge(token):
+    if not (10 <= len(token) <= 128 and token.replace('-', '').replace('_', '').isalnum()):
+        abort(404)
+    return send_from_directory(_ACME_DIR, token, mimetype='text/plain')
+
+
 @app.route('/<path:path>')
 def static_files(path):
     if path != 'index.html' and (not path.startswith(_PUBLIK)
